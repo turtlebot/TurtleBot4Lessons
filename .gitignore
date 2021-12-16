@@ -25,6 +25,9 @@ devel_isolated/
 *.dox
 *.wikidoc
 
+# Emacs temp files
+*.md~
+
 # eclipse stuff
 .project
 .cproject
