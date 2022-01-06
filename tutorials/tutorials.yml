@@ -1,0 +1,11 @@
+tutorials:
+  - name: Installing the TurtleBot 4 Simulator
+    file: Tutorial-InstallingTheTurtlebotSimulator.md 
+    is_slides: true 
+  - name: Setting up a Virtual Machine for TurtleBot 4 
+    file: Tutorial-SettingUpAVirtualMachine.md
+    is_slides: true 
+  - name: Setting up Docker for TurtleBot 4 
+    file: Tutorial-TurtleBotAndDocker.md        
+    is_slides: true 
+      

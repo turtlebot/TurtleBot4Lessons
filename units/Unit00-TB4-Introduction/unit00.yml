@@ -1,0 +1,19 @@
+unit: 0
+name: TurtleBot 4 Introduction
+questions_dir: U00-QuestionBank
+questions_file: qustions.md
+project_dir: U00-Project-TBD
+project_files: Unit00-Project-UnnamedProject.md
+lessons:
+  - number: 0
+    name: Installing TurtleBot Software
+    directory: L00-InstallingSoftware
+    ppt-file: U00-L00-InstallingSoftware.md
+  - number: 1	
+    name: Ignition Blastoff 
+    directory: L01-IgnitionBlastoff 
+    ppt-file: U00-L01-IgnitionBlastoff.md
+  - number: 2 
+    name: TurtleBotIsGo
+    directory: L02-TurtleBotIsGo
+    ppt-file: U00-L02-TurtleBotIsGo.md

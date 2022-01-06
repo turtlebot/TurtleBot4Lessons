@@ -1,0 +1,11 @@
+unit: 1
+name: ROS 2 Basics 
+questions_dir: U01-QuestionBank
+questions_file: qustions.md
+project_dir: U01-Project-TBD
+project_files: Unit01-Project-UnnamedProject.md
+lessons:
+  - number: 0
+    name: ROS 2 History & Overview
+    directory: L00-History-and-Overview
+    ppt-file: U01-L00-History-and-Overview.md

@@ -1,0 +1,8 @@
+name: TurtleBot 4 Curriculum 
+units:
+  - number: 0
+    directory: Unit00-TB4-Introduction
+    lessons: unit00.yml
+  - number: 1
+    directory: Unit01-ROS-2-Basics
+    lessons: unit01.yml
