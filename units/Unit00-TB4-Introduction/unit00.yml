@@ -9,11 +9,11 @@ lessons:
     name: Installing TurtleBot Software
     directory: L00-InstallingSoftware
     ppt-file: U00-L00-InstallingSoftware.md
-  - number: 1	
+  - number: 1
     name: Ignition Blastoff 
     directory: L01-IgnitionBlastoff 
     ppt-file: U00-L01-IgnitionBlastoff.md
-  - number: 2 
+  - number: 2
     name: TurtleBotIsGo
     directory: L02-TurtleBotIsGo
     ppt-file: U00-L02-TurtleBotIsGo.md
