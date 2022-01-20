@@ -104,6 +104,10 @@ def process_lessons(file_list):
 
 def process_tutorials(file_list):
     result = True
+
+    md_index = []
+    md_index.append( "# Tutorials\n\n")
+    
     for tutorial in file_list:
         print(tutorial)
         print("Processing tutorial: {0}".format(tutorial["name"]))
@@ -111,12 +115,16 @@ def process_tutorials(file_list):
         cli_call = ["./md2pptx", "{0} < {1}".format(tutorial["output_fname"],tutorial["input_fname"])]
         print("Executing "+ " ".join(cli_call))
         os.system(" ".join(cli_call))
+        # TODO: Change to subprocess
         
-        # TODO, subprocess is hanging for some reason
-        # but I would really like to 
-        #subprocess.call(cli_call)
-
-    return result
+        # Create a markdown index
+        markdown_entry = "* [{0}]({1}) -- [ppt]({2})\n"
+        md_p =  "./"+os.path.relpath(tutorial["input_fname"],"..")
+        ppt_p =  "./"+os.path.relpath(tutorial["output_fname"],"..")
+        temp = markdown_entry.format(tutorial["name"],md_p,ppt_p)
+        md_index.append(temp)
+       
+    return result, md_index 
 
 
 def main():
@@ -134,12 +142,18 @@ def main():
         print("Failed to generate slides.")
         exit(1)
 
-    result = process_tutorials(tutorials)
+    result, tutorial_index = process_tutorials(tutorials)
     if not result: 
         print("Failed to generate tutorials.")
         exit(1)
 
-    
+    index_file = "../index.md"
+    print("Writing tutorial index at {0}".format(index_file))
+    with open(index_file,"w") as fp:
+        for t in tutorial_index:
+            fp.write(t)
+
+        
 
     print("Processing completed successfully!")
 
