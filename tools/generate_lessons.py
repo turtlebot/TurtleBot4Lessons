@@ -1,6 +1,8 @@
 import argparse
 import yaml
 import os.path
+import os
+import subprocess
 
 def check_yaml(fname):
     retval = None
@@ -47,6 +49,7 @@ def parse_and_verify(units_file, tutorials_file):
     # Check the lessons and units
     for unit in units["units"]:
         lesson_yml = os.path.join(path,unit["directory"],unit["lessons"])
+        
         if os.path.exists(lesson_yml):
             with open(lesson_yml) as f:
                 try:
@@ -57,11 +60,20 @@ def parse_and_verify(units_file, tutorials_file):
                         # check data is all there
                         temp["unit"] = unit["number"]
                         temp["unit_name"] = lesson_info["name"]
+                        #temp["unit_file"] = os.path.join(lesson_path,
                         temp.update(lesson)
+
+                        # TODO: "ppt-file is bad name, fix it, perhaps source_file
                         ppt_file = os.path.join(path,unit["directory"],
                                                 lesson["directory"],lesson["ppt-file"])
                         # Verify the file exists
                         if os.path.exists(ppt_file):
+
+                            # Generate the paths to make life easier
+                            temp["full-path"] = ppt_file
+                            temp["target-file"] = lesson["ppt-file"].split(".")[0] + ".ppt"
+                            temp["target-file-full-path"] = os.path.join(path,unit["directory"],
+                                                lesson["directory"],temp["target-file"])
                             all_lessons.append(temp)
                         else:
                             print("Failed to find: {0}".format(ppt_file))
@@ -71,19 +83,39 @@ def parse_and_verify(units_file, tutorials_file):
                     print("Error encountered {0}".format(e))
                     retval = False
 
-    return retval, all_lessons
+    return retval, all_lessons, tutorials
 
 def process_ppt(file_list):
-    pass
+    result = True
+    root_path  = "../units/"
+    for lesson in file_list:
+        print("Processing unit {0} - lesson {1} - {2} from file {3}".format(
+            lesson["unit"],lesson["number"],lesson["name"],lesson["ppt-file"]))
+        print("Converting\nFrom:{0}\nTo  :{1}\n\n".format(lesson["full-path"],lesson["target-file-full-path"]))
+        cli_call = ["./md2pptx", "{0} < {1}".format(lesson["target-file-full-path"],lesson["full-path"])]
+        print("Executing "+ " ".join(cli_call))
+        os.system(" ".join(cli_call))
+        # TODO, subprocess is hanging for some reason
+        # but I would really like to 
+        #subprocess.call(cli_call)
+
+
+
+        
+    return True
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--units", help="List of all units to generate", type=str, default="../units/curriculum.yml")
     parser.add_argument("--tutorials", help="Tutorials yaml file", type=str, default="../tutorials/tutorials.yml")
     args = parser.parse_args()
-    result, info = parse_and_verify(args.units, args.tutorials)
+    result, lessons, tutorials = parse_and_verify(args.units, args.tutorials)
     if not result: 
         print("Failed to parse input files.")
+        exit(1)
+    result = process_ppt(lessons)
+    if not result: 
+        print("Failed to generate slides.")
         exit(1)
 
     print("Processing completed successfully!")
