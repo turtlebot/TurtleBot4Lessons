@@ -34,12 +34,14 @@ def parse_and_verify(units_file, tutorials_file):
         return False
 
     # Check the tutorials
+    all_tutorials = [] 
     path = os.path.dirname(os.path.abspath(tutorials_file))
     for tut in tutorials["tutorials"]:
         to_process = os.path.join(path, tut["file"])
         if os.path.exists(to_process):
             tut["input_fname"] = to_process
             tut["output_fname"] = to_process[:-3]+".ppt"
+            all_tutorials.append(tut)
         else:
             print("Can't find file {0}".format(to_process))
             retval = False
@@ -83,11 +85,10 @@ def parse_and_verify(units_file, tutorials_file):
                     print("Error encountered {0}".format(e))
                     retval = False
 
-    return retval, all_lessons, tutorials
+    return retval, all_lessons, all_tutorials
 
-def process_ppt(file_list):
+def process_lessons(file_list):
     result = True
-    root_path  = "../units/"
     for lesson in file_list:
         print("Processing unit {0} - lesson {1} - {2} from file {3}".format(
             lesson["unit"],lesson["number"],lesson["name"],lesson["ppt-file"]))
@@ -99,10 +100,24 @@ def process_ppt(file_list):
         # but I would really like to 
         #subprocess.call(cli_call)
 
+    return result 
 
-
+def process_tutorials(file_list):
+    result = True
+    for tutorial in file_list:
+        print(tutorial)
+        print("Processing tutorial: {0}".format(tutorial["name"]))
+        print("Converting\nFrom:{0}\nTo  :{1}\n\n".format(tutorial["input_fname"],tutorial["output_fname"]))
+        cli_call = ["./md2pptx", "{0} < {1}".format(tutorial["output_fname"],tutorial["input_fname"])]
+        print("Executing "+ " ".join(cli_call))
+        os.system(" ".join(cli_call))
         
-    return True
+        # TODO, subprocess is hanging for some reason
+        # but I would really like to 
+        #subprocess.call(cli_call)
+
+    return result
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -113,10 +128,18 @@ def main():
     if not result: 
         print("Failed to parse input files.")
         exit(1)
-    result = process_ppt(lessons)
+
+    result = process_lessons(lessons)
     if not result: 
         print("Failed to generate slides.")
         exit(1)
+
+    result = process_tutorials(tutorials)
+    if not result: 
+        print("Failed to generate tutorials.")
+        exit(1)
+
+    
 
     print("Processing completed successfully!")
 
