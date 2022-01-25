@@ -48,7 +48,12 @@ def parse_and_verify(units_file, tutorials_file):
 
     path = os.path.dirname(os.path.abspath(units_file))
     all_lessons = []
+    
     # Check the lessons and units
+
+    md_index = []
+    md_index.append( "# TurtleBot 4 Syllabus \n\n")
+
     for unit in units["units"]:
         lesson_yml = os.path.join(path,unit["directory"],unit["lessons"])
         
@@ -57,13 +62,22 @@ def parse_and_verify(units_file, tutorials_file):
                 try:
                     lesson_info = yaml.load(f, Loader=yaml.FullLoader)
                     # For each lesson
+                    mdl = "* Unit {0}: {1}\n".format(lesson_info["unit"], lesson_info["name"] )
+                    md_index.append(mdl)
+                    mdl = "\t* [Question Bank]({0})\n".format("B")
+                    md_index.append(mdl)
+                    mdl = "\t* [Project]({0})\n".format("A")
+                    md_index.append(mdl)
                     for lesson in lesson_info["lessons"]:
                         temp = {}
                         # check data is all there
                         temp["unit"] = unit["number"]
-                        temp["unit_name"] = lesson_info["name"]
+                        temp["unit_name"] = lesson_info["name"]                        
                         #temp["unit_file"] = os.path.join(lesson_path,
                         temp.update(lesson)
+
+                        mdl = "\t* Unit {0}: [{1}]({2})\n".format(lesson["number"],lesson["name"],"fake")
+                        md_index.append(mdl)
 
                         # TODO: "ppt-file is bad name, fix it, perhaps source_file
                         ppt_file = os.path.join(path,unit["directory"],
@@ -85,7 +99,7 @@ def parse_and_verify(units_file, tutorials_file):
                     print("Error encountered {0}".format(e))
                     retval = False
 
-    return retval, all_lessons, all_tutorials
+    return retval, all_lessons, all_tutorials, md_index
 
 def process_lessons(file_list):
     result = True
@@ -118,7 +132,7 @@ def process_tutorials(file_list):
         # TODO: Change to subprocess
         
         # Create a markdown index
-        markdown_entry = "* [{0}]({1}) -- [ppt]({2})\n"
+        markdown_entry = "* [{0}]({1}) -- [PPT]({2})\n"
         md_p =  "./"+os.path.relpath(tutorial["input_fname"],"..")
         ppt_p =  "./"+os.path.relpath(tutorial["output_fname"],"..")
         temp = markdown_entry.format(tutorial["name"],md_p,ppt_p)
@@ -132,7 +146,7 @@ def main():
     parser.add_argument("--units", help="List of all units to generate", type=str, default="../units/curriculum.yml")
     parser.add_argument("--tutorials", help="Tutorials yaml file", type=str, default="../tutorials/tutorials.yml")
     args = parser.parse_args()
-    result, lessons, tutorials = parse_and_verify(args.units, args.tutorials)
+    result, lessons, tutorials, unit_index  = parse_and_verify(args.units, args.tutorials)
     if not result: 
         print("Failed to parse input files.")
         exit(1)
@@ -152,6 +166,10 @@ def main():
     with open(index_file,"w") as fp:
         for t in tutorial_index:
             fp.write(t)
+        fp.write("\n\n")
+        for t in unit_index:
+            fp.write(t)
+        
 
         
 
