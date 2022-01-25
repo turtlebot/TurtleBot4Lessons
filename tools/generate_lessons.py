@@ -79,14 +79,18 @@ def parse_and_verify(units_file, tutorials_file):
                         #temp["unit_file"] = os.path.join(lesson_path,
                         temp.update(lesson)
 
-                        # power point path
+                        # lp = lesson path, power point and md path relative to github
                         lp = os.path.join(md_path, unit["directory"],
-                                          lesson["directory"],
-                                          lesson["ppt-file"])
+                                          lesson["directory"])
+                        lp_ppt = os.path.join(lp,lesson["ppt-file"])
+                        # TODO ppt-file is a bad name
+                        lp_md = os.path.join(lp,lesson["ppt-file"].replace(".md",".ppt"))
+                                          
                         
-                        mdl = "\t* Unit {0}: [{1}]({2})\n".format(lesson["number"],
-                                                                  lesson["name"],
-                                                                  lp)
+                        mdl = "\t* Unit {0}: [{1}]({2})-[PPT]({3})\n".format(lesson["number"],
+                                                                    lesson["name"],
+                                                                    lp_md,
+                                                                    lp_ppt)
                         md_index.append(mdl)
 
                         # TODO: "ppt-file is bad name, fix it, perhaps source_file
