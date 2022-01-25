@@ -54,6 +54,9 @@ def parse_and_verify(units_file, tutorials_file):
     md_index = []
     md_index.append( "# TurtleBot 4 Syllabus \n\n")
 
+    md_path = "./"+os.path.relpath(path , "../")
+    
+
     for unit in units["units"]:
         lesson_yml = os.path.join(path,unit["directory"],unit["lessons"])
         
@@ -76,7 +79,14 @@ def parse_and_verify(units_file, tutorials_file):
                         #temp["unit_file"] = os.path.join(lesson_path,
                         temp.update(lesson)
 
-                        mdl = "\t* Unit {0}: [{1}]({2})\n".format(lesson["number"],lesson["name"],"fake")
+                        # power point path
+                        lp = os.path.join(md_path, unit["directory"],
+                                          lesson["directory"],
+                                          lesson["ppt-file"])
+                        
+                        mdl = "\t* Unit {0}: [{1}]({2})\n".format(lesson["number"],
+                                                                  lesson["name"],
+                                                                  lp)
                         md_index.append(mdl)
 
                         # TODO: "ppt-file is bad name, fix it, perhaps source_file
