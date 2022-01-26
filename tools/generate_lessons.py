@@ -82,12 +82,12 @@ def parse_and_verify(units_file, tutorials_file):
                         # lp = lesson path, power point and md path relative to github
                         lp = os.path.join(md_path, unit["directory"],
                                           lesson["directory"])
-                        lp_ppt = os.path.join(lp,lesson["ppt-file"])
+                        lp_ppt = os.path.join(lp,lesson["ppt-file"].replace(".md",".ppt"))
                         # TODO ppt-file is a bad name
-                        lp_md = os.path.join(lp,lesson["ppt-file"].replace(".md",".ppt"))
+                        lp_md = os.path.join(lp,lesson["ppt-file"])
                                           
                         
-                        mdl = "\t* Unit {0}: [{1}]({2})-[PPT]({3})\n".format(lesson["number"],
+                        mdl = "\t* Unit {0}: [{1}]({2}) - [PPT]({3})\n".format(lesson["number"],
                                                                     lesson["name"],
                                                                     lp_md,
                                                                     lp_ppt)
