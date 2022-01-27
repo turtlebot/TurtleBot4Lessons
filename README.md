@@ -62,8 +62,10 @@ sudo pip install grip
 
 ## Execution on Linux 
 
-
 ```
 grip -b index.md
 
 ```
+## Helpful Links
+
+* [Free Wikimedia Images](https://commons.wikimedia.org/wiki/Main_Page)
