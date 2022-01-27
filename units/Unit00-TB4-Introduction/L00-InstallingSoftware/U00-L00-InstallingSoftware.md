@@ -51,7 +51,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Distros
 
-![rolling](/media/rolling.png)
+![rolling](./media/rolling.png)
 
 * ROS distributions are released yearly on May 23rd, [World Turtle Day.](https://www.worldturtleday.org/)
 * Even year releases are considered _long term support_ (LTS) distributions.
@@ -66,7 +66,7 @@ template: ../media/TB4Template.pptx
 
 ## This Is A Presentation Section Page
 
-![A TurtleBot 4](../../../media/tb4.png)
+![A TurtleBot 4](../../media/tb4.png)
 
 * Today we will learn how to use a TurtleBot 4
 

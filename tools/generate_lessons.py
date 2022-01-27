@@ -121,7 +121,7 @@ def process_lessons(file_list):
         print("Processing unit {0} - lesson {1} - {2} from file {3}".format(
             lesson["unit"],lesson["number"],lesson["name"],lesson["ppt-file"]))
         print("Converting\nFrom:{0}\nTo  :{1}\n\n".format(lesson["full-path"],lesson["target-file-full-path"]))
-        cli_call = ["./md2pptx", "{0} < {1}".format(lesson["target-file-full-path"],lesson["full-path"])]
+        cli_call = ["./tools/md2pptx", "{0} < {1}".format(lesson["target-file-full-path"],lesson["full-path"])]
         print("Executing "+ " ".join(cli_call))
         os.system(" ".join(cli_call))
         # TODO, subprocess is hanging for some reason
@@ -140,15 +140,15 @@ def process_tutorials(file_list):
         print(tutorial)
         print("Processing tutorial: {0}".format(tutorial["name"]))
         print("Converting\nFrom:{0}\nTo  :{1}\n\n".format(tutorial["input_fname"],tutorial["output_fname"]))
-        cli_call = ["./md2pptx", "{0} < {1}".format(tutorial["output_fname"],tutorial["input_fname"])]
+        cli_call = ["./tools/md2pptx", "{0} < {1}".format(tutorial["output_fname"],tutorial["input_fname"])]
         print("Executing "+ " ".join(cli_call))
         os.system(" ".join(cli_call))
         # TODO: Change to subprocess
         
         # Create a markdown index
         markdown_entry = "* [{0}]({1}) -- [PPT]({2})\n"
-        md_p =  "./"+os.path.relpath(tutorial["input_fname"],"..")
-        ppt_p =  "./"+os.path.relpath(tutorial["output_fname"],"..")
+        md_p =  "./"+os.path.relpath(tutorial["input_fname"],"")#"..")
+        ppt_p =  "./"+os.path.relpath(tutorial["output_fname"],"")#"..")
         temp = markdown_entry.format(tutorial["name"],md_p,ppt_p)
         md_index.append(temp)
        
@@ -157,8 +157,8 @@ def process_tutorials(file_list):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--units", help="List of all units to generate", type=str, default="../units/curriculum.yml")
-    parser.add_argument("--tutorials", help="Tutorials yaml file", type=str, default="../tutorials/tutorials.yml")
+    parser.add_argument("--units", help="List of all units to generate", type=str, default="./units/curriculum.yml")
+    parser.add_argument("--tutorials", help="Tutorials yaml file", type=str, default="./tutorials/tutorials.yml")
     args = parser.parse_args()
     result, lessons, tutorials, unit_index  = parse_and_verify(args.units, args.tutorials)
     if not result: 
@@ -175,7 +175,7 @@ def main():
         print("Failed to generate tutorials.")
         exit(1)
 
-    index_file = "../index.md"
+    index_file = "./index.md"
     print("Writing tutorial index at {0}".format(index_file))
     with open(index_file,"w") as fp:
         for t in tutorial_index:
