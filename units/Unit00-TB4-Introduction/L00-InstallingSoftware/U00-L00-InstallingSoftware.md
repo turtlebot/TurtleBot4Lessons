@@ -1,12 +1,21 @@
 template: ../media/TB4Template.pptx
 
-# Turtle Bot 4 -- A Fancy Robot
+# Unit 0, Lesson 0: Setting up Software
 
-* Let's learn about robots!
+**Lesson Objectives** 
+
+* Understand the different ways we can install software.
+* Understand ROS and Linux Distros.
+* Setup the TurtleBot 4 and host laptop.  
+
+
+# Software Packaging 
+
+Foo bar
 
 ## This Is A Presentation Section Page
 
-![A TurtleBot 4](../media/tb4.png)
+![A TurtleBot 4](../../../media/tb4.png)
 
 * Today we will learn how to use a TurtleBot 4
 
