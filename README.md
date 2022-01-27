@@ -51,3 +51,19 @@ Md2pptx uses a template PowerPoint file as the basis for its slides. We've built
 
 
 # Creating Slides
+
+When creating slides it is helpful to see text and images a they render. The best solution I have found so far is to use a small python application called [grip](https://github.com/joeyespo/grip). 
+
+## Installation on Linux 
+
+```
+sudo pip install grip
+```
+
+## Execution on Linux 
+
+
+```
+grip -b index.md
+
+```
