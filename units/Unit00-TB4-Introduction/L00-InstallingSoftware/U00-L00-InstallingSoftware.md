@@ -43,11 +43,25 @@ template: ../media/TB4Template.pptx
 ![ROS and Linux Distros](https://upload.wikimedia.org/wikipedia/commons/8/89/Logo_Collage_Linux_Distro.png)
 
 * An operating system is what makes your computer do what you want, and there are a lot of them.
-* A distro, or _distrobution_, is a specific version of software
-  * Some folks also call a distro a _release_. 
+* A distro, or *distribution*, is a specific version of software
+  * Some folks also call a distro a release. 
   * These are often given both a code name and a number.
 	* These numbers usually denote either a number in a series or a release date. 
-	* e.g. _Jammy Jellyfish 22.04_ or _ROS 2 Humble Hawksbill_
+	* e.g. **Jammy Jellyfish 22.04** or **ROS 2 Humble Hawksbill**
+
+## ROS Distros
+
+![rolling](../media/rolling.png)
+
+* ROS distributions are released yearly on May 23rd, [World Turtle Day.](https://www.worldturtleday.org/)
+* Even year releases are considered _long term support_ (LTS) distributions.
+  * ROS 2 Foxy Fitzroy and Humble Hawksbill are LTS Releases. 
+  * This means they recieve regular updates and bug fixes for a set period of time, usually three to five years. 
+  * *Most users should use the latest LTS version of ROS.*
+* Odd year releases are only supported for a short period of time (example: ROS 2 Galactic).
+* ROS 2 also has what we call a "rolling" release, called Rolling Ridley
+  * A rolling release is simply a regular release using the latest ROS code available. 
+  * The regular ROS releases are a well tested clone of the rolling release. 
 
 
 ## This Is A Presentation Section Page

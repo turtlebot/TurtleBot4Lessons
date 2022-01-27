@@ -69,3 +69,4 @@ grip -b index.md
 ## Helpful Links
 
 * [Free Wikimedia Images](https://commons.wikimedia.org/wiki/Main_Page)
+* [Umich Robotics 501: Mathematics for Robotics](https://github.com/michiganrobotics/rob501)
