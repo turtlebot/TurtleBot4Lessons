@@ -63,11 +63,35 @@ template: ../media/TB4Template.pptx
   * A rolling release is simply a regular release using the latest ROS code available. 
   * The regular ROS releases are a well tested clone of the rolling release. 
 
-## Another Image
+## Tier 1 Operating Systems 
+
+![Operating Systems](https://upload.wikimedia.org/wikipedia/commons/1/1d/Cartoon_Hands_Opening_A_Video_Sharing_Site_In_A_Laptop.svg)
+
+* Each ROS distro is designed to work well on a handful of **specific** operating system distro.
+* These specific operating systems are called **Tier 1** operating systems.
+* A full list of Tier 1 operating systems can be found in [REP-2000](https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027)
+  * REP-2000 provides other information like:
+	  * How to install ROS on your host machine (i.e. source, binary, or package manager).
+	  * What combinations of OS and architecture (e.g. arm vs amd)are supported
+	  * Specific software libraries that are required.
+* Tier 2 and Tier 3 operating systems for a particular distro may work but are not regularly tested.
+* ROS is FOSS, but that doesn't mean every OS / ROS Distro combo will work well.
+* **Your life will be significantly easier if you use the correct ROS Distro for your OS**
 
 
+### Laptops and Robots 
 
-* Some Text 
+* Up until now we've been talking about the OS and ROS Distro on a robot, like the TB4.
+* When you're using, programming, or debugging a robot you'll need to interact with the robot's code. 
+* Depending on what you are doing, your laptop may need to run ROS too! 
+* If you plan to tele-operate (remote control) your robot or visualize its data your laptop will need to run ROS!
+* You may also want to visualize data from your robot
+  * ROS 2 has a program called RVIZ for visualizing robot data.
+* Sometimes computation can be complex! You may want to do those computations not on the robot. 
+* In these three cases your laptop may need to run ROS too!
+* **If two or more computers are using ROS in robot, then they must use the same ROS Distro**
+* `Ordinarily, you can not connect two different ROS distros together!`
+
 ## This Is A Presentation Section Page
 
 ![A TurtleBot 4](../../../media/tb4.png)
