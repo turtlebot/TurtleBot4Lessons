@@ -10,6 +10,8 @@ template: ../media/TB4Template.pptx
 * Select the correct ROS distro and correct installation mechanism for your system
 * Finally, setup the TurtleBot 4 and host laptop.
 
+
+
 ## Software Packaging 
 
 ![Binary](https://upload.wikimedia.org/wikipedia/commons/f/fb/Basic_Idea_of_a_Compiler.png)
@@ -19,24 +21,22 @@ template: ../media/TB4Template.pptx
   * These binaries have two main types:
 	* Libraries -- sections of code that are reused over and over, like common math functions. 
 	* Executables -- also called programs are pieces of code that do some task and then end. 
-  * Most executables, or programs, will have a main part that then makes use of multiple libraries. 
+  * Most executables, or programs, will have a main part that then makes use of multiple libraries.
   * Many libraries are already installed on your computer, but some you may need to download and install. 
 * *Source Code* -- source code, or just code, is written in a human readable language that is compiled (i.e. translated) into executables. 
   * Open Source Code is code that is freely available and shareable. You'll find it on places like Github or Gitlab.
   * Closed Source Code is code that is only shared via binaries, that you must often pay for.
 * There are many exceptions to this rule, programming languages like Python sit somewhere in between the two. Languages like C and C++ have a clear distinction between binaries and source code.
 
-## Choose The Right Tool
+### Binaries vs. Source Code
 
 * Why does the difference between source and binaries matter?
-  * Because the difference between the two dictates how you install it on a robot. 
-* Moreover, there are lots of tools and services that are needed to install software on your robot.
-* Much like Python, ROS has a variety of tools and services that help you:
+* Because the difference between the two dictates how you install it on a robot.
+* ROS has utlities to:
   * Build binaries from source code. 
   * Install binaries that were compiled somewhere else.
-  * Mix your source code, with other source code, with binaries. 
+  * Mix your source code, with other source code, with binaries. o
   * Keep track of everything that is going on!
-* If ROS seems complex, that's because it is. There is a lot going on under the hood.
 
 ## Operating Systems 
 
@@ -51,7 +51,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Distros
 
-![rolling](https://raw.githubusercontent.com/ros-infrastructure/artwork/master/distributions/rolling/rolling.png)
+![ROS and Linux Distros](https://raw.githubusercontent.com/ros-infrastructure/artwork/master/distributions/rolling/rolling.png)
 
 * ROS distributions are released yearly on May 23rd, [World Turtle Day.](https://www.worldturtleday.org/)
 * Even year releases are considered _long term support_ (LTS) distributions.
@@ -63,7 +63,11 @@ template: ../media/TB4Template.pptx
   * A rolling release is simply a regular release using the latest ROS code available. 
   * The regular ROS releases are a well tested clone of the rolling release. 
 
+## Another Image
 
+
+
+* Some Text 
 ## This Is A Presentation Section Page
 
 ![A TurtleBot 4](../../../media/tb4.png)
