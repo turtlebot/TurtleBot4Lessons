@@ -51,7 +51,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Distros
 
-![rolling](/media/rolling.png)
+![rolling](https://raw.githubusercontent.com/ros-infrastructure/artwork/master/distributions/rolling/rolling.png)
 
 * ROS distributions are released yearly on May 23rd, [World Turtle Day.](https://www.worldturtleday.org/)
 * Even year releases are considered _long term support_ (LTS) distributions.
