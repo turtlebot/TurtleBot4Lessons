@@ -32,7 +32,7 @@ template: ../media/TB4Template.pptx
 
 * Why does the difference between source and binaries matter?
 * Because the difference between the two dictates how you install it on a robot.
-* ROS has utlities to:
+* ROS has utilities to:
   * Build binaries from source code. 
   * Install binaries that were compiled somewhere else.
   * Mix your source code, with other source code, with binaries. o
@@ -67,7 +67,7 @@ template: ../media/TB4Template.pptx
 
 ![Operating Systems](https://upload.wikimedia.org/wikipedia/commons/1/1d/Cartoon_Hands_Opening_A_Video_Sharing_Site_In_A_Laptop.svg)
 
-* Each ROS distro is designed to work well on a handful of **specific** operating system distro.
+* Each ROS distro is designed to work well on a handful of **specific** operating systems.
 * These specific operating systems are called **Tier 1** operating systems.
 * A full list of Tier 1 operating systems can be found in [REP-2000](https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027)
   * REP-2000 provides other information like:
@@ -78,8 +78,39 @@ template: ../media/TB4Template.pptx
 * ROS is FOSS, but that doesn't mean every OS / ROS Distro combo will work well.
 * **Your life will be significantly easier if you use the correct ROS Distro for your OS**
 
+## Quickly Connecting to Your TB4
+
+![VM Diagram](https://upload.wikimedia.org/wikipedia/commons/9/90/OpenBSD_starting_SSH_server.jpg)
+* **If your goal is simply to start your TurtleBot, configure it, and run a few programs on the robot you may not need to install ROS on your laptop.**
+* You can use a secure shell protocol, called `ssh`, to connect your robot. 
+* [SSH](https://en.wikipedia.org/wiki/Secure_Shell) is a simple protocol to connect one computer to another computer, perhaps one running on a robot.
+* To connect to the robot you will need to install an SSH client on your laptop or desktop operating system.
+* Your TB4 and your laptop will need to be on the same network, and you will need the TurtleBot's IP address. 
+* Setting up an SSH connection to your TB4 is covered under [Tutorial X: How to SSH into a TurtleBot 4](TODO). 
+
+
 
 ### Laptops and Robots 
+
+![Operating Systems](https://upload.wikimedia.org/wikipedia/commons/b/b8/Cart_pushing_rviz_holonomic.jpg)
+
+* Up until now we've been talking about the OS and ROS Distro on a robot, like the TB4.
+* When you're using, programming, or debugging a robot you'll need to interact with the robot's code. 
+* Depending on what you are doing, your laptop may need to run ROS too! 
+  * If you plan to tele-operate (remote control) your robot or visualize its data your laptop will need to run ROS!
+  * You may also want to visualize data from your robot
+	* ROS 2 has a program called RVIZ for visualizing robot data.
+   * Sometimes computation can be complex! You may want to do those computations not on the robot. 
+   * In these three cases your laptop may need to run ROS too!
+* **Things to Keep Mind**
+  * If two or more computers are using ROS in robot, then they must use the same ROS Distro!
+  * You cannot connect two different ROS distros together!
+  * Your best bet is to have your laptop and robot run the same OS and ROS Version!
+* There are work arounds if this isn't feasible.
+
+
+### Connecting Robots and Laptops 
+ 
 
 * Up until now we've been talking about the OS and ROS Distro on a robot, like the TB4.
 * When you're using, programming, or debugging a robot you'll need to interact with the robot's code. 
@@ -90,7 +121,71 @@ template: ../media/TB4Template.pptx
 * Sometimes computation can be complex! You may want to do those computations not on the robot. 
 * In these three cases your laptop may need to run ROS too!
 * **If two or more computers are using ROS in robot, then they must use the same ROS Distro**
+* Ordinarily, you can not connect two different ROS distros together!
+
+
+### Virtual Machines, Containers, and ROS
+
+![VM Diagram](https://upload.wikimedia.org/wikipedia/commons/0/08/Hardware_Virtualization_%28copy%29.svg)
+
+* **What if I don't want to change my operating system to use ROS?**
+* There are two ways to get around the requirement that your host OS match the preferred host OS. 
+* Virtual Machines
+  * A [virtual machine (VM)](https://en.wikipedia.org/wiki/Virtual_machine) emulates a second computer on your host computer. 
+  * There are lots of different VM software providers. Some examples are Virtual Box and VMWare
+  * Virtual machines can display the full GUI of the desired operating system and are usually easier for those just getting familiar with the technology. 
+  * Installing ROS on a VM is covered in our [Virtual Machine Tutorial.](TODO)
+* Containers
+  * [Containers](https://en.wikipedia.org/wiki/OS-level_virtualization) are similar to VMs in that they allow your computer to emulate a different operating system. Containers, however, are "stripped down" versions of VMs that have lower overhead.
+  * Common containerization software include Docker, Singularity, and Podman, with Docker being the most common. 
+  * Containers are generally easier to share, modify, and distribute than VMs. 
+  * Installing ROS on a Docker container is covered in our [Docker Tutorial.](TODO) 
+
+## Setting up your Desktop / Laptop
+
+
+| Use Case                 | Advantage                          | Disadvantage                              | Tutorial                           |
+|--------------------------|------------------------------------|-------------------------------------------|------------------------------------|
+| SSH into TB4             | Simple                             | Limited Features                          | [How to setup SSH](TODO)           |
+| Install VM on Laptop     | Easy to run graphical applications | VM may be resource constrained            | [Installing ROS on a VM](TODO)     |
+| Install Docker on Laptop | Best for advanced developers       | Graphical applications may require rocker | [Installing ROS with Docker](TODO) |
+| Full Linux Installation  | Best overall experience            | (None)                                    | [Installing ROS on Linux](TODO)    |
+
+
+## Installation Directions by Host OS
+
+| Laptop OS                  | Virtual Machine | Docker   | Native Support                  |
+|----------------------------|-----------------|----------|---------------------------------|
+| Ubuntu 20.04 (Focal Fossa) | Possible        | Possible | X (BEST CHOICE)                 |
+| Other Ubuntu               | Recommended     | Possible | Not Recommended                 |
+| macOS                      | Recommended     | Possible | Not Recommended                 |
+| Windows 10                 | Recommended     | Possible | Possible*                       |
+| Linux Variants             | Recommended     | Possible | Possible for RHEL 8 and Debian  |
+
+* Configurations listed as possible may require additional commands and configuration. 
+* ROS can be installed on many operating systems from source but is not recommended for new users. 
+* Take home message: the recommended configuration for most operating systems is to create an Ubuntu 20.04 Virtual Machine
+
+### Connecting Robots and Laptops 
+ 
+
+* **How do I run software on my TurtleBot4?** 
+ * SSH 
+ * Virtual Machines
+
+#### Let's try this
+* Up until now we've been talking about the OS and ROS Distro on a robot, like the TB4.
+* When you're using, programming, or debugging a robot you'll need to interact with the robot's code. 
+* Depending on what you are doing, your laptop may need to run ROS too! 
+* If you plan to tele-operate (remote control) your robot or visualize its data your laptop will need to run ROS!
+* You may also want to visualize data from your robot
+  * ROS 2 has a program called RVIZ for visualizing robot data.
+* Sometimes computation can be complex! You may want to do those computations not on the robot. 
+* In these three cases your laptop may need to run ROS too!
+* **If two or more computers are using ROS in robot, then they must use the same ROS Distro**
 * `Ordinarily, you can not connect two different ROS distros together!`
+
+
 
 ## This Is A Presentation Section Page
 
