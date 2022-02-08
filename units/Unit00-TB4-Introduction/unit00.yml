@@ -17,3 +17,7 @@ lessons:
     name: TurtleBotIsGo
     directory: L02-TurtleBotIsGo
     ppt-file: U00-L02-TurtleBotIsGo.md
+  - number: 3
+    name: How to Find Help
+    directory: L03-HowToFindHelp
+    ppt-file: U00-L03-HowToFindHelp.md

@@ -13,6 +13,7 @@
 	* Unit 0: [Installing TurtleBot Software](./units/Unit00-TB4-Introduction/L00-InstallingSoftware/U00-L00-InstallingSoftware.md) - [PPT](./units/Unit00-TB4-Introduction/L00-InstallingSoftware/U00-L00-InstallingSoftware.ppt)
 	* Unit 1: [Ignition Blastoff](./units/Unit00-TB4-Introduction/L01-IgnitionBlastoff/U00-L01-IgnitionBlastoff.md) - [PPT](./units/Unit00-TB4-Introduction/L01-IgnitionBlastoff/U00-L01-IgnitionBlastoff.ppt)
 	* Unit 2: [TurtleBotIsGo](./units/Unit00-TB4-Introduction/L02-TurtleBotIsGo/U00-L02-TurtleBotIsGo.md) - [PPT](./units/Unit00-TB4-Introduction/L02-TurtleBotIsGo/U00-L02-TurtleBotIsGo.ppt)
+	* Unit 3: [How to Find Help](./units/Unit00-TB4-Introduction/L03-HowToFindHelp/U00-L03-HowToFindHelp.md) - [PPT](./units/Unit00-TB4-Introduction/L03-HowToFindHelp/U00-L03-HowToFindHelp.ppt)
 * Unit 1: ROS 2 Basics
 	* [Question Bank](B)
 	* [Project](A)
