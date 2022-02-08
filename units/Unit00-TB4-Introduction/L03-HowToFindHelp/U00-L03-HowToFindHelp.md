@@ -25,11 +25,43 @@ template: ../media/TB4Template.pptx
   * References to documentation, resources, and other questions you have tried but did not work. 
 * Distinguish between a discussion questions, poorly scoped questions, and legitimate errors and issues. 
   * A discussion question is one where there is no single correct answer.
-    * Questions like, "What is the best...", or "How should I make X?" are discussion questions
+    * Questions like, "What is the best...", or "How should I make X?" are discussion questions.
   * A poorly scoped question is one where the response could be multiple paragraphs long. These sort of questions need to broken down into smaller parts.
     * Questions like, "How do I build a delta robot in ROS?" or "How do I build a perception pipeline to find X?" are poorly scoped.
   * Legitimate errors and issues are usually easily described. 
     * Questions like, "When I do X, Y error occurs" or "When I use X, I expect Y but get Z, why is this?"
+
+## ROS Discourse
+
+![Discourse](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/discourse.png?token=GHSAT0AAAAAABQJBI4R3NBN6D6RVUL6XO5EYQMGQ7Q)
+
+
+* [ROS Discourse](http://discourse.ros.org) is the official ROS discussion forum. 
+* ROS Discourse is intended for community announcements and discussion.
+  * **ROS Discourse should not be used for specific development questions.**
+* On ROS Discourse you find.
+  * Announcements of new packages and package releases.
+  * Announcements of ROS releases and updates.
+  * Technical discussions by package developers. 
+  * Event announcments.
+  * Regular news updates. 
+  * Meet other ROS developers and package maintainers. 
+
+## ROS 2 Documetation 
+
+![ROS 2 Documentation](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/rosdocs.png?raw=true)
+
+
+* [The ROS 2 Docs](http://docs.ros.org) are the official ROS documentation pages. 
+* The ROS 2 Docs provide detailed API level documentation, tutorials, and examples. 
+* This is your best bet for comprehensive ROS information. 
+* Make sure you are viewing the correct documentation for your ROS version. 
+* Many other packages have documentation under the `*.ros.org` umbrella org. 
+  * [navigation.ros.org](https://navigation.ros.org/) -- the Nav2 documentation.
+  * [moveit.ros.org](https://moveit.ros.org/) -- MoveIt 2 documentation.
+  * [micro.ros.org](https://micro.ros.org/) -- the micro-ROS documentation.
+* Some packages maintain their own documentation from their own repository or website (e.g. [SMACC](https://smacc.dev/)).
+* Other packages may be linked to from within the ROS 2 docs. These are available under [related projects.](https://docs.ros.org/en/rolling/Related-Projects.html)
 
 # Turtle Bot 4 -- A Fancy Robot
 
