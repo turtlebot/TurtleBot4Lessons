@@ -99,10 +99,22 @@ template: ../media/TB4Template.pptx
 
 Something about TurtleBot Manuals
 
+### Ignition / Gazebo Resources
+
+![Ignition Fortress](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/fortress.jpg?raw=true)
+
+* Ignition Gazebo has number of resources that are similar to ROS. 
+* [GazeboSim.org](http://gazebosim.org/) -- Main landing page for Ignition.
+* [GazeboSim Community](https://community.gazebosim.org/) -- Similar to ROS Discourse. The Gazebosim Community is for announcements and discussion.
+* [Answers.gazebosim.org](https://answers.gazebosim.org/questions/) -- Q&A website for GazeboSim.
+* [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models) -- Drag and drop models into a Gazebo Simulation! **If you are trying to create a rich Ignition environment this is a great resource.**
+* [Open Robotics Vimeo](https://vimeo.com/osrfoundation) -- Lots of vimeo tutorials for ROS. 
+
+
+
 ## Other Official ROS Resources
 
 ![ROS World](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/rosworld2021.png?raw=true)
-
 
 * [Build Farm](https://build.ros.org/) -- The ROS build farm. Watch as ROS packages are built, tested, and released.
 * [ROS.org](http://www.ros.org) -- Main landing page for ROS. We welcome community contributions.
@@ -110,124 +122,29 @@ Something about TurtleBot Manuals
 * [ROS Metrics](http://metrics.ros.org) -- Useful information on the growth of ROS.
 * [ROSCon / ROSWorld](http://roscon.ros.org) -- Our yearly developer conference. **Every talk is recorded and free online!**
 * [OpenRobotics.org](http://www,openrobotics.org) -- The organization behind ROS.
+* [Open Robotics Zazzle](https://www.zazzle.com/store/openrobotics/products?cg=196936312033387169) -- buy ROS swag!
+* [Open Robotics Vimeo](https://vimeo.com/osrfoundation) -- Every ROS Video we've ever made!
 * On Social Media -- [Open Robotics Twitter](https://twitter.com/OpenRoboticsOrg), [ROS Twitter](https://twitter.com/rosorg), [Gazebo Twitter](https://twitter.com/GazeboSim), and [LinkedIn](https://www.linkedin.com/company/open-source-robotics-foundation).
 
 
+## Primary Github Organizations
 
-# Turtle Bot 4 -- A Fancy Robot
+![Octocat](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/GitHub_Mark.png/492px-GitHub_Mark.png)
 
-* Let's learn about robots!
+* ROS and Ignition are spread over a variety of Github organizations. Here are just a few of them. 
+* [ROS Infrastructure](https://github.com/ros-infrastructure/) -- Tools that support ROS but aren't ROS (websites, buildfarm, tools, etc).
+* [ROS 2](https://github.com/ros2/) -- ROS 2 Core Packages 
+* [ROS Perception Packages](https://github.com/ros-perception) -- Perception libraries for ROS 1 and ROS 2
+* [TurtleBot](https://github.com/turtlebot) -- TurtleBot tutorials and documentation.
+* [Ignition on Github](https://github.com/ignitionrobotics) -- Ignition source code. 
+* [GazeboSim on Github](https://github.com/osrf/gazebo) -- Gazebo source code.
+* [OpenRMF on Github](https://github.com/open-rmf) -- RMF is a layer on top of ROS and Ignition for multi-robot control. 
+* If you want to look for new packages, try the [#ROS2](https://github.com/topics/ros2) and [#ROS](https://github.com/topics/ros) topics on Github!
 
-## This Is A Presentation Section Page
+# "Unoffical" Resources
 
-![A TurtleBot 4](../media/tb4.png)
-
-* Today we will learn how to use a TurtleBot 4
-
-### This Is A Bulleted List on TB4 Resources
-
-* One
-  * One A
-  * One B
-* Two
-   * foo
-   * bar
-   * baz
-   
-** Here are some slide notes. Note you leave an empty line between the content - in this case a bulleted list - and the notes. **
-
-
-## Here is a page with some code!
-
-* For help search [Google](http://www.google.com). 
-* `This is highlighted code`
-** This is emphasis code. ** 
-
-```
-      sudo apt update
-      sudo apt install -y python3-rosdep
-      sudo rosdep init
-      rosdep update
-```
-
-* This is some text describing above
-
-### Here is another page
-
-* Herp
-* Derp
-* Slerp
-* Perp
-
-** WILL THIS TEXT SHOW UP? **
-
-## How about an image and code 
-
-![A TurtleBot 4](../media/tb4.png)
-
-```
-      sudo apt update
-      sudo apt install -y python3-rosdep
-      sudo rosdep init
-      rosdep update
-```
-
-## How about an image and text???
-
-#### This slide is an image and text! This text won't appear
-
-* This text will appear!
-* So will this
-* So will this?
-
-![A TurtleBot 4](../media/tb4.png)
-
-### Let's try a different way
-
-* This text will appear!
-* So will this
-* So will this?
-
-![A TurtleBot 4](../media/tb4.png)
-
-
-
-### What about an H4 with a wall of text
-
-**Here is some subtext**
-
-#### What happens with an H4
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices posuere lorem, eu dictum massa efficitur ac. Aenean at risus luctus, vulputate ex non, condimentum tellus. Aenean egestas, odio eu ornare eleifend, nulla enim efficitur nunc, non luctus velit purus a urna. Pellentesque magna odio, viverra eu enim non, hendrerit pulvinar nibh. Aenean blandit lacus et ex bibendum, at finibus orci rhoncus. Integer venenatis eros in scelerisque porta. Nam ligula sem, ullamcorper nec efficitur in, commodo sit amet justo. Praesent ut nibh ultrices, euismod eros in, consectetur risus. Fusce a imperdiet justo. Cras magna massa, venenatis non lectus ac, mattis luctus est.
-
-Phasellus varius rutrum ullamcorper. Maecenas iaculis rhoncus ipsum, id congue augue suscipit eu. Nullam varius neque non est congue tincidunt. Vestibulum a nulla ac felis consequat posuere. Ut vulputate malesuada placerat. Integer accumsan rhoncus magna sit amet laoreet. Nullam aliquet libero pharetra, suscipit felis at, faucibus enim. Sed metus massa, tincidunt vitae nunc quis, bibendum laoreet ante. Donec id egestas dui. Quisque blandit tellus augue, in cursus mauris malesuada eget.
-
-## How about two images?
-
-![A TurtleBot 4](../media/tb4.png)
-![A TurtleBot 4](../media/tb4.png)
-
-## What about tables?
-
-| a | b | c | d | e |
-|---|---|---|---|---|
-| 1 | 2 | 3 | 3 | 4 |
-| a | f | g | d | s |
-| s | s | s | s | s |
-
-
-__This is a underlined under a table__
-
-# Do we get syntax highlighting
-
-```
-    def sortedNumericList(string):
-        return sorted(list(map(int, set(string.split()))))
-
-    def parseRGB(str):
-        if RGBmatch := RGBRegex.match(str):
-            # Matches
-            return (True, RGBmatch.group(1))
-        else:
-            return (False, "")
-```
+* The official [ROS subreddit.](https://www.reddit.com/r/ros) They're open for questions and very friendly. [The robotics subreddit is also really good.](https://www.reddit.com/r/robotics)
+* [Robotics StackExchange](https://robotics.stackexchange.com/) -- Another Q&A website for ROS. 
+* [Unoffical ROS Dockerhub images](https://hub.docker.com/_/ros/)
+* [Awesome Robotic Tooling](https://github.com/protontypes/awesome-robotic-tooling)
+* [Robotics World Wide](http://duerer.usc.edu/mailman/listinfo.cgi/robotics-worldwide) -- A world wide listserv of robotics researchers.
