@@ -28,7 +28,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS 2 Documetation 
 
-![ROS 2 Documentation](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/rosdocs.png?raw=true)
+![ROS 2 Documentation](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rosdocs.png?token=GHSAT0AAAAAABQJBI4RE2MCYQ53KDG3AU3GYQMLUWA)
 
 
 * [The ROS 2 Docs](http://docs.ros.org) are the official ROS documentation pages. 
@@ -45,7 +45,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Answers
 
-![ROS Answers](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/answers.png?raw=true)
+![ROS Answers](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/answers.png?token=GHSAT0AAAAAABQJBI4RSUDUPKGWMKPHZ66YYQNRAAA)
 
 
 * [ROS Answers](http://answers.ros.org) are the official ROS Q&A Website. 
@@ -79,7 +79,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Index
 
-![ROS Index](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/index.png?raw=true)
+![ROS Index](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/index.png?token=GHSAT0AAAAAABQJBI4QEFDR6HIPMMWINO5KYQNQ6AA)
 
 
 * [ROS Index](http://index.ros.org) is a non-exhaustive list of ROS packages.
@@ -89,7 +89,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Wiki
 
-![ROS Wiki](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/wiki.png?raw=true)
+![ROS Wiki](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/wiki.png?token=GHSAT0AAAAAABQJBI4RDKVHH7G5N5MVI4LMYQNQ7RA)
 
 * The ROS Wiki is a collection of primarily **ROS 1** tutorials and resources.
 * While the wiki is primarily ROS 1 resources it still highly useful for new ROS 2 users.
@@ -101,7 +101,7 @@ Something about TurtleBot Manuals
 
 ### Ignition / Gazebo Resources
 
-![Ignition Fortress](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/fortress.jpg?raw=true)
+![Ignition Fortress](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg?token=GHSAT0AAAAAABQJBI4RPSKWALTWQKI7TIBIYQNQ5QA)
 
 * Ignition Gazebo has number of resources that are similar to ROS. 
 * [GazeboSim.org](http://gazebosim.org/) -- Main landing page for Ignition.
@@ -114,7 +114,7 @@ Something about TurtleBot Manuals
 
 ## Other Official ROS Resources
 
-![ROS World](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/rosworld2021.png?raw=true)
+![ROS World](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rosworld2021.png?token=GHSAT0AAAAAABQJBI4RJGJG7V4YAWQ6JEHSYQNQ6VQ)
 
 * [Build Farm](https://build.ros.org/) -- The ROS build farm. Watch as ROS packages are built, tested, and released.
 * [ROS.org](http://www.ros.org) -- Main landing page for ROS. We welcome community contributions.
