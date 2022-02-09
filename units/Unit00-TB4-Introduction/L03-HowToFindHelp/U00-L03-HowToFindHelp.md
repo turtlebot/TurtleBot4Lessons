@@ -87,8 +87,24 @@ template: ../media/TB4Template.pptx
 * ROS Index is a great place to find out about commonly used packages. 
 * Most common packages are availabe on ROS index and its search features are quite helpful. 
 
-## 
+## ROS Wiki
 
+![ROS Wiki](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/wiki.png?raw=true)
+
+* The ROS Wiki is a collection of primarily **ROS 1** tutorials and resources.
+* While the wiki is primarily ROS 1 resources it still highly useful for new ROS 2 users.
+* We suggest browsing the wiki but heed its advice with a grain of salt!
+
+## TurtleBot Manuals 
+
+Something about TurtleBot Manuals
+
+## Other Official ROS Resources
+
+* [ROS Metrics](http://metrics.ros.org)
+* [ROSCon / ROSWorld](http://roscon.ros.org)
+* [OpenRobotics.org](http://www,openrobotics.org) -- The organization behind ROS.
+* On Social Media -- [Open Robotics Twitter](https://twitter.com/OpenRoboticsOrg), [ROS Twitter](https://twitter.com/rosorg), [Gazebo Twitter](https://twitter.com/GazeboSim), and [LinkedIn](https://www.linkedin.com/company/open-source-robotics-foundation).
 
 
 
