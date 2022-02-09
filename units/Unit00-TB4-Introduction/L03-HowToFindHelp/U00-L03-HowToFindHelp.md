@@ -101,8 +101,14 @@ Something about TurtleBot Manuals
 
 ## Other Official ROS Resources
 
-* [ROS Metrics](http://metrics.ros.org)
-* [ROSCon / ROSWorld](http://roscon.ros.org)
+![ROS World](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/rosworld2021.png?raw=true)
+
+
+* [Build Farm](https://build.ros.org/) -- The ROS build farm. Watch as ROS packages are built, tested, and released.
+* [ROS.org](http://www.ros.org) -- Main landing page for ROS. We welcome community contributions.
+* [ROS Status](https://status.ros.org/) -- Check if any ROS website is down. 
+* [ROS Metrics](http://metrics.ros.org) -- Useful information on the growth of ROS.
+* [ROSCon / ROSWorld](http://roscon.ros.org) -- Our yearly developer conference. **Every talk is recorded and free online!**
 * [OpenRobotics.org](http://www,openrobotics.org) -- The organization behind ROS.
 * On Social Media -- [Open Robotics Twitter](https://twitter.com/OpenRoboticsOrg), [ROS Twitter](https://twitter.com/rosorg), [Gazebo Twitter](https://twitter.com/GazeboSim), and [LinkedIn](https://www.linkedin.com/company/open-source-robotics-foundation).
 
