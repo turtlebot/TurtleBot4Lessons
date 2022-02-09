@@ -10,27 +10,6 @@ template: ../media/TB4Template.pptx
 * You should bookmark all of these websites in your browser. 
 
 
-## Help Others Help You
-
-![Binary](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Question_in_a_question_in_a_question_in_a_question.gif/328px-Question_in_a_question_in_a_question_in_a_question.gif)
-
-
-* Writing a good question is a critical to getting a good response.
-* Generally speaking, the shorter the question, the less likely it is to be answered. 
-* Longer, more complete questions, that provide all the necessary information, allow others to more easily help you. 
-* A good ROS question should contain:
-  * The body of question with as much detail as possible. 
-  * General details about your system, such as host operating system, the version of ROS, and what packages you have installed.
-  * The error message in its entirety. This should be quoted text and not a screenshot,
-  * References to documentation, resources, and other questions you have tried but did not work. 
-* Distinguish between a discussion questions, poorly scoped questions, and legitimate errors and issues. 
-  * A discussion question is one where there is no single correct answer.
-    * Questions like, "What is the best...", or "How should I make X?" are discussion questions.
-  * A poorly scoped question is one where the response could be multiple paragraphs long. These sort of questions need to broken down into smaller parts.
-    * Questions like, "How do I build a delta robot in ROS?" or "How do I build a perception pipeline to find X?" are poorly scoped.
-  * Legitimate errors and issues are usually easily described. 
-    * Questions like, "When I do X, Y error occurs" or "When I use X, I expect Y but get Z, why is this?"
-
 ## ROS Discourse
 
 ![Discourse](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/discourse.png?token=GHSAT0AAAAAABQJBI4R3NBN6D6RVUL6XO5EYQMGQ7Q)
@@ -62,6 +41,56 @@ template: ../media/TB4Template.pptx
   * [micro.ros.org](https://micro.ros.org/) -- the micro-ROS documentation.
 * Some packages maintain their own documentation from their own repository or website (e.g. [SMACC](https://smacc.dev/)).
 * Other packages may be linked to from within the ROS 2 docs. These are available under [related projects.](https://docs.ros.org/en/rolling/Related-Projects.html)
+
+
+## ROS Answers
+
+![ROS Answers](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/answers.png?raw=true)
+
+
+* [ROS Answers](http://answers.ros.org) are the official ROS Q&A Website. 
+* ROS Answers is a Q&A website where users post questions that are answered by the community
+* Fun fact: ROS Answers was started roughly at the same time as Stack Overflow! 
+* Make sure to tag your question appropriately.
+* **Please search for your question before asking it!**
+* ROS Answers is maintained by volunteers and community members, please be considerate!
+
+## Help Others Help You
+
+![Binary](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Question_in_a_question_in_a_question_in_a_question.gif/328px-Question_in_a_question_in_a_question_in_a_question.gif)
+
+
+* Writing a good question is a critical to getting a good response.
+* Generally speaking, the shorter the question, the less likely it is to be answered. 
+* Longer, more complete questions, that provide all the necessary information, allow others to more easily help you. 
+* A good ROS question should contain:
+  * The body of question with as much detail as possible. 
+  * General details about your system, such as host operating system, the version of ROS, and what packages you have installed.
+  * The error message in its entirety. This should be quoted text and not a screenshot,
+  * References to documentation, resources, and other questions you have tried but did not work. 
+* Distinguish between a discussion questions, poorly scoped questions, and legitimate errors and issues. 
+  * A discussion question is one where there is no single correct answer.
+    * Questions like, "What is the best...", or "How should I make X?" are discussion questions.
+  * A poorly scoped question is one where the response could be multiple paragraphs long. These sort of questions need to broken down into smaller parts.
+    * Questions like, "How do I build a delta robot in ROS?" or "How do I build a perception pipeline to find X?" are poorly scoped.
+  * Legitimate errors and issues are usually easily described. 
+    * Questions like, "When I do X, Y error occurs" or "When I use X, I expect Y but get Z, why is this?"
+
+
+## ROS Index
+
+![ROS Index](https://github.com/osrf/TurtleBot4Lessons/blob/main/media/index.png?raw=true)
+
+
+* [ROS Index](http://index.ros.org) is a non-exhaustive list of ROS packages.
+* ROS Index will allow you to search packages by name and see relevant information about the supported distros, source repositories, documentation, and lots of other information.
+* ROS Index is a great place to find out about commonly used packages. 
+* Most common packages are availabe on ROS index and its search features are quite helpful. 
+
+## 
+
+
+
 
 # Turtle Bot 4 -- A Fancy Robot
 
