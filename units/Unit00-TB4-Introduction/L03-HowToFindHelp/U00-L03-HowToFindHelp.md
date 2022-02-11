@@ -161,6 +161,7 @@ template: ../media/TB4Template.pptx
 * [Unofficial ROS Dockerhub images](https://hub.docker.com/_/ros/) -- Docker images for most ROS distros.
 * [Awesome Robotic Tooling](https://github.com/protontypes/awesome-robotic-tooling) -- A fantastic list of robotics resources.
 * [Robotics World Wide](http://duerer.usc.edu/mailman/listinfo.cgi/robotics-worldwide) -- A world wide listserv of robotics researchers.
+* [ROS Industrial Traning](https://industrial-training-dev.readthedocs.io/en/latest/_source/session1/ros2/3-Creating-a-ROS-Package-and-Node.html)
 
 # Thoughts on Problem Solving
 

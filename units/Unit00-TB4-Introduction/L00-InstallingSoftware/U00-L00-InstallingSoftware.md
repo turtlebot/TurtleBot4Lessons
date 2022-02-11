@@ -1,5 +1,34 @@
 template: ../media/TB4Template.pptx
 
+template: ../media/TB4Template.pptx
+
+# Unit 0, Lesson 1: GazeboSim
+
+### Lesson Objectives 
+
+* Remember that robotics is hard. You will get stuck. You will make mistakes.
+* Being able to quickly find help for your problems is crucial skill. 
+* The objective for this lesson is to introduce the resources available for ROS.
+* You should bookmark all of these websites in your browser. 
+
+
+## ROS Discourse
+
+![Discourse](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/discourse.png?token=GHSAT0AAAAAABQJBI4R3NBN6D6RVUL6XO5EYQMGQ7Q)
+
+
+* [ROS Discourse](http://discourse.ros.org) is the official ROS discussion forum. 
+* ROS Discourse is intended for community announcements and discussion.
+  * **ROS Discourse should not be used for specific development questions.**
+* On ROS Discourse you find.
+  * Announcements of new packages and package releases.
+  * Announcements of ROS releases and updates.
+  * Technical discussions by package developers. 
+  * Event announcements.
+  * Regular news updates. 
+  * Meet other ROS developers and package maintainers. 
+
+
 # Unit 0, Lesson 0: Setting up Software
 
 ### Lesson Objectives 
