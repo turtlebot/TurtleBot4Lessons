@@ -15,7 +15,7 @@ template: ../media/TB4Template.pptx
 
 ### What is a Simulation?
 
-![The Matrix](https://commons.wikimedia.org/wiki/File:Matrix-plano_subjetivo.jpg)
+![The Matrix](https://upload.wikimedia.org/wikipedia/commons/a/a8/Matrix-plano_subjetivo.jpg?20211216120933)
 
 * A simulation is a virtual world that includes a subset of features from the real world. 
 * In the context of robotics, simulations are virtual worlds that allow roboticists to be more productive.
@@ -25,7 +25,7 @@ template: ../media/TB4Template.pptx
 
 ### Why Do We Use Simulation?
 
-![DARPA SubT](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/SubT-logo_centered_color-MAIN.png/638px-SubT-logo_centered_color-MAIN.png
+![DARPA SubT](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/SubT-logo_centered_color-MAIN.png/638px-SubT-logo_centered_color-MAIN.png)
 
 * It is often said that robots are best suited to dull, dirty, and dangerous tasks, and by extension so is the process of developing a robot. 
 * A simulation allows a robot developer to increase their productivity in a variety of ways.
