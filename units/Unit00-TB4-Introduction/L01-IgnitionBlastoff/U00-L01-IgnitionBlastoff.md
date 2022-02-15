@@ -36,16 +36,54 @@ template: ../media/TB4Template.pptx
 * Simulation has become ubiquitous in the field of robotics. Competitions like DARPA SubT, NIST ARIAC, VRX, and many others now use simulation for robotics competitions. 
 
 
-### What is Ignition
+### What is Ignition?
 
-* Ignition, is graphical simulation software mainted by the same group that maintains ROS, Open Robotics.
-* Ignition is latest incaration of the Gazebo simulator. Ignition is to Gazebo as ROS 1 is to ROS 2
+![Ignition Logo](https://ignitionrobotics.org/assets/images/logos/ignition_logo_color_horizontal.svg)
+
+* Ignition, is a collection of simulation software maintained by the same group that maintains ROS, Open Robotics.
+* At its core Ignition consists of game engine, a physics engine, a plug-in library, and the infrastructure necessary to interface ROS.
+* Ignition is latest incarnation of the Gazebo simulator. Ignition is to Gazebo as ROS 1 is to ROS 2
+* The Ignition simulator is called Ignition Gazebo, while the other software tools are referred to as Ignition.
+* Ignition supports a number of infrastructure tools that support developers:
+  * [Ignition Fuel](https://app.ignitionrobotics.org/fuel) -- A collection of drag-and-drop 3D assets and environments for scenario development.
+  * [Cloud Sim](https://gitlab.com/ignitionrobotics/web/cloudsim) -- A tool for running simulations on a cloud instance
+  * [SDFormat](http://sdformat.org/spec) -- A specification for creating rich simulation elements.
+
+### Installing Ignition Fortress
 
 
-### Installing Ignition
-* Ignition, like ROS 2, is free and open source software, but that doesn't mean it works perfectly on every computer! 
-* Due to frequent changes in the software libraries used in Ignition, not every operating system will have 
+![Ignition Fortess Logo](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg?token=GHSAT0AAAAAABQJBI4RQAB5ABAKPJV47E3QYQVLMFA)
 
+* Just like ROS, Ignition has a yearly release where odd year releases are considered long term support (LTS) releases. 
+* The TurtleBot4 Simulation use the Ignition Fortress LTS release.
+* [The full installtion notes for Ignition Fortress can be found on the Ignition Website.](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg?token=GHSAT0AAAAAABQJBI4RQAB5ABAKPJV47E3QYQVLMFA)
+* Ignition, like ROS 2, is free and open source software, and you should be able to run it on most systems, but that doesn't mean it works perfectly on every computer! 
+* Due to frequent changes in the software libraries used in Ignition, not every operating system will have binary packages for Download.
+* If your host OS is listed in the installation notes you should be able to install Fortress natively; otherwise we recommend that you install Fortress in a virtual machine. 
+
+### Installing Ignition Fortress II
+
+| Host OS |Recommended Installation |Configuration|Note|
+| Ubuntu 20.04   | [Standard Install](https://ignitionrobotics.org/docs/fortress/install_ubuntu)          | Binary / Apt    | **Recommended **              |
+| Ubuntu < 20.04 | [VM with Ubuntu 20.04](https://www.virtualbox.org/wiki/Downloads)                      | VM              | ROS 2 H/G Requires 20.04      |
+| Other Linux    | [VM with Ubuntu 20.04](https://www.virtualbox.org/wiki/Downloads)                      | VM              | Binary installation possible  |
+| Windows 10     | [Standard Windows Install](https://ignitionrobotics.org/docs/fortress/install_windows) | Binary / Conda  | Ubuntu VM is alternative      |
+| Other Windows  | [VM with Ubuntu 20.04](https://www.virtualbox.org/wiki/Downloads)                      | VM              |                               |
+| macOS          | [VM with Ubuntu 20.04](https://www.virtualbox.org/wiki/Downloads)                      | VM              | Ignition will work, ROS won’t |
+
+## Installing A Virtual Machine
+
+![VM](https://upload.wikimedia.org/wikipedia/commons/a/a2/VirtualBox_Guest_Additions_Logo_2010.png)
+
+* As you can see from the chart above most host operating sytems will require a virtual machine. 
+* While ROS and Igntion *can* run on a wide variety of operating systems many of them require compilation from source code.
+  * New users often run in to difficulties compiling from source. This is why we recommend a virtual machine. 
+* While a container is also a possible solution we recommend a VM as they are usually easier to navigate for new users. 
+* We recommend VirtualBox, but VMWare or any other VM should work just fine. 
+* The steps for VM installation are as follows:
+  * [Install the VM Client for your host system.](https://www.virtualbox.org/wiki/Downloads)
+  * [Create a new Virtual Machine and Install Ubuntu 20.04](https://linuxhint.com/install_ubuntu_virtualbox_2004/)
+  * [Start the VM and follow Ubuntu 20.04 Installation](https://ignitionrobotics.org/docs/fortress/install_ubuntu)
 
 ## ROS Discourse
 

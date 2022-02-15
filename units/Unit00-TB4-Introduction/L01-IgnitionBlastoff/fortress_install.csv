@@ -1,0 +1,8 @@
+,,,
+Host OS,Recommended Installation,Configuration,Note
+Ubuntu 20.04,[Standard Install](https://ignitionrobotics.org/docs/fortress/install_ubuntu),Binary / Apt ,**Recommended **
+Ubuntu < 20.04,[VM with Ubuntu 20.04](https://www.virtualbox.org/wiki/Downloads),VM,ROS 2 H/G Requires 20.04
+Other Linux,[VM with Ubuntu 20.04](https://www.virtualbox.org/wiki/Downloads),VM,Binary installation possible
+Windows 10,[Standard Windows Install](https://ignitionrobotics.org/docs/fortress/install_windows),Binary / Conda ,Ubuntu VM is alternative
+Other Windows,[VM with Ubuntu 20.04](https://www.virtualbox.org/wiki/Downloads),VM,
+macOS ,[VM with Ubuntu 20.04](https://www.virtualbox.org/wiki/Downloads),VM,"Ignition will work, ROS won’t"

@@ -50,7 +50,7 @@ sudo chmod +x md2pptx
 Md2pptx uses a template PowerPoint file as the basis for its slides. We've built a default TB4 template and it is located at <TODO>. You are more than welcome to modify this template as you see fit.
 
 
-# Creating Slides
+# Viewing Slides
 
 When creating slides it is helpful to see text and images a they render. The best solution I have found so far is to use a small python application called [grip](https://github.com/joeyespo/grip). 
 
@@ -66,6 +66,11 @@ sudo pip install grip
 grip -b index.md
 
 ```
+# Creating Tables 
+
+To generate markdown tables use [CSV2MD](https://github.com/lzakharov/csv2md). Please keep a local CSV file. 
+
+
 ## Helpful Links
 
 * [Free Wikimedia Images](https://commons.wikimedia.org/wiki/Main_Page)
