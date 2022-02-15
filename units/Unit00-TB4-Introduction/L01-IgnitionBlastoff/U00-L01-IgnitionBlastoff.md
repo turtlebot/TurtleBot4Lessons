@@ -79,11 +79,42 @@ template: ../media/TB4Template.pptx
 * While ROS and Igntion *can* run on a wide variety of operating systems many of them require compilation from source code.
   * New users often run in to difficulties compiling from source. This is why we recommend a virtual machine. 
 * While a container is also a possible solution we recommend a VM as they are usually easier to navigate for new users. 
-* We recommend VirtualBox, but VMWare or any other VM should work just fine. 
+* We recommend VirtualBox, but VMWare or any other VM client should work. 
 * The steps for VM installation are as follows:
   * [Install the VM Client for your host system.](https://www.virtualbox.org/wiki/Downloads)
   * [Create a new Virtual Machine and Install Ubuntu 20.04](https://linuxhint.com/install_ubuntu_virtualbox_2004/)
   * [Start the VM and follow Ubuntu 20.04 Installation](https://ignitionrobotics.org/docs/fortress/install_ubuntu)
+
+## Installing Ignition
+
+* For the rest of the lesson we'll assume you are running Ubuntu 20.04. 
+* The next step is to install the Ignition Fortress binaries.
+* Installation process is simple:
+  * Install tools
+  * Add GPG key for apt repositories
+  * Update package list
+  * Install Binaires
+* Apt is the Ubuntu installation tool, it is like an app-store for Linux.
+* Open a terminal and run the following commands
+
+```
+sudo apt-get install lsb-release wget gnupg
+sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+
+echo "deb [arch=$(dpkg --print-architecture) \
+	signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] \
+	http://packages.osrfoundation.org/gazebo/ubuntu-stable \
+	$(lsb_release -cs) main" | \
+	sudo tee /etc/apt/sources.list.d/gazebo-stable.list \
+	> /dev/null
+sudo apt-get update
+sudo apt-get install ignition-fortress
+```
+## Fire up Ignition
+
+* If everything installed correctly you can now start Ignition.
+* Open a terminal 
+
 
 ## ROS Discourse
 
