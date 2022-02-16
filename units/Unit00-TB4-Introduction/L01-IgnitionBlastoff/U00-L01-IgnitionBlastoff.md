@@ -146,7 +146,6 @@ pip install vcstool
 * Navigate to the workspace and install ROS 2 dependencies 
 
 ```
-
 mkdir -p ~/create3_ws/src
 vcs import ~/create3_ws/src/ < ~/create3_ws/src/create3_sim/dependencies.repos
 cd ~/create3_ws
