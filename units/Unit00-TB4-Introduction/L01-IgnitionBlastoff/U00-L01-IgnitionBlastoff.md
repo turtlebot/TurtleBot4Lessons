@@ -95,7 +95,7 @@ template: ../media/TB4Template.pptx
   * Update package list
   * Install Binaires
 * Apt is the Ubuntu installation tool, it is like an app-store for Linux.
-* Open a terminal and run the following commands
+* Open a terminal and run the following commands (Window-Ket+terminal):
 
 ```
 sudo apt-get install lsb-release wget gnupg
@@ -112,141 +112,74 @@ sudo apt-get install ignition-fortress
 ```
 ## Fire up Ignition
 
+![Shapes Demo](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/shapes.png?token=GHSAT0AAAAAABQJBI4QEDZJK4WCWAA5KGPUYQVO7EQ)
+
 * If everything installed correctly you can now start Ignition.
-* Open a terminal 
+* Open a terminal and type the command `ign gazebo shapes.sdf`.
+* If everything worked you should see the image 
 
+## Installing Simulation Dependencies
 
-## ROS Discourse
-
-![Discourse](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/discourse.png?token=GHSAT0AAAAAABQJBI4R3NBN6D6RVUL6XO5EYQMGQ7Q)
-
-
-* [ROS Discourse](http://discourse.ros.org) is the official ROS discussion forum. 
-* ROS Discourse is intended for community announcements and discussion.
-  * **ROS Discourse should not be used for specific development questions.**
-* On ROS Discourse you find.
-  * Announcements of new packages and package releases.
-  * Announcements of ROS releases and updates.
-  * Technical discussions by package developers. 
-  * Event announcements.
-  * Regular news updates. 
-  * Meet other ROS developers and package maintainers. 
-
-
-# Turtle Bot 4 -- A Fancy Robot
-
-* Let's learn about robots!
-
-## This Is A Presentation Section Page
-
-![A TurtleBot 4](../media/tb4.png)
-
-* Today we will learn how to use a TurtleBot 4
-
-### This Is A Bulleted List on TB4 Resources
-
-* One
-  * One A
-  * One B
-* Two
-   * foo
-   * bar
-   * baz
-   
-** Here are some slide notes. Note you leave an empty line between the content - in this case a bulleted list - and the notes. **
-
-
-## Here is a page with some code!
-
-* For help search [Google](http://www.google.com). 
-* `This is highlighted code`
-** This is emphasis code. ** 
-
-```
-      sudo apt update
-      sudo apt install -y python3-rosdep
-      sudo rosdep init
-      rosdep update
+``` 
+pip install colcon-common-extensions
+pip install rosdep
+pip install vcstool
 ```
 
-* This is some text describing above
+* The first step in the process is installing ROS 2 Galactic. 
+  * You should have done this in the prior lesson.
+* We will also need three ROS tools, `colcon-common-extensions`, `rosdep`, and `vcs`
+* `colcon-common-extensions` are add-ons to the ROS build tool Colcon
+* `rosdep` is a python tool for managing ROS dependencies. 
+* `vcs` is a Python tool that automates checking out and updating collections of repositories.
+* You can verify that these tools are installed using `pip list | grep vcstool`
 
-### Here is another page
+# iRobot Create
 
-* Herp
-* Derp
-* Slerp
-* Perp
+## Installation Instructions
 
-** WILL THIS TEXT SHOW UP? **
+* A sdfasdfasd
+* B asdfasdfasd
+* CASDf adflskjdf sdfas
 
-## How about an image and code 
+## Next Slide
 
-![A TurtleBot 4](../media/tb4.png)
-
-```
-      sudo apt update
-      sudo apt install -y python3-rosdep
-      sudo rosdep init
-      rosdep update
-```
-
-## How about an image and text???
-
-#### This slide is an image and text! This text won't appear
-
-* This text will appear!
-* So will this
-* So will this?
-
-![A TurtleBot 4](../media/tb4.png)
-
-### Let's try a different way
-
-* This text will appear!
-* So will this
-* So will this?
-
-![A TurtleBot 4](../media/tb4.png)
+![img]((https://upload.wikimedia.org/wikipedia/commons/a/a2/VirtualBox_Guest_Additions_Logo_2010.png))
 
 
-
-### What about an H4 with a wall of text
-
-**Here is some subtext**
-
-#### What happens with an H4
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices posuere lorem, eu dictum massa efficitur ac. Aenean at risus luctus, vulputate ex non, condimentum tellus. Aenean egestas, odio eu ornare eleifend, nulla enim efficitur nunc, non luctus velit purus a urna. Pellentesque magna odio, viverra eu enim non, hendrerit pulvinar nibh. Aenean blandit lacus et ex bibendum, at finibus orci rhoncus. Integer venenatis eros in scelerisque porta. Nam ligula sem, ullamcorper nec efficitur in, commodo sit amet justo. Praesent ut nibh ultrices, euismod eros in, consectetur risus. Fusce a imperdiet justo. Cras magna massa, venenatis non lectus ac, mattis luctus est.
-
-Phasellus varius rutrum ullamcorper. Maecenas iaculis rhoncus ipsum, id congue augue suscipit eu. Nullam varius neque non est congue tincidunt. Vestibulum a nulla ac felis consequat posuere. Ut vulputate malesuada placerat. Integer accumsan rhoncus magna sit amet laoreet. Nullam aliquet libero pharetra, suscipit felis at, faucibus enim. Sed metus massa, tincidunt vitae nunc quis, bibendum laoreet ante. Donec id egestas dui. Quisque blandit tellus augue, in cursus mauris malesuada eget.
-
-## How about two images?
-
-![A TurtleBot 4](../media/tb4.png)
-![A TurtleBot 4](../media/tb4.png)
-
-## What about tables?
-
-| a | b | c | d | e |
-|---|---|---|---|---|
-| 1 | 2 | 3 | 3 | 4 |
-| a | f | g | d | s |
-| s | s | s | s | s |
+* A sdfasdfasd
+* B asdfasdfasd
+* CASDf adflskjdf sdfas
 
 
-__This is a underlined under a table__
+## FOO BAR
 
-# Do we get syntax highlighting
+* A sdfasdfasd
+* B asdfasdfasd
+* CASDf adflskjdf sdfas
 
-```
-    def sortedNumericList(string):
-        return sorted(list(map(int, set(string.split()))))
+## New Section
 
-    def parseRGB(str):
-        if RGBmatch := RGBRegex.match(str):
-            # Matches
-            return (True, RGBmatch.group(1))
-        else:
-            return (False, "")
-```
+* A sdfasdfasd
+* B asdfasdfasd
+* CASDf adflskjdf sdfas
+
+
+## FOO BAR
+
+* A sdfasdfasd
+* B asdfasdfasd
+* CASDf adflskjdf sdfas
+
+## New Section
+
+* A sdfasdfasd
+* B asdfasdfasd
+* CASDf adflskjdf sdfas
+
+
+## FOO BAR
+
+* A sdfasdfasd
+* B asdfasdfasd
+* CASDf adflskjdf sdfas
