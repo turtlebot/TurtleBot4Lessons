@@ -198,6 +198,8 @@ source install/local_setup.bash
 
 ## Running the Simulator 
 
+![Sim1](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/sim1.png?token=GHSAT0AAAAAABQJBI4RNFGORPO2M3TUASPGYQVR3TQ)
+
 * To start the default simulation run:
   * `ros2 launch turtlebot4_ignition_bringup ignition.launch.py`
 * You can pick your TB4 configuration using the `model` param. Current options are `lite` and `standard`
