@@ -146,9 +146,9 @@ pip install vcstool
 * Navigate to the workspace and install ROS 2 dependencies 
 
 ```
-mkdir -p ~/create3_ws/src
-vcs import ~/create3_ws/src/ < ~/create3_ws/src/create3_sim/dependencies.repos
-cd ~/create3_ws
+mkdir -p ~/turtlebot4_ws/src
+vcs import ~/turtlebot4_ws/src/ < ~/turtlebot4_ws/src/create3_sim/dependencies.repos
+cd ~/turtlebot4_ws
 rosdep install --from-path src -yi
 colcon build --symlink-install
 source install/local_setup.bash
@@ -156,10 +156,55 @@ source install/local_setup.bash
 
 ## Run an Empty World 
 
+![Create3](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/create3.png?token=GHSAT0AAAAAABQJBI4QFJOCVSO33BML6N6QYQVRFLA)
 
-* B asdfasdfasd
-* CASDf adflskjdf sdfas
-* A sdfasdfasd
-* B asdfasdfasd
-* CASDf adflskjdf sdfas
 
+* If everything worked you can run the command below to see the Create3 mobile robot base."
+* `ros2 launch irobot_create_gazebo_bringup create3_gazebo.launch.py`
+
+
+## Install TB4 ROS Packages 
+
+* Now that we have installed the Create3 Simulation and ROS packages installed we can install the TurtleBot 4 software.
+* We'll be working in the same workspace we created for the Create 3 `~/turtlebot4_ws.`
+* We'll be checking out three Github repos, installing their dependencies, and building
+  * The Turtlebot simulator package
+  * The Turtlebot messages package
+  * The Turtlebot core package
+* TODO: Update repos
+
+
+```
+cd ~/turtlebot4_ws/src
+git clone git@github.com:clearpathrobotics/turtlebot4_sim.git
+vcs import ~/turtlebot4_ws/src/ < ~/turtlebot4_ws/src/turtlebot4_sim/dependencies.repos
+git clone git@github.com:clearpathrobotics/turtlebot4_msgs.git
+git clone git@github.com:clearpathrobotics/turtlebot4.git
+cd ~/turtlebot4_ws
+rosdep install --from-path src -yi
+```
+
+## Build the TurtleBot Simulator
+
+* Now that we have all the source code all that is left to do is to build it.
+* We're going to source our setup.bash file and then use run Colcon, ROS's build tool. 
+* This step may take some time depending on your system.
+
+```
+source ~/ignition_ws/install/setup.bash
+colcon build --symlink-install
+source install/local_setup.bash
+```
+
+## Running the Simulator 
+
+* To start the default simulation run:
+  * `ros2 launch turtlebot4_ignition_bringup ignition.launch.py`
+* You can pick your TB4 configuration using the `model` param. Current options are `lite` and `standard`
+  * `ros2 launch turtlebot4_ignition_bringup ignition.launch.py model:=lite`
+* TB4 comes with two simulation worlds, "depot.sdf" and "maze.sdf." You can select them with the `world` flag.
+  * `ros2 launch turtlebot4_ignition_bringup ignition.launch.py world:=depot.sdf`
+* You can launch the simulation directly into SLAM mode by running:
+  * `ros2 launch turtlebot4_ignition_bringup ignition.launch.py slam:=lidar rviz:=true`
+  * You can then start Nav 2 using the following command:
+	* `ros2 launch turtlebot4_ignition_bringup nav2.launch.py`
