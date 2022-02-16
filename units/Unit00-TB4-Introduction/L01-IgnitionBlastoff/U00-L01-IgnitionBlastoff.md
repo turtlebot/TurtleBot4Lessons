@@ -210,3 +210,7 @@ source install/local_setup.bash
   * `ros2 launch turtlebot4_ignition_bringup ignition.launch.py slam:=lidar rviz:=true`
   * You can then start Nav 2 using the following command:
 	* `ros2 launch turtlebot4_ignition_bringup nav2.launch.py`
+
+## Navigating Simulator
+
+![Sim1](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/igncontrols.png?token=GHSAT0AAAAAABQJBI4QYYDI46YRFORJWCKUYQVSZHA)
