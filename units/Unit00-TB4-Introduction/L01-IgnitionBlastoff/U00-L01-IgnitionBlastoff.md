@@ -118,6 +118,7 @@ sudo apt-get install ignition-fortress
 * Open a terminal and type the command `ign gazebo shapes.sdf`.
 * If everything worked you should see the image 
 
+
 ## Installing Simulation Dependencies
 
 ``` 
@@ -134,52 +135,32 @@ pip install vcstool
 * `vcs` is a Python tool that automates checking out and updating collections of repositories.
 * You can verify that these tools are installed using `pip list | grep vcstool`
 
-# iRobot Create
 
-## Installation Instructions
+## Inst
 
+![Shapes Demo](https://upload.wikimedia.org/wikipedia/en/4/47/IRobotCreate.jpg)
+
+* [Follow installation directions from iRobot](https://github.com/iRobotEducation/create3_sim/blob/main/README.md#prerequisites)
+* Create a workspace if you don't already have one.
+* Clone the Create 3 repository into the src directory.
+* Navigate to the workspace and install ROS 2 dependencies 
+
+```
+
+mkdir -p ~/create3_ws/src
+vcs import ~/create3_ws/src/ < ~/create3_ws/src/create3_sim/dependencies.repos
+cd ~/create3_ws
+rosdep install --from-path src -yi
+colcon build --symlink-install
+source install/local_setup.bash
+```
+
+## Run an Empty World 
+
+
+* B asdfasdfasd
+* CASDf adflskjdf sdfas
 * A sdfasdfasd
 * B asdfasdfasd
 * CASDf adflskjdf sdfas
 
-## Next Slide
-
-![img]((https://upload.wikimedia.org/wikipedia/commons/a/a2/VirtualBox_Guest_Additions_Logo_2010.png))
-
-
-* A sdfasdfasd
-* B asdfasdfasd
-* CASDf adflskjdf sdfas
-
-
-## FOO BAR
-
-* A sdfasdfasd
-* B asdfasdfasd
-* CASDf adflskjdf sdfas
-
-## New Section
-
-* A sdfasdfasd
-* B asdfasdfasd
-* CASDf adflskjdf sdfas
-
-
-## FOO BAR
-
-* A sdfasdfasd
-* B asdfasdfasd
-* CASDf adflskjdf sdfas
-
-## New Section
-
-* A sdfasdfasd
-* B asdfasdfasd
-* CASDf adflskjdf sdfas
-
-
-## FOO BAR
-
-* A sdfasdfasd
-* B asdfasdfasd
-* CASDf adflskjdf sdfas
