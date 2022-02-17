@@ -1,15 +1,45 @@
 template: ../media/TB4Template.pptx
 
-# Turtle Bot 4 -- A Fancy Robot
+### Lesson Objectives 
 
-* Let's learn about robots!
+* Familiarize yourself with the TurtleBot 4 
+* Connect the TurtleBot 4 to your local wifi.
+* Update the TurtleBot 4
+* Connect to the TurtleBot
+* Run the teleop launch files.
 
-## This Is A Presentation Section Page
+## The TurtleBot 4
 
-![A TurtleBot 4](../media/tb4.png)
+![A TurtleBot 4](../media/tb4.png) ![A TurtleBot 4 Lite](../media/tb4.png)
 
-* Today we will learn how to use a TurtleBot 4
+* There are two variants of the TurtleBot 4. 
+* TODO: DIAGRAMS
+* Turtle Bot 4 includes:
+  * [iRobot Create 3](https://edu.irobot.com/what-we-offer/create3)
+  * [RaspberryPi 4b - 4GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
+  * [OAK-D Pro](https://docs.luxonis.com/projects/hardware/en/latest/pages/DM9098pro.html)
+  * [RPLidar](https://www.slamtec.com/en/Lidar/A1) 
+  * Circuit Board
+* TurtleBot4 Lite
+  * [iRobot Create 3](https://edu.irobot.com/what-we-offer/create3)
+  * [RaspberryPi 4b - 4GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
+  * [RPLidar](https://www.slamtec.com/en/Lidar/A1) 
+  * [OAK-D Lite](https://docs.luxonis.com/projects/hardware/en/latest/pages/DM9095.html)
+  
+## Setting Up Your TurtleBot -- Connect to Wifi
 
+* Plug in dock, and place robot on dock to power it on.
+* It will take a few minutes for the robot to boot.
+* Using a Linxu PC to connect to RPI in your wifi settings:
+	* SSID: `Turtlebot4` Password: `Turtlebot4`
+* SSH into robot from the same laptop: `ssh ubuntu@10.42.0.1`
+  * Password: `turtlebot4`
+* In the home directory there is a script for setting up the WiFi `wifi.sh`
+* Call `bash wifi.sh -s "wifi_ssid" -p "wifi_password" -c REG_DOMAIN && sudo reboot`
+* `REG_DOMAIN` depends on your country, [see this list.](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm#regulatory_domain_3737302751_1017918) 
+* USA: `US`, Canada: `CA`, UK: `GB`, Germany: `DE`, Japan: `JP3`, Spain: `ES`.
+
+  
 ### This Is A Bulleted List on TB4 Resources
 
 * One
