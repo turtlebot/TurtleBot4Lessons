@@ -41,6 +41,19 @@ template: ../media/TB4Template.pptx
 * `REG_DOMAIN` depends on your country, [see this list.](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm#regulatory_domain_3737302751_1017918) 
 * USA: `US`, Canada: `CA`, UK: `GB`, Germany: `DE`, Japan: `JP3`, Spain: `ES`.
 
+## Now Setup the Create3 Wifi
+
+![Create Wifi Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/createwifisetup.png?token=GHSAT0AAAAAABQJBI4RVPHFBHP27J6JS2VIYQW5HAA)
+
+* TurtleBot has not one, but two computers on board and each of them needs to be connected to wifi.
+* This procedure is used to connect the Create3 to your wireless network.
+* Press both button 1 and 2 on the Create3 simultaneously until the light ring turns blue.
+* The Create3 is now in AP mode, connect to its WiFi `Create-XXXX`
+- In your web browser go to `192.168.10.1`
+- Click connect and enter your wifi SSID and password
+- Wait for it to connect to wifi, the ring light will turn white. 
+
+
   
 ### This Is A Bulleted List on TB4 Resources
 
