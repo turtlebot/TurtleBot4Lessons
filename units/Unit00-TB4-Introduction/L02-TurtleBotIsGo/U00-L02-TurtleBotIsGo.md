@@ -28,6 +28,8 @@ template: ../media/TB4Template.pptx
   
 ## Setting Up Your TurtleBot -- Connect to Wifi
 
+![wifi setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/wifisetup.png?token=GHSAT0AAAAAABQJBI4QI7XHQS57XDSAKJEYYQW42SA)
+
 * Plug in dock, and place robot on dock to power it on.
 * It will take a few minutes for the robot to boot.
 * Using a Linxu PC to connect to RPI in your wifi settings:
