@@ -211,6 +211,21 @@ source install/local_setup.bash
   * You can then start Nav 2 using the following command:
 	* `ros2 launch turtlebot4_ignition_bringup nav2.launch.py`
 
-## Navigating Simulator
+## Navigating Ignition 
 
 ![Sim1](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/igncontrols.png?token=GHSAT0AAAAAABQJBI4QYYDI46YRFORJWCKUYQVSZHA)
+
+## Controlling User View in Ignition
+
+![Mouse Controls](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/igncontrol.png?token=GHSAT0AAAAAABQJBI4RADDTKIHBZ4SOEEHUYQWZDHA)
+
+## Let's Try it Out
+
+![Directions](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/moverobotsim.png?token=GHSAT0AAAAAABQJBI4QZ7XZQ7PGDSQCMTZEYQW24DA)
+
+* Let's try the simulation out. 
+* First start the simulation by pressing the start button in the lower left hand corner. 
+* Then press the undock button on the create three. Wait for the robot to complete docking.
+* Set the velocity under the Teleop controller and move the robot away from the dock. 
+* Press dock and watch the robot move back to the dock. 
+
