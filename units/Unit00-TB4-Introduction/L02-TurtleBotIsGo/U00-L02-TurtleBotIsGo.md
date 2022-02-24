@@ -49,11 +49,86 @@ template: ../media/TB4Template.pptx
 * This procedure is used to connect the Create3 to your wireless network.
 * Press both button 1 and 2 on the Create3 simultaneously until the light ring turns blue.
 * The Create3 is now in AP mode, connect to its WiFi `Create-XXXX`
-- In your web browser go to `192.168.10.1`
-- Click connect and enter your wifi SSID and password
-- Wait for it to connect to wifi, the ring light will turn white. 
+* In your web browser go to `192.168.10.1`
+* Click connect and enter your wifi SSID and password
+* Wait for it to connect to wifi, the ring light will turn white. 
+
+## Check Your Installation
+
+![Internal Nodes](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/internalnodes.png?token=GHSAT0AAAAAABQJBI4R7I26QTKBUNZN7QCWYQ6YAZQ)
+
+* Give your TB4 a minute to save its configuration.
+* Reboot the Turtlebot4 by pressing <TODO>
+* The TB4 should have a white ring light and play a tone when it has started. 
+* Now find your TurtleBot's IP address <TODO> 
+* Open a terminal and SSH into the robot using: `ssh ubuntu@<TB4 IP>`
+* The password is `turtlebot4`
+* Let's check that everything is connected to the network, run the command
+  * `ros2 node list`
+* You should see the `_internal/*` nodes.
+  * If these nodes are not visible then the Create3 is not connected to the network. 
+	
+## Setting up Teleoperation
+
+![PS4 BLE Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/PS4BLE.png?token=GHSAT0AAAAAABQJBI4QQ3NFHHJPEZRLHZ44YQ6YS6Q)
+
+* Now let's connect to the robot and put it in teleoperation.
+* For this you'll need a bluetooth PS4 controller. Make sure it is charged!
+* ssh into the robot and run the following commands to enable bluetooth pairing.
+  * `sudo bluetoothctl`
+  * `default-agent`
+  * `scan on`
+  * After entering scan on the controller will respond, "Discovery started"
+* Now we'll put the controller into pairing mode by pressing and briefly holding the two buttons shown on the diagram.
+* The front light will start blinking rapidly twice in a row. 
+* You should see something like `[NEW] Device D8:E8:DD:8A:B9:30 <some string>`
+* At some point you should see something like `[NEW] Device D8:E8:DD:8A:B9:30 Wireless Controller`
 
 
+We just posted the latest episode of the @sense_think_act podcast. In this episode, Audrow interviews @timothyhchung, the program manager for the @DARPA #SubT challenge.
+ 
+https://www.sensethinkact.com/episodes/14-tim-chung 
+
+## Pairing the Bluetooth Controller
+
+![Foo]()
+
+* Once you see the controller copy its MAC address. It is the series of numbers of letters separated by colons.
+* Now run the following where <MAC> is your controller's unique MAC address. 
+  * `trust <MAC>`
+  * `pair <MAC>`
+  * `connect <MAC>`
+* You have now paired your bluetooth controller. You can exit the controller by calling `exit`
+* On subsequent connections you won't need to run through every step. Instead you can run:
+  * `sudo bluetoothctl`
+  * `pair <MAC>`
+  * `connect <MAC>`
+  * `exit`
+
+## Multiple Terminals with Byobu
+
+![Foo]()
+
+* Before we put the robot into teleoperation mode, we need to review how to open multiple terminals in an SSH session.
+* There are many terminal managers, also called multiplexers available for Linux. Examples include [Byobu](https://www.byobu.org/), [Tmux](https://www.ocf.berkeley.edu/~ckuehl/tmux/), and [GNU Screen](https://www.gnu.org/software/screen/).
+* For our examples, we'll use Byobu, but you can use whatever you're comfortable with! It is also worth noting that byobu generally uses tmux as its backend. 
+* To start byobu simply type `byobu` in your terminal.
+  * If byobu is not installed, simply run `sudo apt install byobu`.
+* To create a new terminal simply press `F2`.
+* To page through terminals use `F3` and `F4`.
+* `shift-F2` - Split the screen horizontally and `ctrl-F2`  Split the screen vertically.
+* `shift-F3` - Shift the focus to the previous and `shift-F4` Shift to the next split .
+* `ctrl-F6` - Remove this split
+* `ctrl-F5` - Reconnect GPG and SSH sockets
+* [Full documentation can be found here.](https://www.byobu.org/documentation) or by running `man byobu`, or `shift-F1` in Byobu.
+
+
+
+
+
+
+## Starting Teleoperation Mode.
+  
   
 ### This Is A Bulleted List on TB4 Resources
 
