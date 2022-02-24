@@ -28,7 +28,7 @@ template: ../media/TB4Template.pptx
   
 ## Setting Up Your TurtleBot -- Connect to Wifi
 
-![wifi setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/wifisetup.png?token=GHSAT0AAAAAABQJBI4QI7XHQS57XDSAKJEYYQW42SA)
+![wifi setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/wifisetup.png?token=GHSAT0AAAAAABR5R4E3L4LYJHVOB7JINGAEYRBFXUA)
 
 * Plug in dock, and place robot on dock to power it on.
 * It will take a few minutes for the robot to boot.
@@ -43,7 +43,7 @@ template: ../media/TB4Template.pptx
 
 ## Now Setup the Create3 Wifi
 
-![Create Wifi Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/createwifisetup.png?token=GHSAT0AAAAAABQJBI4RVPHFBHP27J6JS2VIYQW5HAA)
+![Create Wifi Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/createwifisetup.png?token=GHSAT0AAAAAABR5R4E3RZJC47Q6ZC23QYLAYRBFYKA)
 
 * TurtleBot has not one, but two computers on board and each of them needs to be connected to wifi.
 * This procedure is used to connect the Create3 to your wireless network.
@@ -84,14 +84,9 @@ template: ../media/TB4Template.pptx
 * You should see something like `[NEW] Device D8:E8:DD:8A:B9:30 <some string>`
 * At some point you should see something like `[NEW] Device D8:E8:DD:8A:B9:30 Wireless Controller`
 
-
-We just posted the latest episode of the @sense_think_act podcast. In this episode, Audrow interviews @timothyhchung, the program manager for the @DARPA #SubT challenge.
- 
-https://www.sensethinkact.com/episodes/14-tim-chung 
-
 ## Pairing the Bluetooth Controller
 
-![Foo]()
+![PS4 BLE Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/PS4BLE.png?token=GHSAT0AAAAAABQJBI4QQ3NFHHJPEZRLHZ44YQ6YS6Q)
 
 * Once you see the controller copy its MAC address. It is the series of numbers of letters separated by colons.
 * Now run the following where <MAC> is your controller's unique MAC address. 
@@ -100,14 +95,16 @@ https://www.sensethinkact.com/episodes/14-tim-chung
   * `connect <MAC>`
 * You have now paired your bluetooth controller. You can exit the controller by calling `exit`
 * On subsequent connections you won't need to run through every step. Instead you can run:
-  * `sudo bluetoothctl`
-  * `pair <MAC>`
-  * `connect <MAC>`
-  * `exit`
+  * Check the controller is running with:
+  * `ubuntu@ubuntu:~/turtlebot4_ws$ sudo bluetoothctl paired-devices`
+	* ` Device A5:15:66:C1:AC:46 Wireless Controller`
+  * If the device is there you're good to go. 
+  * Otherwise follow the steps above. 
+
 
 ## Multiple Terminals with Byobu
 
-![Foo]()
+![Byobu](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/byobu.png?token=GHSAT0AAAAAABR5R4E27LUFIF3BWXC5K4MCYRBFUUA)
 
 * Before we put the robot into teleoperation mode, we need to review how to open multiple terminals in an SSH session.
 * There are many terminal managers, also called multiplexers available for Linux. Examples include [Byobu](https://www.byobu.org/), [Tmux](https://www.ocf.berkeley.edu/~ckuehl/tmux/), and [GNU Screen](https://www.gnu.org/software/screen/).
@@ -122,12 +119,30 @@ https://www.sensethinkact.com/episodes/14-tim-chung
 * `ctrl-F5` - Reconnect GPG and SSH sockets
 * [Full documentation can be found here.](https://www.byobu.org/documentation) or by running `man byobu`, or `shift-F1` in Byobu.
 
+# Running Teleoperation
+	
+* ROS 2 uses "launch" files to run collections of small programs called nodes.
+* We're going to run a launch file called "joy_teleop.launch.py", where "joy_teleop" means "joystick teleoperation"
+* Create a terminal in your robot ssh session and run the following:
+  * `cd ~/turtlebot4_ws`
+	* Move to our ROS 2 "workspace."
+  * `source ./install/setup.bash`
+	* Tell the terminal we're using this ROS 2 workspace. 
+  * `ros2 launch turtlebot4_bringup joy_teleop.launch.py `
+	* Run the program `joy_teleop.launch.py` found in the directory` ~/turtlebot4_ws/src/turtlebot4/turtlebot4_bringup/launch/`,
+  * A bunch of stuff should appear on the screen.
+  * Note that the `tab` key should automatically complete most of these commands after you enter the first few letters. 
 
 
+# Moving the TB4 in Teleoperation Mode 
 
+* The TurtleBot4 controller operates as a "dead man's switch."
+* A "dead man's" switch is a safety feature that is often used with robot controllers. The user must hold down the "dead man switch" at all times; this prevents the robot from moving if the controller is dropped or misplaced.
+* For this controller "L", the button near your left index finger, is the deadman switch.
+* There is a second dead man switch, the "R" button near your right index finger. This switch makes the robot move faster. 
+* The left joystick controls the robot's direction. 
+* The robot is smart, and will temporarily disable the controller if hits a cliff or a big bump. It may also do this if you reverse suddenly. This mode is indicated by the ring light turning yellow. 
 
-
-## Starting Teleoperation Mode.
   
   
 ### This Is A Bulleted List on TB4 Resources
