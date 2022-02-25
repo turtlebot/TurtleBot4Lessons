@@ -120,6 +120,8 @@ template: ../media/TB4Template.pptx
 * [Full documentation can be found here.](https://www.byobu.org/documentation) or by running `man byobu`, or `shift-F1` in Byobu.
 
 # Running Teleoperation
+
+![Starting Teleoperation](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/launchjoy.png?token=GHSAT0AAAAAABR5R4E2Q3A6CWXJP6SVS772YRBKDHQ)
 	
 * ROS 2 uses "launch" files to run collections of small programs called nodes.
 * We're going to run a launch file called "joy_teleop.launch.py", where "joy_teleop" means "joystick teleoperation"
@@ -136,12 +138,21 @@ template: ../media/TB4Template.pptx
 
 # Moving the TB4 in Teleoperation Mode 
 
+![Buttons](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/ps4_button.png?token=GHSAT0AAAAAABR5R4E37VF4BKNPSZ7AADFQYRBKDJA)
+
 * The TurtleBot4 controller operates as a "dead man's switch."
 * A "dead man's" switch is a safety feature that is often used with robot controllers. The user must hold down the "dead man switch" at all times; this prevents the robot from moving if the controller is dropped or misplaced.
 * For this controller "L", the button near your left index finger, is the deadman switch.
 * There is a second dead man switch, the "R" button near your right index finger. This switch makes the robot move faster. 
 * The left joystick controls the robot's direction. 
 * The robot is smart, and will temporarily disable the controller if hits a cliff or a big bump. It may also do this if you reverse suddenly. This mode is indicated by the ring light turning yellow. 
+
+
+# Docking / Undocking 
+
+* TODO: These two do not work. 
+* `ros2 action send_goal /undock irobot_create_msgs/Undock '{}'`
+* `ros2 action send_goal /dock irobot_create_msgs/DockServo  '{}'`
 
   
   
