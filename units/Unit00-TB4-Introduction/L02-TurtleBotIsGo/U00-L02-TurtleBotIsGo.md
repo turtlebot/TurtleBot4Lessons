@@ -131,7 +131,7 @@ template: ../media/TB4Template.pptx
   * `source ./install/setup.bash`
 	* Tell the terminal we're using this ROS 2 workspace. 
   * `ros2 launch turtlebot4_bringup joy_teleop.launch.py `
-	* Run the program `joy_teleop.launch.py` found in the directory` ~/turtlebot4_ws/src/turtlebot4/turtlebot4_bringup/launch/`,
+	* Run the program `joy_teleop.launch.py` found in the directory` ~/turtlebot4_ws/src/turtlebot4/turtlebot4_bringup/launch/`.
   * A bunch of stuff should appear on the screen.
   * Note that the `tab` key should automatically complete most of these commands after you enter the first few letters. 
 
@@ -154,6 +154,25 @@ template: ../media/TB4Template.pptx
 * `ros2 action send_goal /undock irobot_create_msgs/Undock '{}'`
 * `ros2 action send_goal /dock irobot_create_msgs/DockServo  '{}'`
 
+
+# Alternative: Keyboard Teleoperation
+
+* If you don't have a joystick, or don't feel like connecting it to the robot, you can also teleoperate it with a your keyboard. 
+* The steps are similar to the teleoperation mode. 
+* Create a terminal in your robot ssh session and run the following:
+  * `cd ~/turtlebot4_ws`
+	* Move to our ROS 2 "workspace."
+  * `source ./install/setup.bash`
+	* Tell the terminal we're using this ROS 2 workspace. 
+  * `ros2 launch turtlebot4_bringup joy_teleop.launch.py `
+	* Run the program `joy_teleop.launch.py` found in the directory` ~/turtlebot4_ws/src/turtlebot4/turtlebot4_bringup/launch/`.
+  * Now, in a new byobu terminal kick off the keyboard teleoperation. 
+  * `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
+  * Follow the directions on the screen. 
+  * To exit hit `CTRL+C`.
+
+
+  
   
   
 ### This Is A Bulleted List on TB4 Resources
