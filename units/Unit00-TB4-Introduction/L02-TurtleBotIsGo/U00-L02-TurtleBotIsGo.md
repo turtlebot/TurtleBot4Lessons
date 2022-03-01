@@ -157,6 +157,8 @@ template: ../media/TB4Template.pptx
 
 # Alternative: Keyboard Teleoperation
 
+![Keyboard Teleop](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/teleop_keyboard.png?token=GHSAT0AAAAAABR5R4E3BXPBQQI3Q42NYKGMYRBN3KA)
+
 * If you don't have a joystick, or don't feel like connecting it to the robot, you can also teleoperate it with a your keyboard. 
 * The steps are similar to the teleoperation mode. 
 * Create a terminal in your robot ssh session and run the following:
@@ -171,8 +173,31 @@ template: ../media/TB4Template.pptx
   * Follow the directions on the screen. 
   * To exit hit `CTRL+C`.
 
+# Advanced Teleoperation
 
-  
+![RVIZ]()
+
+* Teleoperation is fun, but what if we want to move the TurtleBot to a nearby room and pilot it using the camera?
+* To do this we'll need a second laptop running ROS! 
+* On our laptop we'll run a program called `RVIZ`.
+* RVIZ is ROS's one stop shop for visualizing a running robot.
+  * RVIZ let's you see cameras, lidar, maps, the robot's state, and a whole bunch of other important information about your robot. 
+* To install RVIZ we'll first need to install ROS 2 on our lapop.
+
+# Installing ROS on Your Laptop
+
+![Galactic]()
+
+* We'll install `ROS 2 Galactic Geochelone` on your laptop. 
+* How you install ROS 2 will depend on your host will depend on your host OS. 
+* While ROS is open-source and *can run* on just about any OS, *it doesn't mean it is easy* to run it on every OS. 
+* If you are running Ubuntu 20.04 Focal Fossa then you can install ROS easily.
+  * [Follow this guide.](https://docs.ros.org/en/galactic/Installation/Ubuntu-Development-Setup.html)
+* If you *ARE NOT* running Ubuntu 20.04 then we recommend that you:
+  * Install a virtual machine client. 
+  * Create a virtual machine and install Ubuntu 22.04. 
+  * Follow the directions above inside of the virtual machine. 
+  * [We have created this tutorial for this process.](../../../tutorials/Tutorial-SettingUpAVirtualMachine.md) 
   
   
 ### This Is A Bulleted List on TB4 Resources
