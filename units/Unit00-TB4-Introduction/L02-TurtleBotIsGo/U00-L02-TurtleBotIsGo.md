@@ -175,7 +175,7 @@ template: ../media/TB4Template.pptx
 
 # Advanced Teleoperation
 
-![RVIZ]()
+![RVIZ](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz.png?token=GHSAT0AAAAAABR5R4E2RSO3BPPUNVPEPCEOYRGXDOA)
 
 * Teleoperation is fun, but what if we want to move the TurtleBot to a nearby room and pilot it using the camera?
 * To do this we'll need a second laptop running ROS! 
@@ -186,7 +186,7 @@ template: ../media/TB4Template.pptx
 
 # Installing ROS on Your Laptop
 
-![Galactic]()
+![Galactic](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/galactic.png?token=GHSAT0AAAAAABR5R4E25CL6PW6OJLKSZAMCYRGXD5Q)
 
 * We'll install `ROS 2 Galactic Geochelone` on your laptop. 
 * How you install ROS 2 will depend on your host will depend on your host OS. 
@@ -198,8 +198,35 @@ template: ../media/TB4Template.pptx
   * Create a virtual machine and install Ubuntu 22.04. 
   * Follow the directions above inside of the virtual machine. 
   * [We have created this tutorial for this process.](../../../tutorials/Tutorial-SettingUpAVirtualMachine.md) 
-  
-  
+
+# After ROS, Next Steps
+
+![Doctor](https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/How_I_Acted_for_an_Invalid_Doctor_1.tif/lossy-page1-719px-How_I_Acted_for_an_Invalid_Doctor_1.tif.jpg)
+
+* If the installation completed successfully you should be able to do the following:
+* Create a new terminal.
+* Activate ROS by calling `source /opt/ros/galactic/setup.bash` 
+* We will use a program called `ros2 doctor`. ROS Doctor is a command that will print out a variety of information about a ROS 2 system. 
+* Call `ros2 doctor`
+  * If everything worked successfully that last line of the command should report:
+	*`All 4 checks passed`
+  * If something failed the ROS 2 Doctor should report something.
+	* Run `ros2 doctor --report` and work with someone to correct the issue. 
+
+# Install RVIZ 
+
+![TODO: Image]()
+
+* We just installed ROS, but we still need to install RVIZ. 
+* We'll use a tool called apt to install RVIZ.
+* [Apt, also called Aptitude](https://wiki.debian.org/Aptitude)  is the Debian/Ubuntu package manager. You can find, install, upgrade, and uninstall just about anything using Apt.
+* It is worth familiarizing yourself with apt by running `apt --help` 
+* Run the command: `sudo apt install ros-galactic-rviz2`
+* Warning: Apt will spit out a ton of information as it installs the package for you!
+
+
+
+
 ### This Is A Bulleted List on TB4 Resources
 
 * One
