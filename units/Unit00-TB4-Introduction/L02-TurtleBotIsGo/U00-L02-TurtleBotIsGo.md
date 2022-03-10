@@ -3,7 +3,7 @@ template: ../media/TB4Template.pptx
 ### Lesson Objectives 
 
 * Familiarize yourself with the TurtleBot 4 
-* Connect the TurtleBot 4 to your local wifi.
+* Connect the TurtleBot 4 to your local WiFi.
 * Update the TurtleBot 4
 * Connect to the TurtleBot
 * Run the teleop launch files.
@@ -26,13 +26,13 @@ template: ../media/TB4Template.pptx
   * [RPLidar](https://www.slamtec.com/en/Lidar/A1) 
   * [OAK-D Lite](https://docs.luxonis.com/projects/hardware/en/latest/pages/DM9095.html)
   
-## Setting Up Your TurtleBot -- Connect to Wifi
+## Setting Up Your TurtleBot -- Connect to WiFi
 
-![wifi setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/wifisetup.png?token=GHSAT0AAAAAABR5R4E3L4LYJHVOB7JINGAEYRBFXUA)
+![WiFi setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/wifisetup.png?token=GHSAT0AAAAAABR5R4E3L4LYJHVOB7JINGAEYRBFXUA)
 
 * Plug in dock, and place robot on dock to power it on.
 * It will take a few minutes for the robot to boot.
-* Using a Linxu PC to connect to RPI in your wifi settings:
+* Using a Linux PC to connect to RPI in your WiFi settings:
 	* SSID: `Turtlebot4` Password: `Turtlebot4`
 * SSH into robot from the same laptop: `ssh ubuntu@10.42.0.1`
   * Password: `turtlebot4`
@@ -182,7 +182,7 @@ template: ../media/TB4Template.pptx
 * On our laptop we'll run a program called `RVIZ`.
 * RVIZ is ROS's one stop shop for visualizing a running robot.
   * RVIZ let's you see cameras, lidar, maps, the robot's state, and a whole bunch of other important information about your robot. 
-* To install RVIZ we'll first need to install ROS 2 on our lapop.
+* To install RVIZ we'll first need to install ROS 2 on our laptop.
 
 # Installing ROS on Your Laptop
 
