@@ -85,7 +85,7 @@ template: ../media/TB4Template.pptx
 * ROS distributions are released yearly on May 23rd, [World Turtle Day.](https://www.worldturtleday.org/)
 * Even year releases are considered _long term support_ (LTS) distributions.
   * ROS 2 Foxy Fitzroy and Humble Hawksbill are LTS Releases. 
-  * This means they recieve regular updates and bug fixes for a set period of time, usually three to five years. 
+  * This means they receive regular updates and bug fixes for a set period of time, usually three to five years. 
   * *Most users should use the latest LTS version of ROS.*
 * Odd year releases are only supported for a short period of time (example: ROS 2 Galactic).
 * ROS 2 also has what we call a "rolling" release, called Rolling Ridley

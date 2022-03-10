@@ -52,11 +52,11 @@ template: ../media/TB4Template.pptx
 ### Installing Ignition Fortress
 
 
-![Ignition Fortess Logo](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg?token=GHSAT0AAAAAABQJBI4RQAB5ABAKPJV47E3QYQVLMFA)
+![Ignition Fortress Logo](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg?token=GHSAT0AAAAAABQJBI4RQAB5ABAKPJV47E3QYQVLMFA)
 
 * Just like ROS, Ignition has a yearly release where odd year releases are considered long term support (LTS) releases. 
 * The TurtleBot4 Simulation use the Ignition Fortress LTS release.
-* [The full installtion notes for Ignition Fortress can be found on the Ignition Website.](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg?token=GHSAT0AAAAAABQJBI4RQAB5ABAKPJV47E3QYQVLMFA)
+* [The full installation notes for Ignition Fortress can be found on the Ignition Website.](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg?token=GHSAT0AAAAAABQJBI4RQAB5ABAKPJV47E3QYQVLMFA)
 * Ignition, like ROS 2, is free and open source software, and you should be able to run it on most systems, but that doesn't mean it works perfectly on every computer! 
 * Due to frequent changes in the software libraries used in Ignition, not every operating system will have binary packages for Download.
 * If your host OS is listed in the installation notes you should be able to install Fortress natively; otherwise we recommend that you install Fortress in a virtual machine. 
@@ -75,8 +75,8 @@ template: ../media/TB4Template.pptx
 
 ![VM](https://upload.wikimedia.org/wikipedia/commons/a/a2/VirtualBox_Guest_Additions_Logo_2010.png)
 
-* As you can see from the chart above most host operating sytems will require a virtual machine. 
-* While ROS and Igntion *can* run on a wide variety of operating systems many of them require compilation from source code.
+* As you can see from the chart above most host operating systems will require a virtual machine. 
+* While ROS and Ignition *can* run on a wide variety of operating systems many of them require compilation from source code.
   * New users often run in to difficulties compiling from source. This is why we recommend a virtual machine. 
 * While a container is also a possible solution we recommend a VM as they are usually easier to navigate for new users. 
 * We recommend VirtualBox, but VMWare or any other VM client should work. 
@@ -93,9 +93,9 @@ template: ../media/TB4Template.pptx
   * Install tools
   * Add GPG key for apt repositories
   * Update package list
-  * Install Binaires
+  * Install Binaries
 * Apt is the Ubuntu installation tool, it is like an app-store for Linux.
-* Open a terminal and run the following commands (Window-Ket+terminal):
+* Open a terminal and run the following commands (Window-Key+terminal):
 
 ```
 sudo apt-get install lsb-release wget gnupg
