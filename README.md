@@ -1,6 +1,6 @@
 # Please Note
 
-* This repository is a work in progress, the lessons may be incomplete or unfinished. *
+** This repository is a work in progress, the lessons may be incomplete or unfinished. **
 
 # TurtleBot4Lessons
 
