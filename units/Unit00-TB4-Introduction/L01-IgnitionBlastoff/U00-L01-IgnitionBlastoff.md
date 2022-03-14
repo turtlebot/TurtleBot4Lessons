@@ -11,8 +11,6 @@ template: ../media/TB4Template.pptx
 * Understand the steps involved in the setup process
 * Learn basic controls for both Ignition and TurtleBot. 
 
-
-
 ### What is a Simulation?
 
 ![The Matrix](https://upload.wikimedia.org/wikipedia/commons/a/a8/Matrix-plano_subjetivo.jpg?20211216120933)
@@ -51,12 +49,11 @@ template: ../media/TB4Template.pptx
 
 ### Installing Ignition Fortress
 
-
-![Ignition Fortress Logo](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg?token=GHSAT0AAAAAABQJBI4RQAB5ABAKPJV47E3QYQVLMFA)
+![Ignition Fortress Logo](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg)
 
 * Just like ROS, Ignition has a yearly release where odd year releases are considered long term support (LTS) releases. 
 * The TurtleBot4 Simulation use the Ignition Fortress LTS release.
-* [The full installation notes for Ignition Fortress can be found on the Ignition Website.](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg?token=GHSAT0AAAAAABQJBI4RQAB5ABAKPJV47E3QYQVLMFA)
+* [The full installation notes for Ignition Fortress can be found on the Ignition Website.](https://www.ignitionrobotics.org/home)
 * Ignition, like ROS 2, is free and open source software, and you should be able to run it on most systems, but that doesn't mean it works perfectly on every computer! 
 * Due to frequent changes in the software libraries used in Ignition, not every operating system will have binary packages for Download.
 * If your host OS is listed in the installation notes you should be able to install Fortress natively; otherwise we recommend that you install Fortress in a virtual machine. 
@@ -112,7 +109,7 @@ sudo apt-get install ignition-fortress
 ```
 ## Fire up Ignition
 
-![Shapes Demo](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/shapes.png?token=GHSAT0AAAAAABQJBI4QEDZJK4WCWAA5KGPUYQVO7EQ)
+![Shapes Demo](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/shapes.png)
 
 * If everything installed correctly you can now start Ignition.
 * Open a terminal and type the command `ign gazebo shapes.sdf`.
@@ -156,7 +153,7 @@ source install/local_setup.bash
 
 ## Run an Empty World 
 
-![Create3](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/create3.png?token=GHSAT0AAAAAABQJBI4QFJOCVSO33BML6N6QYQVRFLA)
+![Create3](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/create3.png)
 
 
 * If everything worked you can run the command below to see the Create3 mobile robot base."
@@ -198,7 +195,7 @@ source install/local_setup.bash
 
 ## Running the Simulator 
 
-![Sim1](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/sim1.png?token=GHSAT0AAAAAABQJBI4RNFGORPO2M3TUASPGYQVR3TQ)
+![Sim1](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/sim1.png)
 
 * To start the default simulation run:
   * `ros2 launch turtlebot4_ignition_bringup ignition.launch.py`
@@ -213,11 +210,11 @@ source install/local_setup.bash
 
 ## Navigating Ignition 
 
-![Sim1](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/igncontrols.png?token=GHSAT0AAAAAABQJBI4QYYDI46YRFORJWCKUYQVSZHA)
+![Sim1](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/igncontrols.png)
 
 ## Controlling User View in Ignition
 
-![Mouse Controls](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/igncontrol.png?token=GHSAT0AAAAAABQJBI4RADDTKIHBZ4SOEEHUYQWZDHA)
+![Mouse Controls](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/igncontrol.png)
 
 ## Let's Try it Out
 

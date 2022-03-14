@@ -12,7 +12,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Discourse
 
-![Discourse](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/discourse.png?token=GHSAT0AAAAAABQJBI4R3NBN6D6RVUL6XO5EYQMGQ7Q)
+![Discourse](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/discourse.png)
 
 
 * [ROS Discourse](http://discourse.ros.org) is the official ROS discussion forum. 
@@ -28,7 +28,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS 2 Documentation 
 
-![ROS 2 Documentation](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rosdocs.png?token=GHSAT0AAAAAABQJBI4RE2MCYQ53KDG3AU3GYQMLUWA)
+![ROS 2 Documentation](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rosdocs.png)
 
 
 * [The ROS 2 Docs](http://docs.ros.org) are the official ROS documentation pages. 
@@ -45,7 +45,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Answers
 
-![ROS Answers](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/answers.png?token=GHSAT0AAAAAABQJBI4RSUDUPKGWMKPHZ66YYQNRAAA)
+![ROS Answers](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/answers.png)
 
 
 * [ROS Answers](http://answers.ros.org) are the official ROS Q&A Website. 
@@ -80,7 +80,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Index
 
-![ROS Index](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/index.png?token=GHSAT0AAAAAABQJBI4QEFDR6HIPMMWINO5KYQNQ6AA)
+![ROS Index](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/index.png)
 
 
 * [ROS Index](http://index.ros.org) is a non-exhaustive list of ROS packages.
@@ -90,7 +90,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Wiki
 
-![ROS Wiki](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/wiki.png?token=GHSAT0AAAAAABQJBI4RDKVHH7G5N5MVI4LMYQNQ7RA)
+![ROS Wiki](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/wiki.png)
 
 * The ROS Wiki is a collection of primarily **ROS 1** tutorials and resources.
 * While the wiki is primarily ROS 1 resources it still highly useful for new ROS 2 users.
@@ -98,7 +98,7 @@ template: ../media/TB4Template.pptx
 
 ## TurtleBot Manuals & Other Resources
 
-![OAK-D Pro](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/oakdpro.jpg?token=GHSAT0AAAAAABQJBI4RSZ23O5FX6C2SZ7E2YQNRM7Q)
+![OAK-D Pro](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/oakdpro.jpg)
 
 * [Create 3 Manual](https://edu.irobot.com/what-we-offer/create3) -- manual for the TB4 mobile base.
 * [RPLidar Documentation](https://rplidar.readthedocs.io/en/latest/) -- manual for the RPLidar.
@@ -112,7 +112,7 @@ template: ../media/TB4Template.pptx
 
 ### Ignition / Gazebo Resources
 
-![Ignition Fortress](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg?token=GHSAT0AAAAAABQJBI4RPSKWALTWQKI7TIBIYQNQ5QA)
+![Ignition Fortress](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fortress.jpg)
 
 * Ignition Gazebo has number of resources that are similar to ROS. 
 * [GazeboSim.org](http://gazebosim.org/) -- Main landing page for Ignition.
@@ -125,7 +125,7 @@ template: ../media/TB4Template.pptx
 
 ## Other Official ROS Resources
 
-![ROS World](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rosworld2021.png?token=GHSAT0AAAAAABQJBI4RJGJG7V4YAWQ6JEHSYQNQ6VQ)
+![ROS World](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rosworld2021.png)
 
 * [Build Farm](https://build.ros.org/) -- The ROS build farm. Watch as ROS packages are built, tested, and released.
 * [ROS.org](http://www.ros.org) -- Main landing page for ROS. We welcome community contributions.
@@ -179,4 +179,3 @@ template: ../media/TB4Template.pptx
 * Searching Github for a function call is often another way to find useful examples. 
 * Good git practice also helps! You should compile, test, and commit your code often, generally every time you write a function.
   * If you encounter an error that you can't solve use `git stash` to return to your last commit and systematically eliminate possible causes. 
-  

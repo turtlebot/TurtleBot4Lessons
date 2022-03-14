@@ -14,7 +14,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Discourse
 
-![Discourse](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/discourse.png?token=GHSAT0AAAAAABQJBI4R3NBN6D6RVUL6XO5EYQMGQ7Q)
+![Discourse](https://github.com/turtlebot/TurtleBot4Lessons/blob/main/media/discourse.png?raw=true)
 
 
 * [ROS Discourse](http://discourse.ros.org) is the official ROS discussion forum. 
@@ -80,7 +80,7 @@ template: ../media/TB4Template.pptx
 
 ## ROS Distros
 
-![ROS and Linux Distros](https://raw.githubusercontent.com/ros-infrastructure/artwork/master/distributions/rolling/rolling.png)
+![ROS and Linux Distros](https://github.com/turtlebot/TurtleBot4Lessons/blob/main/media/rolling.png?raw=true)
 
 * ROS distributions are released yearly on May 23rd, [World Turtle Day.](https://www.worldturtleday.org/)
 * Even year releases are considered _long term support_ (LTS) distributions.
@@ -117,8 +117,6 @@ template: ../media/TB4Template.pptx
 * Your TB4 and your laptop will need to be on the same network, and you will need the TurtleBot's IP address. 
 * Setting up an SSH connection to your TB4 is covered under [Tutorial X: How to SSH into a TurtleBot 4](TODO). 
 
-
-
 ### Laptops and Robots 
 
 ![Operating Systems](https://upload.wikimedia.org/wikipedia/commons/b/b8/Cart_pushing_rviz_holonomic.jpg)
@@ -137,10 +135,8 @@ template: ../media/TB4Template.pptx
   * Your best bet is to have your laptop and robot run the same OS and ROS Version!
 * There are work arounds if this isn't feasible.
 
-
 ### Connecting Robots and Laptops 
  
-
 * Up until now we've been talking about the OS and ROS Distro on a robot, like the TB4.
 * When you're using, programming, or debugging a robot you'll need to interact with the robot's code. 
 * Depending on what you are doing, your laptop may need to run ROS too! 
@@ -151,7 +147,6 @@ template: ../media/TB4Template.pptx
 * In these three cases your laptop may need to run ROS too!
 * **If two or more computers are using ROS in robot, then they must use the same ROS Distro**
 * Ordinarily, you can not connect two different ROS distros together!
-
 
 ### Virtual Machines, Containers, and ROS
 
@@ -197,7 +192,6 @@ template: ../media/TB4Template.pptx
 
 ### Connecting Robots and Laptops 
  
-
 * **How do I run software on my TurtleBot4?** 
  * SSH 
  * Virtual Machines
@@ -214,118 +208,3 @@ template: ../media/TB4Template.pptx
 * **If two or more computers are using ROS in robot, then they must use the same ROS Distro**
 * `Ordinarily, you can not connect two different ROS distros together!`
 
-
-
-## This Is A Presentation Section Page
-
-![A TurtleBot 4](../../../media/tb4.png)
-
-* Today we will learn how to use a TurtleBot 4
-
-### This Is A Bulleted List on TB4 Resources
-
-* One
-  * One A
-  * One B
-* Two
-   * foo
-   * bar
-   * baz
-   
-** Here are some slide notes. Note you leave an empty line between the content - in this case a bulleted list - and the notes. **
-
-
-## Here is a page with some code!
-
-* For help search [Google](http://www.google.com). 
-* `This is highlighted code`
-** This is emphasis code. ** 
-
-```
-      sudo apt update
-      sudo apt install -y python3-rosdep
-      sudo rosdep init
-      rosdep update
-```
-
-* This is some text describing above
-
-### Here is another page
-
-* Herp
-* Derp
-* Slerp
-* Perp
-
-** WILL THIS TEXT SHOW UP? **
-
-## How about an image and code 
-
-![A TurtleBot 4](../media/tb4.png)
-
-```
-      sudo apt update
-      sudo apt install -y python3-rosdep
-      sudo rosdep init
-      rosdep update
-```
-
-## How about an image and text???
-
-#### This slide is an image and text! This text won't appear
-
-* This text will appear!
-* So will this
-* So will this?
-
-![A TurtleBot 4](../media/tb4.png)
-
-### Let's try a different way
-
-* This text will appear!
-* So will this
-* So will this?
-
-![A TurtleBot 4](../media/tb4.png)
-
-
-
-### What about an H4 with a wall of text
-
-**Here is some subtext**
-
-#### What happens with an H4
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices posuere lorem, eu dictum massa efficitur ac. Aenean at risus luctus, vulputate ex non, condimentum tellus. Aenean egestas, odio eu ornare eleifend, nulla enim efficitur nunc, non luctus velit purus a urna. Pellentesque magna odio, viverra eu enim non, hendrerit pulvinar nibh. Aenean blandit lacus et ex bibendum, at finibus orci rhoncus. Integer venenatis eros in scelerisque porta. Nam ligula sem, ullamcorper nec efficitur in, commodo sit amet justo. Praesent ut nibh ultrices, euismod eros in, consectetur risus. Fusce a imperdiet justo. Cras magna massa, venenatis non lectus ac, mattis luctus est.
-
-Phasellus varius rutrum ullamcorper. Maecenas iaculis rhoncus ipsum, id congue augue suscipit eu. Nullam varius neque non est congue tincidunt. Vestibulum a nulla ac felis consequat posuere. Ut vulputate malesuada placerat. Integer accumsan rhoncus magna sit amet laoreet. Nullam aliquet libero pharetra, suscipit felis at, faucibus enim. Sed metus massa, tincidunt vitae nunc quis, bibendum laoreet ante. Donec id egestas dui. Quisque blandit tellus augue, in cursus mauris malesuada eget.
-
-## How about two images?
-
-![A TurtleBot 4](../media/tb4.png)
-![A TurtleBot 4](../media/tb4.png)
-
-## What about tables?
-
-| a | b | c | d | e |
-|---|---|---|---|---|
-| 1 | 2 | 3 | 3 | 4 |
-| a | f | g | d | s |
-| s | s | s | s | s |
-
-
-__This is a underlined under a table__
-
-# Do we get syntax highlighting
-
-```
-    def sortedNumericList(string):
-        return sorted(list(map(int, set(string.split()))))
-
-    def parseRGB(str):
-        if RGBmatch := RGBRegex.match(str):
-            # Matches
-            return (True, RGBmatch.group(1))
-        else:
-            return (False, "")
-```

@@ -28,7 +28,7 @@ template: ../media/TB4Template.pptx
   
 ## Setting Up Your TurtleBot -- Connect to WiFi
 
-![WiFi setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/wifisetup.png?token=GHSAT0AAAAAABR5R4E3L4LYJHVOB7JINGAEYRBFXUA)
+![WiFi setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/wifisetup.png)
 
 * Plug in dock, and place robot on dock to power it on.
 * It will take a few minutes for the robot to boot.
@@ -43,7 +43,7 @@ template: ../media/TB4Template.pptx
 
 ## Now Setup the Create3 Wifi
 
-![Create Wifi Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/createwifisetup.png?token=GHSAT0AAAAAABR5R4E3RZJC47Q6ZC23QYLAYRBFYKA)
+![Create Wifi Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/createwifisetup.png)
 
 * TurtleBot has not one, but two computers on board and each of them needs to be connected to wifi.
 * This procedure is used to connect the Create3 to your wireless network.
@@ -55,7 +55,7 @@ template: ../media/TB4Template.pptx
 
 ## Check Your Installation
 
-![Internal Nodes](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/internalnodes.png?token=GHSAT0AAAAAABQJBI4R7I26QTKBUNZN7QCWYQ6YAZQ)
+![Internal Nodes](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/internalnodes.png)
 
 * Give your TB4 a minute to save its configuration.
 * Reboot the Turtlebot4 by pressing <TODO>
@@ -70,7 +70,7 @@ template: ../media/TB4Template.pptx
 	
 ## Setting up Teleoperation
 
-![PS4 BLE Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/PS4BLE.png?token=GHSAT0AAAAAABQJBI4QQ3NFHHJPEZRLHZ44YQ6YS6Q)
+![PS4 BLE Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/PS4BLE.png)
 
 * Now let's connect to the robot and put it in teleoperation.
 * For this you'll need a bluetooth PS4 controller. Make sure it is charged!
@@ -86,7 +86,7 @@ template: ../media/TB4Template.pptx
 
 ## Pairing the Bluetooth Controller
 
-![PS4 BLE Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/PS4BLE.png?token=GHSAT0AAAAAABQJBI4QQ3NFHHJPEZRLHZ44YQ6YS6Q)
+![PS4 BLE Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/PS4BLE.png)
 
 * Once you see the controller copy its MAC address. It is the series of numbers of letters separated by colons.
 * Now run the following where <MAC> is your controller's unique MAC address. 
@@ -104,7 +104,7 @@ template: ../media/TB4Template.pptx
 
 ## Multiple Terminals with Byobu
 
-![Byobu](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/byobu.png?token=GHSAT0AAAAAABR5R4E27LUFIF3BWXC5K4MCYRBFUUA)
+![Byobu](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/byobu.png)
 
 * Before we put the robot into teleoperation mode, we need to review how to open multiple terminals in an SSH session.
 * There are many terminal managers, also called multiplexers available for Linux. Examples include [Byobu](https://www.byobu.org/), [Tmux](https://www.ocf.berkeley.edu/~ckuehl/tmux/), and [GNU Screen](https://www.gnu.org/software/screen/).
@@ -121,7 +121,7 @@ template: ../media/TB4Template.pptx
 
 # Running Teleoperation
 
-![Starting Teleoperation](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/launchjoy.png?token=GHSAT0AAAAAABR5R4E2Q3A6CWXJP6SVS772YRBKDHQ)
+![Starting Teleoperation](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/launchjoy.png)
 	
 * ROS 2 uses "launch" files to run collections of small programs called nodes.
 * We're going to run a launch file called "joy_teleop.launch.py", where "joy_teleop" means "joystick teleoperation"
@@ -138,7 +138,7 @@ template: ../media/TB4Template.pptx
 
 # Moving the TB4 in Teleoperation Mode 
 
-![Buttons](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/ps4_button.png?token=GHSAT0AAAAAABR5R4E37VF4BKNPSZ7AADFQYRBKDJA)
+![Buttons](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/ps4_button.png)
 
 * The TurtleBot4 controller operates as a "dead man's switch."
 * A "dead man's" switch is a safety feature that is often used with robot controllers. The user must hold down the "dead man switch" at all times; this prevents the robot from moving if the controller is dropped or misplaced.
@@ -157,7 +157,7 @@ template: ../media/TB4Template.pptx
 
 # Alternative: Keyboard Teleoperation
 
-![Keyboard Teleop](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/teleop_keyboard.png?token=GHSAT0AAAAAABR5R4E3BXPBQQI3Q42NYKGMYRBN3KA)
+![Keyboard Teleop](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/teleop_keyboard.png)
 
 * If you don't have a joystick, or don't feel like connecting it to the robot, you can also teleoperate it with a your keyboard. 
 * The steps are similar to the teleoperation mode. 
@@ -175,7 +175,7 @@ template: ../media/TB4Template.pptx
 
 # Advanced Teleoperation
 
-![RVIZ](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz.png?token=GHSAT0AAAAAABR5R4E2RSO3BPPUNVPEPCEOYRGXDOA)
+![RVIZ](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz.png)
 
 * Teleoperation is fun, but what if we want to move the TurtleBot to a nearby room and pilot it using the camera?
 * To do this we'll need a second laptop running ROS! 
@@ -186,7 +186,7 @@ template: ../media/TB4Template.pptx
 
 # Installing ROS on Your Laptop
 
-![Galactic](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/galactic.png?token=GHSAT0AAAAAABR5R4E25CL6PW6OJLKSZAMCYRGXD5Q)
+![Galactic](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/galactic.png)
 
 * We'll install `ROS 2 Galactic Geochelone` on your laptop. 
 * How you install ROS 2 will depend on your host will depend on your host OS. 
@@ -225,112 +225,3 @@ template: ../media/TB4Template.pptx
 * Warning: Apt will spit out a ton of information as it installs the package for you!
 
 
-
-
-### This Is A Bulleted List on TB4 Resources
-
-* One
-  * One A
-  * One B
-* Two
-   * foo
-   * bar
-   * baz
-   
-** Here are some slide notes. Note you leave an empty line between the content - in this case a bulleted list - and the notes. **
-
-
-## Here is a page with some code!
-
-* For help search [Google](http://www.google.com). 
-* `This is highlighted code`
-** This is emphasis code. ** 
-
-```
-      sudo apt update
-      sudo apt install -y python3-rosdep
-      sudo rosdep init
-      rosdep update
-```
-
-* This is some text describing above
-
-### Here is another page
-
-* Herp
-* Derp
-* Slerp
-* Perp
-
-** WILL THIS TEXT SHOW UP? **
-
-## How about an image and code 
-
-![A TurtleBot 4](../media/tb4.png)
-
-```
-      sudo apt update
-      sudo apt install -y python3-rosdep
-      sudo rosdep init
-      rosdep update
-```
-
-## How about an image and text???
-
-#### This slide is an image and text! This text won't appear
-
-* This text will appear!
-* So will this
-* So will this?
-
-![A TurtleBot 4](../media/tb4.png)
-
-### Let's try a different way
-
-* This text will appear!
-* So will this
-* So will this?
-
-![A TurtleBot 4](../media/tb4.png)
-
-
-
-### What about an H4 with a wall of text
-
-**Here is some subtext**
-
-#### What happens with an H4
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices posuere lorem, eu dictum massa efficitur ac. Aenean at risus luctus, vulputate ex non, condimentum tellus. Aenean egestas, odio eu ornare eleifend, nulla enim efficitur nunc, non luctus velit purus a urna. Pellentesque magna odio, viverra eu enim non, hendrerit pulvinar nibh. Aenean blandit lacus et ex bibendum, at finibus orci rhoncus. Integer venenatis eros in scelerisque porta. Nam ligula sem, ullamcorper nec efficitur in, commodo sit amet justo. Praesent ut nibh ultrices, euismod eros in, consectetur risus. Fusce a imperdiet justo. Cras magna massa, venenatis non lectus ac, mattis luctus est.
-
-Phasellus varius rutrum ullamcorper. Maecenas iaculis rhoncus ipsum, id congue augue suscipit eu. Nullam varius neque non est congue tincidunt. Vestibulum a nulla ac felis consequat posuere. Ut vulputate malesuada placerat. Integer accumsan rhoncus magna sit amet laoreet. Nullam aliquet libero pharetra, suscipit felis at, faucibus enim. Sed metus massa, tincidunt vitae nunc quis, bibendum laoreet ante. Donec id egestas dui. Quisque blandit tellus augue, in cursus mauris malesuada eget.
-
-## How about two images?
-
-![A TurtleBot 4](../media/tb4.png)
-![A TurtleBot 4](../media/tb4.png)
-
-## What about tables?
-
-| a | b | c | d | e |
-|---|---|---|---|---|
-| 1 | 2 | 3 | 3 | 4 |
-| a | f | g | d | s |
-| s | s | s | s | s |
-
-
-__This is a underlined under a table__
-
-# Do we get syntax highlighting
-
-```
-    def sortedNumericList(string):
-        return sorted(list(map(int, set(string.split()))))
-
-    def parseRGB(str):
-        if RGBmatch := RGBRegex.match(str):
-            # Matches
-            return (True, RGBmatch.group(1))
-        else:
-            return (False, "")
-```
