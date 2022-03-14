@@ -2,9 +2,15 @@
 
 ** This repository is a work in progress, the lessons may be incomplete or unfinished. **
 
+
+
+
 # TurtleBot4Lessons
 
 This repository contains classroom friendly lessons, tutorials, projects, and questions, and materials for the TurtleBot 4 (TB4).
+
+[The full index of units and lessons is available here.](./index.md)
+
 
 # General Layout
 

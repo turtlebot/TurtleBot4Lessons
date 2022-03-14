@@ -133,7 +133,7 @@ pip install vcstool
 * You can verify that these tools are installed using `pip list | grep vcstool`
 
 
-## Inst
+## Installing the Create3 Packages
 
 ![Shapes Demo](https://upload.wikimedia.org/wikipedia/en/4/47/IRobotCreate.jpg)
 
@@ -173,10 +173,10 @@ source install/local_setup.bash
 
 ```
 cd ~/turtlebot4_ws/src
-git clone git@github.com:clearpathrobotics/turtlebot4_sim.git
+git clone git@github.com:turtlebot/turtlebot4_sim.git
 vcs import ~/turtlebot4_ws/src/ < ~/turtlebot4_ws/src/turtlebot4_sim/dependencies.repos
-git clone git@github.com:clearpathrobotics/turtlebot4_msgs.git
-git clone git@github.com:clearpathrobotics/turtlebot4.git
+git clone git@github.com:turtlebot/turtlebot4_msgs.git
+git clone git@github.com:turtlebot/turtlebot4.git
 cd ~/turtlebot4_ws
 rosdep install --from-path src -yi
 ```
