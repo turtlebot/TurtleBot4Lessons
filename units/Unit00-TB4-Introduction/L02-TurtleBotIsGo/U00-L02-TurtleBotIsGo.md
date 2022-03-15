@@ -241,9 +241,25 @@ template: ../media/TB4Template.pptx
   * `rviz2`
 * You should see something like the image above. 
 
+# Controlling RViz
+
+![Controlling Rviz](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_control.png)
+
+* RViz is ROS's tool for visualizing everything about your robot. 
+* On the left of RVIZ you'll see a "Displays" pane that let's you configure what data you want to see. 
+* On the right you'll see visualization of your robot and the surrounding environment. 
+* RVIZ is highly configurable. You'll be able to see your robot, its sensors, and the data from the sensors.
+* The view panes in RVIZ are configurable, and you can customize it quickly to suit your needs. 
+* The control of visualization is a different than Ignition. 
+  * Left mouse button rotates the view. 
+  * Right mouse button zooms the view.
+  * Shift + left mouse pans the view. 
+
+
+
 # Configuring RViz
 
-![RVIZ Starting Up](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_setup.png)
+![RVIZ Setup](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_setup.png)
 
 * Now we'll setup RVIZ for teleoperation (remote driving).
 * The first step is to set our reference frame, this will tell RVIZ how to display our data.
@@ -267,23 +283,10 @@ template: ../media/TB4Template.pptx
   * Shrink the "Marker Scale," the size of the TF names, to be about 0.07
 * You should see something like the image above. 
 
-# Setup TF in RViz
-
-![RVIZ TF](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_tf.png)
-
-* Next we're going to enable TF, which is ROS shorthand for "transform."
-  * A transform is a simply a position on a robot relative to another position. 
-  * For example, one transform might be the position of the robot's camera with respect to its left wheel. 
-* To see the "base_link" in RVIZ find the `TF` section of the display pane and do the following:
-  * Set the check box for `TF`
-  * Set the check box for `Show Names`.
-  * Set the check box for `Show Axes`.
-  * Shrink the "Marker Scale," the size of the TF names, to be about 0.07
-* You should see something like the image above. 
 
 # Setup Camera and Laser
 
-![RVIZ TF](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_camera.png)
+![RVIZ Camera](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_camera.png)
 
 * Next we'll setup the TB4 camera and lidar. 
 * To view the LIDAR click `Add` in the display pane.
@@ -296,3 +299,11 @@ template: ../media/TB4Template.pptx
   * Now enable the camera by clicking the checkbox in the Displays pane. 
   * Set `Topic` to either `/right/image_rect` or `/left/image_rect/`
   
+# Try Different Configurations 
+
+![RVIZ TF](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_fancy.png)
+
+* RViz is highly configurable. You can save and load various configurations to suit your application. 
+* We've barely scratched the surface of what RVIZ can do, but it is good to get familiar with it.
+* A full list of features can be found in the [RVIZ documentation.](https://docs.ros.org/en/noetic/api/rviz/html/user_guide/index.html#views-panel)
+* Take your robot for a spin and try different configurations!
