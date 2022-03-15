@@ -10,7 +10,7 @@ template: ../media/TB4Template.pptx
 
 ## The TurtleBot 4
 
-![A TurtleBot 4](../media/tb4.png) ![A TurtleBot 4 Lite](../media/tb4.png)
+![A TurtleBot 4](https://github.com/turtlebot/TurtleBot4Lessons/blob/main/media/tb4.png?raw=true) ![A TurtleBot 4 Lite](https://github.com/turtlebot/TurtleBot4Lessons/blob/main/media/tb4.png?raw=true)
 
 * There are two variants of the TurtleBot 4. 
 * TODO: DIAGRAMS
