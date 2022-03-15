@@ -97,7 +97,10 @@ template: ../media/TB4Template.pptx
 * On subsequent connections you won't need to run through every step. Instead you can run:
   * Check the controller is running with:
   * `ubuntu@ubuntu:~/turtlebot4_ws$ sudo bluetoothctl paired-devices`
-	* ` Device A5:15:66:C1:AC:46 Wireless Controller`
+	* Press buttons on controller
+	* `devices` -- bluetooth will list devices
+	* `connect <MAC>`
+	* `exit`
   * If the device is there you're good to go. 
   * Otherwise follow the steps above. 
 
@@ -213,9 +216,9 @@ template: ../media/TB4Template.pptx
   * If something failed the ROS 2 Doctor should report something.
 	* Run `ros2 doctor --report` and work with someone to correct the issue. 
 
-# Install RVIZ 
+# Install RViz 
 
-![TODO: Image]()
+![TODO: Image](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz.png)
 
 * We just installed ROS, but we still need to install RVIZ. 
 * We'll use a tool called apt to install RVIZ.
@@ -224,4 +227,72 @@ template: ../media/TB4Template.pptx
 * Run the command: `sudo apt install ros-galactic-rviz2`
 * Warning: Apt will spit out a ton of information as it installs the package for you!
 
+# Running RViz
 
+![RVIZ Starting Up](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_start.png)
+
+* If RVIZ2 installed successfully starting it should be fairly straight forward. 
+* First we intialize ROS by calling:
+  * `source /opt/ros/galactic/setup.bash`
+* If everything is setup correctly you should be able to run the following command and see all of the topics, or data streams on the robot. 
+  * `ros2 topic list`
+  * ROS should spit out three dozen topics with names like `\battery_state` and `\wheel_vels`. 
+* Now we'll start RVIZ. In the terminal where you sourced setup.bash call:
+  * `rviz2`
+* You should see something like the image above. 
+
+# Configuring RViz
+
+![RVIZ Starting Up](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_setup.png)
+
+* Now we'll setup RVIZ for teleoperation (remote driving).
+* The first step is to set our reference frame, this will tell RVIZ how to display our data.
+* On the left hand side of RViz you should see a "Displays" pane. 
+* Towards the top there should be a value that says "Fixed Frame" with a drop down to the right of it (see diagram).
+* Set the fixed frame to `base_link`.
+* In ROS, `base_link` means the "base" of the robot. For wheeled robots it is usually in the center 
+* This value needs to be set to see anything else in RVIZ. 
+
+# Setup TF in RViz
+
+![RVIZ TF](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_tf.png)
+
+* Next we're going to enable TF, which is ROS shorthand for "transform."
+  * A transform is a simply a position on a robot relative to another position. 
+  * For example, one transform might be the position of the robot's camera with respect to its left wheel. 
+* To see the "base_link" in RVIZ find the `TF` section of the display pane and do the following:
+  * Set the check box for `TF`
+  * Set the check box for `Show Names`.
+  * Set the check box for `Show Axes`.
+  * Shrink the "Marker Scale," the size of the TF names, to be about 0.07
+* You should see something like the image above. 
+
+# Setup TF in RViz
+
+![RVIZ TF](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_tf.png)
+
+* Next we're going to enable TF, which is ROS shorthand for "transform."
+  * A transform is a simply a position on a robot relative to another position. 
+  * For example, one transform might be the position of the robot's camera with respect to its left wheel. 
+* To see the "base_link" in RVIZ find the `TF` section of the display pane and do the following:
+  * Set the check box for `TF`
+  * Set the check box for `Show Names`.
+  * Set the check box for `Show Axes`.
+  * Shrink the "Marker Scale," the size of the TF names, to be about 0.07
+* You should see something like the image above. 
+
+# Setup Camera and Laser
+
+![RVIZ TF](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_camera.png)
+
+* Next we'll setup the TB4 camera and lidar. 
+* To view the LIDAR click `Add` in the display pane.
+  * In the dialog that pops up select `LaserScan`.
+  * Under `LaserScan` in the Displays pane click the checkbox to enable the dispaly.
+  * Set the `Topic` to `/scan`
+  * The laser scan should now be visible. 
+* To the view the camera click the `Add` button under displays.
+  * In the dialog that pops up select `Camera`
+  * Now enable the camera by clicking the checkbox in the Displays pane. 
+  * Set `Topic` to either `/right/image_rect` or `/left/image_rect/`
+  
