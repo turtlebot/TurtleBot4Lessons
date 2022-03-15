@@ -1,34 +1,5 @@
 template: ../media/TB4Template.pptx
 
-template: ../media/TB4Template.pptx
-
-# Unit 0, Lesson 1: GazeboSim
-
-### Lesson Objectives 
-
-* Remember that robotics is hard. You will get stuck. You will make mistakes.
-* Being able to quickly find help for your problems is crucial skill. 
-* The objective for this lesson is to introduce the resources available for ROS.
-* You should bookmark all of these websites in your browser. 
-
-
-## ROS Discourse
-
-![Discourse](https://github.com/turtlebot/TurtleBot4Lessons/blob/main/media/discourse.png?raw=true)
-
-
-* [ROS Discourse](http://discourse.ros.org) is the official ROS discussion forum. 
-* ROS Discourse is intended for community announcements and discussion.
-  * **ROS Discourse should not be used for specific development questions.**
-* On ROS Discourse you find.
-  * Announcements of new packages and package releases.
-  * Announcements of ROS releases and updates.
-  * Technical discussions by package developers. 
-  * Event announcements.
-  * Regular news updates. 
-  * Meet other ROS developers and package maintainers. 
-
-
 # Unit 0, Lesson 0: Setting up Software
 
 ### Lesson Objectives 
@@ -38,8 +9,6 @@ template: ../media/TB4Template.pptx
 * Understand the different versions of ROS
 * Select the correct ROS distro and correct installation mechanism for your system
 * Finally, setup the TurtleBot 4 and host laptop.
-
-
 
 ## Software Packaging 
 
@@ -196,7 +165,7 @@ template: ../media/TB4Template.pptx
  * SSH 
  * Virtual Machines
 
-#### Let's try this
+#### Let's Try This
 * Up until now we've been talking about the OS and ROS Distro on a robot, like the TB4.
 * When you're using, programming, or debugging a robot you'll need to interact with the robot's code. 
 * Depending on what you are doing, your laptop may need to run ROS too! 
