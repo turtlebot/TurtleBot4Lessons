@@ -301,7 +301,7 @@ template: ../media/TB4Template.pptx
   
 # Try Different Configurations 
 
-![RVIZ TF](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/rviz_fancy.png)
+![Fancy RVIZ](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/fancy_rviz.png)
 
 * RViz is highly configurable. You can save and load various configurations to suit your application. 
 * We've barely scratched the surface of what RVIZ can do, but it is good to get familiar with it.
