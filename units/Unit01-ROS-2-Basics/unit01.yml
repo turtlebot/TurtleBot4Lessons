@@ -9,3 +9,7 @@ lessons:
     name: ROS 2 History & Overview
     directory: L00-History-and-Overview
     ppt-file: U01-L00-History-and-Overview.md
+  - number: 1
+    name: Topics and Transfer
+    directory: L01-Topics-and-Transfer
+    ppt-file: U01-L01-Topics-and-Transfer.md
