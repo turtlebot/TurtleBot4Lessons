@@ -45,7 +45,7 @@ template: ../media/TB4Template.pptx
 * ROS topics are _hierarchical_, they can be grouped in a logical hierarchy. 
 * This hierarchy is denoted using the forward slash, "/", similarly to your computer's hard disk. 
 
-## Where our Analogy Fails
+## Where This Analogy Fails
 
 ![Broadcast](https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Laika_ac_Sutro_Tower_%287078966285%29.jpg/640px-Laika_ac_Sutro_Tower_%287078966285%29.jpg)
 
@@ -70,6 +70,57 @@ template: ../media/TB4Template.pptx
 * [DDS is a generic protocol for moving data.](https://en.wikipedia.org/wiki/Data_Distribution_Service). 
    * DDS can supports a variety of transport protocols like WiFi, 4G, 5G, and even USB.  
 * There are a number of vendors of DDS software. Some of them are open-source and others are proprietary. 
+
+
+## Practical RMW / DDS
+
+![ros2 --help](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/ros2help.png)
+
+* Each ROS distro ships with a default RMW implementation.
+* Just like any software, there are trade-offs with each RMW implementation. For each ROS distro the default is selected after a [thorough vetting process.](https://github.com/osrf/TSC-RMW-Reports)
+* On the TurtleBot4, the TurtleBot4 simulation, and Create3, we're using CycloneDDS, but you can select other DDS vendors. 
+* The TB4 has two places where we can check and change our RMW. 
+* One the Create3
+  * Log into the iRobot console by entering it in your browser and then go to Application->Configuration. (see above).
+  * There is a drop down to select the RMW. 
+  * On the Turtlebot / desktop you can check the `RMW_IMPLEMENTATION` by using the `printenv` command. [Detailed instructions are here.](https://docs.ros.org/en/foxy/How-To-Guides/Working-with-multiple-RMW-implementations.html)
+  * If no value is set, assume you are using the default. 
+  * Otherwise the RMW is the value listed in the environment.
+  
+## The ROS Command Line 
+
+![ros2 --help](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/ros2help.png)
+
+
+* To see how ROS topics work in action we need to learn the ROS 2 command line interface (CLI).
+* If you installed ROS yourself you're already familiar with a command line application. Commands like `ls`, `cd`, and `mv` are all command line interfaces.
+* A command line interface is very simply a set of text-based programs for working with ROS. 
+* The ROS 2 CLI has a very particular grammar. Commands always start with `ros2` followed by a noun like `topic` or `node` and then subsuquent commands or parameters. 
+* The ROS 2 CLI is self documenting, meaning each command contains its own little help file. For any command you can add `--help` to the command  and it will list its options.
+
+## Before You CLI
+
+![a workspace](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Espa%C3%A7o_Maker_da_F%C3%A1brica_de_Cultura_de_S%C3%A3o_Bernardo_do_Campo.jpg/640px-Espa%C3%A7o_Maker_da_F%C3%A1brica_de_Cultura_de_S%C3%A3o_Bernardo_do_Campo.jpg)
+
+
+* ROS has two concepts you need to be aware of at this point: 
+  * __Workspaces__ -- these are folders that are a collection of ROS code and executables. They usually live in a folder that ends with `_ws`. 
+  * __Overlays__ -- Overlaying is the process of combining ROS code. We say that one workspace overlays another workpace. 
+  * We'll cover these in detail later on. 
+* Roughly, on your desktop or laptop, you should currently have two workspace.
+  * The system level workspace (e.g. the whole computer with ROS installed).
+  * The TB4 Simulator workspace (`turtlebot4_ws`). 
+  * We say that the `turtlebot4_ws` **overlays** your system level ROS installation. 
+* If you want to use ROS generally, you can tell your terminal about ROS by calling:
+  * `source /opt/ros/<ros distro>/setup.bash`
+  * Our ROS distro is `galactic`.
+* If you are working on specific ROS project in a folder you need to setup the workspace.
+  * e.g. in `~/turtlebot4_ws` call `source ~/install/setup.bash`
+* Before using the ROS 2 CLI you need to tell your terminal which workspace you want to use.
+
+## ROS 2 CLI in Action
+
+
 
 
 ### This Is A Bulleted List on TB4 Resources
