@@ -120,7 +120,19 @@ template: ../media/TB4Template.pptx
 
 ## ROS 2 CLI in Action
 
-
+* Let's explore the ROS 2 CLI together. You can follow along.
+* If you want to use your robot to follow along:
+  * ssh into your robot, and then start byobu
+  * `ssh ubuntu@XXX.XXX.XXX.XXX` -- where XXX is your robot's IP address.
+  * On the robot you simply need to source the system bash file.
+	  * `source /opt/ros/galactic/setup.bash`
+* If you want to use the TB4 simulator:
+  * If you're using a VM or container, start it up.
+  * Now run `source /opt/ros/galactic/setup.bash`
+  * Move to the simulator workspace and run `source ./install/setup.bash`
+  * Next start the sim, `ros2 launch turtlebot4_ignition_bringup ignition.launch.py`
+  * Finally open a new terminal and source the system bash file again. 
+* From here the steps should be similar. 
 
 
 ### This Is A Bulleted List on TB4 Resources

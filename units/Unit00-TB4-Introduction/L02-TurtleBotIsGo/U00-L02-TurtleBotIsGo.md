@@ -103,8 +103,9 @@ template: ../media/TB4Template.pptx
 	* `exit`
   * If the device is there you're good to go. 
   * Otherwise follow the steps above. 
-
-
+* If you see an error like Waiting `to connect to bluetoothd...`
+  * The Bluetooth daemon is not running. Try running `sudo systemctl start bluetooth`
+  * To make Bluetooth always start run, `sudo systemctl enable bluetooth`
 ## Multiple Terminals with Byobu
 
 ![Byobu](https://raw.githubusercontent.com/osrf/TurtleBot4Lessons/main/media/byobu.png)
