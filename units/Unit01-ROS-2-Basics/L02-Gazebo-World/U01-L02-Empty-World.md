@@ -26,7 +26,11 @@ touch empty_world.sdf
 ```
 gedit empty_world.sdf
 ```
+or simply you can launch an exisiting pre-built sdf file
+```
+ign gazebo empty.sdf
 
+```
 ```xml
 
 <?xml version="1.0" ?>
@@ -234,3 +238,36 @@ Instead of building our own models we can use already built ones. Ignition Fuel 
 
 ## Spawn a Turtle Bot 4 on to Gazebo world
 
+1. To launch turtle bot 4 with warehouse world, below follow below steps. The turtlebot4_ignition_bringup package contains launch files and configurations to launch Ignition Gazebo.
+
+```
+sudo apt-get update && sudo apt-get install wget
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install ignition-edifice ros-galactic-turtlebot4-simulator ros-galactic-irobot-create-nodes
+```
+(or)
+
+- Create a new workspace with a src folder in it and colcon build the workspace
+
+```
+mkdir turtle_ws
+cd turtle_ws && mkdir src
+colcon build
+```
+- clone the Turtlebot4 Simulator
+
+```
+cd turtle_ws/src
+git clone https://github.com/turtlebot/turtlebot4_simulator.git
+cd .. && colcon build
+```
+
+- Launch Turtle Bot 4
+
+```
+ros2 launch turtlebot4_ignition_bringup ignition.launch.py
+```
+
+2. Spaw a turtle Bot 4 onto custom world 
