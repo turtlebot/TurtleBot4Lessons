@@ -236,6 +236,30 @@ ign gazebo empty_world.sdf
 ### Add custom models from [Fuel](https://app.gazebosim.org/fuel)
 Instead of building our own models we can use already built ones. Ignition Fuel hosts hundreds of models that can easily be added to an Ignition world. Refer the [tutorial](https://gazebosim.org/docs/citadel/fuel_insert) for detailed explanation.
 
+#### Example
+
+- Goto [Fuel](https://app.gazebosim.org/fuel), let say you would like to invoke Spot robot into your gazebo world. Under model section choose your desired model by copying "SDF snippet". In this example, visit [Spot_Robot](https://app.gazebosim.org/OpenRobotics/fuel/models/csiro_data61_spot_sensor_config_1) model.
+
+![Spot model on Fuel](../media/spot.png)
+
+- Once you have your model, copy the snippet to your clip board and paste it onto your SDF file under world tag <world> ... </world> and launch your ROS 2 application
+
+```
+<include>
+<uri>
+https://fuel.gazebosim.org/1.0/OpenRobotics/models/csiro_data61_spot_sensor_config_1
+</uri>
+</include>
+```
+
+- The output of your gazebo world should look like below
+
+![Spot model on Gazebo World](../media/spot1.png)
+
+- Add shapes and obstacles to Gazebo World
+
+![Spot with Box Obstacle](../media/spot_obstacles.png)
+
 ## Spawn a Turtle Bot 4 on to Gazebo world
 
 1. To launch turtle bot 4 with warehouse world, below follow below steps. The turtlebot4_ignition_bringup package contains launch files and configurations to launch Ignition Gazebo.
@@ -271,3 +295,5 @@ ros2 launch turtlebot4_ignition_bringup ignition.launch.py
 ```
 
 2. Spaw a turtle Bot 4 onto custom world 
+
+- Create custom world
