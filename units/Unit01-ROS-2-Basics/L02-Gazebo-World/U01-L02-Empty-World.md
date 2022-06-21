@@ -238,9 +238,9 @@ Instead of building our own models we can use already built ones. Ignition Fuel 
 
 #### Example
 
-- Goto [Fuel](https://app.gazebosim.org/fuel), let say you would like to invoke Spot robot into your gazebo world. Under model section choose your desired model by copying "SDF snippet". In this example, visit [Spot_Robot](https://app.gazebosim.org/OpenRobotics/fuel/models/csiro_data61_spot_sensor_config_1) model.
+- Goto [Fuel](https://app.gazebosim.org/fuel), let say you would like to invoke Spot robot into your gazebo world. Under model section choose your desired model by copying "SDF snippet". In this example, visit [Husky_Robot](https://app.gazebosim.org/OpenRobotics/fuel/models/MARBLE_HUSKY_SENSOR_CONFIG_5) model.
 
-![Spot model on Fuel](../media/spot.png)
+![Husky model on Fuel](../media/husky.png)
 
 - Once you have your model, copy the snippet to your clip board and paste it onto your SDF file under world tag <world> ... </world> and launch your ROS 2 application
 
@@ -254,11 +254,15 @@ https://fuel.gazebosim.org/1.0/OpenRobotics/models/csiro_data61_spot_sensor_conf
 
 - The output of your gazebo world should look like below
 
-![Spot model on Gazebo World](../media/spot1.png)
+![Husky model on Gazebo World](../media/husky1.png)
 
 - Add shapes and obstacles to Gazebo World
 
-![Spot with Box Obstacle](../media/spot_obstacles.png)
+![Husky with Box Obstacle](../media/husky_objects.png)
+
+- Fun Fact!!!
+
+![TurtleBot 4 says Hi!](../media/husky_tb4.png)
 
 ## Spawn a Turtle Bot 4 on to Gazebo world
 
@@ -296,4 +300,7 @@ ros2 launch turtlebot4_ignition_bringup ignition.launch.py
 
 2. Spaw a turtle Bot 4 onto custom world 
 
-- Create custom world
+- new package
+```
+ros2 pkg create --build-type ament_python turtlebot4_examples
+```
