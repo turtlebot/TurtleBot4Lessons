@@ -13,3 +13,7 @@ lessons:
     name: Topics and Transfer
     directory: L01-Topics-and-Transfer
     ppt-file: U01-L01-Topics-and-Transfer.md
+  - number: 2
+    name: Gazebo World
+    directory: L02-Gazebo-World
+    ppt-file: U01-L02-Empty-World.md
