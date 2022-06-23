@@ -56,6 +56,10 @@ class TurtleRide(Node):
         self.xgoal = 0
         self.ystart = 0
         self.ygoal = 0
+        self.collison_threshold = 0.2
+        self.goal_idx = 0
+        self.goal_x = 0
+        self.goal_y = 0
   
     def pose_estimated(self,msg):
 
@@ -105,7 +109,34 @@ class TurtleRide(Node):
         msg.angular.x = 0.0
         msg.angular.y = 0.0
         msg.angular.z = 0.0
-         
+        
+        if self.Isbug2 == True:
+
+            # Check for boundary/ obstacle/ wall
+            collision_thresh = self.collison_threshold
+            if(self.leftfront < collision_thresh or self.front < collision_thresh or self.rightfront < collision_thresh):
+                self.robot_mode = "wall_mode"
+                
+                # Evaluate probable collision point 
+                self.c_point_x = self.current_x
+                self.c_point_y = self.current_y
+                 
+                # Calcualte distance from goal to collision point
+                self.distance_gc = (
+                    math.sqrt((
+                    pow(self.goal_x[self.goal_idx] - self.c_point_x, 2)) + (
+                    pow(self.goal_y[self.goal_idx] - self.c_point_y, 2))))    
+                     
+                # Make sharp turn
+                msg.angular.z = 1.0
+                         
+                # Publish the msg
+                self.publisher_.publish(msg)
+
+                return
+            
+            # TODO other cases
+
 
              
     def boundary_check(self):
