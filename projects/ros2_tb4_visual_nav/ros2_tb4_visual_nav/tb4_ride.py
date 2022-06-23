@@ -1,9 +1,9 @@
 from msilib.schema import SelfReg
 import rclpy
 from rclpy.node import Node
-
 from std_msgs.msg import String
 from geometry_msgs.msg import Twist
+from sensor_msgs.msg import LaserScan
 from .tb4_bug2_planner import tb4_pathplanner
 
 class TurtleRide(Node):
@@ -18,6 +18,18 @@ class TurtleRide(Node):
         self.i = 0
         # Creating objects for each phase of the Robot Navugation
         self.tb4_pathplanner = tb4_pathplanner()
+        # Subscribers
+        sub_laser = self.create_subscription('/scan', LaserScan, self.laser_callback)
+
+    def laser_callback(self):
+        global zones
+        zones = {
+            'right':  min(min(self.msg.ranges[0:143]), 10),
+            'fright': min(min(self.msg.ranges[144:287]), 10),
+            'front':  min(min(self.msg.ranges[288:431]), 10),
+            'fleft':  min(min(self.msg.ranges[432:575]), 10),
+            'left':   min(min(self.msg.ranges[576:719]), 10),
+        }
 
     def turtle_planner(self):
         msg = String()
@@ -25,8 +37,7 @@ class TurtleRide(Node):
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
         self.i += 1
-
-
+        
 def main(args=None):
 
     rclpy.init(args=args)
