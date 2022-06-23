@@ -2,7 +2,7 @@ from setuptools import setup
 import os
 from glob import glob
 
-package_name = 'ros2-tb4-visual-nav'
+package_name = 'ros2_tb4_visual_nav'
 
 setup(
     name=package_name,
@@ -24,7 +24,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-           
+           'rider = ros2_tb4_visual_nav.tb4_ride:main',
         ],
     },
 )
