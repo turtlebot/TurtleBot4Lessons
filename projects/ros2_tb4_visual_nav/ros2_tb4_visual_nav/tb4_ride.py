@@ -60,6 +60,8 @@ class TurtleRide(Node):
         self.goal_idx = 0
         self.goal_x = 0
         self.goal_y = 0
+        self.goal_state = 'towards goal'
+        self.yaw_threshold = 3.0 * (math.pi/ 180)
   
     def pose_estimated(self,msg):
 
@@ -91,7 +93,7 @@ class TurtleRide(Node):
         if self.goal_x == False and self.goal_y == False:
             return
                  
-        # Call bug 2
+        #[TODO] Call bug 2
              
          
     def avoid_obstacles(self):
@@ -135,8 +137,51 @@ class TurtleRide(Node):
 
                 return
             
-            # TODO other cases
+            # TODO Go to goal state
+            if (self.goal_state == 'towards goal'):
+                estimated_yaw = math.atan2(
+                    self.goal_y[self.goal_idx] - self.current_y,
+                    self.goal_x[self.goal_idx] - self.current_x
+                )
 
+                error = estimated_yaw - self.current_yaw
+
+                if math.fabs(error) > self.yaw_threshold:
+                    if error > 0:
+                        msg.angular.z = 0.05 # assigning random value [Needs adjustment]
+                    
+                    else:
+                        msg.angular.z = - 0.05
+                
+                self.publisher_.publish(msg)
+
+            else: 
+                self.goal_state = 'straight'
+
+                self.publisher_.publish(msg)
+            
+        elif(self.goal_state == 'straight'):
+
+            pos_error = math.sqrt(pow(self.goal_x[self.goal_idx] - self.current_x, 2)
+            + pow(self.goal_y[self.goal_idx] - self.current_y, 2))
+
+            if pos_error > 0.1: # random threshold - adjust after first simulation
+                msg.linear.x = 0.02 # [TODO change accordingly]
+                self.publisher_.publish(msg)
+                estimated_yaw = math.atan2(
+                    self.goal_y[self.goal_idx] - self.current_y,
+                    self.goal_x[self.goal_idx] - self.current_x)
+                
+                error = estimated_yaw - self.current_yaw
+                if math.fabs(error) > self.yaw_threshold:
+                    self.goal_state = "towards goal"
+            
+            else:
+                self.goal_state = 'reached'
+                self.publisher_.publish(msg)
+        
+
+                
 
              
     def boundary_check(self):
