@@ -1,3 +1,4 @@
+from errno import ESHLIBVERS
 import math 
 import rclpy 
 from time import sleep 
@@ -180,6 +181,20 @@ class TurtleRide(Node):
                 self.goal_state = 'reached'
                 self.publisher_.publish(msg)
         
+        elif (self.goal_state == 'reached'):
+
+            self.get_logger().info('Intermediate Goal reached')
+            self.goal_idx = self.goal_idx + 1
+            if (self.goal_idx > self.goal_max):
+                self.get_logger().info('Goal reached')
+                while True:
+                    pass
+            
+            else:
+                self.goal_state = 'towards goal'
+            
+        else:
+            pass
 
                 
 
