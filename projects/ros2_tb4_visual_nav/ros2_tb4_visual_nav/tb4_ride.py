@@ -40,9 +40,6 @@ class TurtleRide(Node):
         self.front = 999999.9 
         self.rightfront = 999999.9 
         self.right = 999999.9
- 
-        # Setting forward speed of the Turtle bot 4
-        self.forward_speed = 0.5
          
         # present pose and orientation of the TB4 in the global reference frame
         self.current_x = 0.0
@@ -63,6 +60,7 @@ class TurtleRide(Node):
         self.goal_y = 0
         self.goal_state = 'towards goal'
         self.yaw_threshold = 3.0 * (math.pi/ 180)
+        self.robot_turn_state = "towards left"
   
     def pose_estimated(self,msg):
 
@@ -167,7 +165,7 @@ class TurtleRide(Node):
             + pow(self.goal_y[self.goal_idx] - self.current_y, 2))
 
             if pos_error > 0.1: # random threshold - adjust after first simulation
-                msg.linear.x = 0.02 # [TODO change accordingly]
+                msg.linear.x = 0.02 # [TODO change linear speed accordingly]
                 self.publisher_.publish(msg)
                 estimated_yaw = math.atan2(
                     self.goal_y[self.goal_idx] - self.current_y,
@@ -201,7 +199,62 @@ class TurtleRide(Node):
              
     def boundary_check(self):
         #TODO
-        return
+        msg = Twist()
+        msg.linear.x = 0.0
+        msg.linear.y = 0.0
+        msg.linear.z = 0.0
+        msg.angular.x = 0.0
+        msg.angular.y = 0.0
+        msg.angular.z = 0.0  
+
+        wall_avoidance_distance = 0.5 # [TODO] adjust accordingly
+
+        if self.leftfront > wall_avoidance_distance and self.front > wall_avoidance_distance and self.rightfront > wall_avoidance_distance:
+            self.robot_turn_state = "estimate wall"
+            msg.linear.x = 0.4 #[TODO] change linear speed acordingly
+            msg.angular.z = -0.15 #[TODO] change slow turn angle acordingly # turn right to find wall
+                
+        elif self.leftfront > wall_avoidance_distance and self.front < wall_avoidance_distance and self.rightfront > wall_avoidance_distance:
+            self.robot_turn_state = "towards left"
+            msg.angular.z = 1.1 #[TODO] change fast turn angle acordingly
+             
+             
+        elif (self.leftfront > wall_avoidance_distance and self.front > wall_avoidance_distance and self.rightfront < wall_avoidance_distance):
+            if (self.rightfront < self.dist_too_close_to_wall):
+                self.robot_turn_state = "towards left"
+                msg.linear.x = 0.4 #[TODO] change linear speed acordingly
+                msg.angular.z = 1.1 #[TODO] change fast turn angle acordingly      
+            else:           
+                self.robot_turn_state = "towards wall" 
+                msg.linear.x = 0.4 #[TODO] change linear speed acordingly   
+                                     
+        elif self.leftfront < wall_avoidance_distance and self.front > wall_avoidance_distance and self.rightfront > wall_avoidance_distance:
+            self.robot_turn_state = "estimate wall"
+            msg.linear.x = 0.4 #[TODO] change linear speed acordingly
+            msg.angular.z = -0.15 #[TODO] change slow turn angle acordingly # turn right to find wall
+             
+        elif self.leftfront > wall_avoidance_distance and self.front < wall_avoidance_distance and self.rightfront < wall_avoidance_distance:
+            self.robot_turn_state = "towards left"
+            msg.angular.z = 1.1 #[TODO] change fast turn angle acordingly
+             
+        elif self.leftfront < wall_avoidance_distance and self.front < wall_avoidance_distance and self.rightfront > wall_avoidance_distance:
+            self.robot_turn_state = "towards left"
+            msg.angular.z = 1.1 #[TODO] change fast turn angle acordingly
+             
+        elif self.leftfront < wall_avoidance_distance and self.front < wall_avoidance_distance and self.rightfront < wall_avoidance_distance:
+            self.robot_turn_state = "towards left"
+            msg.angular.z = 1.1 #[TODO] change fast turn angle acordingly
+             
+        elif self.leftfront < wall_avoidance_distance and self.front > wall_avoidance_distance and self.rightfront < wall_avoidance_distance:
+            self.robot_turn_state = "estimate wall"
+            msg.linear.x = 0.4 #[TODO] change linear speed acordingly
+            msg.angular.z = -0.15 #[TODO] change slow turn angle acordingly # turn right to find wall
+             
+        else:
+            pass
+
+        self.publisher_.publish(msg) 
+
    
          
     def bug2_algorithm(self):
