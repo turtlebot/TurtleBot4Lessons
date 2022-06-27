@@ -45,22 +45,28 @@ class TurtleRide(Node):
         self.current_x = 0.0
         self.current_y = 0.0
         self.current_yaw = 0.0
-
         self.Isbug2 = True
         self.cal_line_distance = False
-        self.slope = 0
-        self.intercept = 0
-        self.xstart = 0
-        self.xgoal = 0
-        self.ystart = 0
-        self.ygoal = 0
         self.collison_threshold = 0.2
         self.goal_idx = 0
-        self.goal_x = 0
-        self.goal_y = 0
+        self.goal_x = False
+        self.goal_y = False
         self.goal_state = 'towards goal'
         self.yaw_threshold = 3.0 * (math.pi/ 180)
         self.robot_turn_state = "towards left"
+        self.sg_line_slope_m = 0
+        self.sg_line_y_intercept = 0
+        self.sg_line_xstart = 0
+        self.sg_line_xgoal = 0
+        self.sg_line_ystart = 0
+        self.sg_line_ygoal = 0
+        self.hx_point = 0
+        self.hy_point = 0
+        self.lx_point = 0
+        self.ly_point = 0
+        self.d_lg = 0.0
+        self.d_lh = 0.3
+        self.d_hg = 0.0
   
     def pose_estimated(self,msg):
 
@@ -93,7 +99,16 @@ class TurtleRide(Node):
             return
                  
         #[TODO] Call bug 2
+        if self.Isbug2 == True:
+             self.bug2_algorithm()
+        else:
              
+            if self.robot_mode == "goal_mode":
+                self.path_planner()
+            elif self.robot_mode == "wall_mode":
+                self.boundary_check()
+            else:
+                pass
          
     def avoid_obstacles(self):
         #logic to avoid obstacles
@@ -142,7 +157,7 @@ class TurtleRide(Node):
                     self.goal_y[self.goal_idx] - self.current_y,
                     self.goal_x[self.goal_idx] - self.current_x
                 )
-
+    
                 error = estimated_yaw - self.current_yaw
 
                 if math.fabs(error) > self.yaw_threshold:
@@ -206,6 +221,44 @@ class TurtleRide(Node):
         msg.angular.x = 0.0
         msg.angular.y = 0.0
         msg.angular.z = 0.0  
+    
+        if self.Isbug2 == True:
+         
+            # Determine the nearest point
+            # on the start-goal line to the current position.
+            x_sg_line = self.current_x
+            y_sg_line = (self.sg_line_slope_m * (x_sg_line)) + (self.sg_line_y_intercept)
+                         
+            # Calculate the distance between current position 
+            # and the start-goal line
+            distance_to_sg_line = math.sqrt(pow(
+                        x_sg_line - self.current_x, 2) + pow(
+                        y_sg_line - self.current_y, 2)) 
+                             
+            # If we hit the start-goal line                
+            if distance_to_sg_line < 0.1:
+             
+                # Determine if we need to leave the wall and change the mode
+                # to 'goal_mode'
+                # Let this point be the leave point
+                self.lx_point = self.current_x
+                self.ly_point = self.current_y
+ 
+                # Record the distance to the goal from the leave point
+                self.d_lg = math.sqrt(
+                    pow(self.goal_x[self.goal_idx] 
+                    - self.lx_point, 2)
+                    + pow(self.goal_y[self.goal_idx]  
+                    - self.ly_point, 2)) 
+             
+                # Is the hit point closer to the goal than the leave point?
+                # If so, proceed to the goal.
+                difference = self.d_hg - self.d_lg
+                if difference > self.d_lh:
+                    self.robot_mode = "goal_mode"
+ 
+                return             
+
 
         wall_avoidance_distance = 0.5 # [TODO] adjust accordingly
 
@@ -264,17 +317,17 @@ class TurtleRide(Node):
 
             self.robot_mode = "goal_mode"            
  
-            self.x_start = self.current_x
-            self.x_goal = self.goal_x[self.goal_idx]
-            self.y_start = self.current_y
-            self.y_goal = self.goal_y[self.goal_idx]
+            self.sg_line_xstart = self.current_x
+            self.sg_line_xgoal = self.goal_x[self.goal_idx]
+            self.sg_line_ystart = self.current_y
+            self.sg_line_ygoal = self.goal_y[self.goal_idx]
              
             # Calculating Slope of the line from start to goal
-            self.slope = ((self.y_goal - self.y_start) / (self.x_goal - self.x_start))
+            self.sg_line_slope_m = ((self.sg_line_ygoal - self.sg_line_ystart) / (self.sg_line_xgoal - self.sg_line_xstart))
              
             # Estimating intercept
-            self.intercept = self.y_goal - (
-                    self.slope * self.x_goal) 
+            self.sg_line_y_intercept = self.sg_line_ygoal - (
+                    self.slope * self.sg_line_xgoal) 
                  
             self.cal_line_distance = True
              

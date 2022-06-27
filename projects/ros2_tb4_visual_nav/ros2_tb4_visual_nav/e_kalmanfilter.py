@@ -18,20 +18,18 @@ class KalmanFilter(Node):
         # Publishers
         self.ekf_pub = self.create_publisher(Float64MultiArray,'/state_estimator',10)
 
-        self.A_t_1 = np.array([   [1.0,  0,   0],
-                    [  0,1.0,   0],
-                    [  0,  0, 1.0]])
+        self.A_t_1 = np.array([[1.0,0,0],[0,1.0,0],[0,0,1.0]])
         self.state_vector_t_1 = np.array([0.0,0.0,0.0])
         self.control_vector_t_1 = np.array([0.001,0.001,0.001])
         self.process_noise_v_t_1 = np.array([0.088,0.088,0.026])
         self.H_t = np.array([[1.0,0,0],[0,1.0,0],[0,0,1.0]])
-        self.sensor_noise_w_t = np.array([0.06,0.06,0.03])
-            
+        self.sensor_noise_w_t = np.array([0.06,0.06,0.03]) 
         self.d_t = 0.002
         self.est_yaw_angle = 0.0
         self.P_t_1 = np.array([[0.1,0,0],[0,0.1,0],[0,0,0.1]])
         self.Q_t = np.array([[1.0,0,0],[0,1.0,0],[0,0,1.0]])
         self.R_t = np.array([[1.0,0,0],[0, 1.0,0],[0,0,1.0]])
+
     def command_velocity(self, msg):
         """
         callback method to listen velocity commands
@@ -90,9 +88,7 @@ class KalmanFilter(Node):
     
     def bMatrix(self,yaw,dt):
 
-        B = np.array([  [np.cos(yaw) * dt,  0,   0],
-                [  0, np.sin(yaw) * dt,   0],
-                [  0,  0, dt]])                 
+        B = np.array([ [np.cos(yaw) * dt,0,0],[0,np.sin(yaw)* dt,0], [0,0,dt]])                 
         return B
 
     def pub_estimated_state(self, state_vector):
