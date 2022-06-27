@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
            'rider = ros2_tb4_visual_nav.tb4_ride:main',
+           'ekf= ros2_tb4_visual_nav.e_kalmanfilter:main',
         ],
     },
 )
