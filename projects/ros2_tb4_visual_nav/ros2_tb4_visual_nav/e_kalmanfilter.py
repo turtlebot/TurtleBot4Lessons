@@ -20,7 +20,7 @@ class KalmanFilter(Node):
 
         self.A_t_1 = np.array([[1.0,0,0],[0,1.0,0],[0,0,1.0]])
         self.state_vector_t_1 = np.array([0.0,0.0,0.0])
-        self.control_vector_t_1 = np.array([0.001,0.001,0.001])
+        self.control_input_velocity = np.array([0.001,0.001,0.001])
         self.process_noise_v_t_1 = np.array([0.088,0.088,0.026])
         self.H_t = np.array([[1.0,0,0],[0,1.0,0],[0,0,1.0]])
         self.sensor_noise_w_t = np.array([0.06,0.06,0.03]) 
@@ -42,9 +42,9 @@ class KalmanFilter(Node):
         angular_vel = msg.angular.z
          
         # [linear_vel,linear_vel,angular_vel]        
-        self.input_velocity[0] = linear_vel
-        self.input_velocity[1] = linear_vel
-        self.input_velocity[2] = angular_vel
+        self.control_input_velocity[0] = linear_vel
+        self.control_input_velocity[1] = linear_vel
+        self.control_input_velocity[2] = angular_vel
  
     def odometry_data(self, msg):
         """
@@ -108,7 +108,7 @@ class KalmanFilter(Node):
         state_estimate_t = self.A_t_1 @ (
             self.state_vector_t_1) + (
             self.bMatrix(self.est_yaw_angle,self.d_t)) @ (
-            self.control_vector_t_1) + (
+            self.control_input_velocity) + (
             self.process_noise_v_t_1)
              
         #Estimate the state covariance using the prior covariance and noise.
