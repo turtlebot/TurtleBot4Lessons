@@ -59,6 +59,55 @@ sudo chmod +x md2pptx
 
 Md2pptx uses a template PowerPoint file as the basis for its slides. We've built a default TB4 template and it is located at <TODO>. You are more than welcome to modify this template as you see fit.
 
+# Generating Slides on Older Versions of Ubuntu (e.g. 18.04)
+
+md2pptx needs Python 3.8+ to run correctly, and on older systems you may encounter errors such as, "if RGBmatch := RGBRegex.match(str):", if this is the case you should use a virtual environment to run the script. 
+
+First install Python 3.8:
+
+``` bash
+$ sudo apt-get install python3.8 python3.8-dev python3.8-distutils python3.8-venv
+```
+
+Next, go to the root of the directory, and create your virtual environment, activate it
+
+``` bash
+$ cd TurtleBot4Lessons 
+$ python3.8 -m venv env
+$ source env/bin/activate
+```
+
+Check that you got the right version of python using:
+
+``` python
+which python
+
+```
+
+Next we'll install all of our Python 3.8 dependencies 
+
+``` bash
+
+python3.8 -m pip install wheel python-pptx pyyaml
+
+```
+
+Now you should be able to generate the lessons correctly. 
+
+``` bash
+cd tools
+python3.8 generate_lessons.py 
+
+```
+
+Next time you want to run the lesson script, just activate the virtual env and be on your merry way. 
+
+``` bash
+source ./TurtleBot4Lessons/env/bin/activate
+```
+
+
+
 
 # Viewing Slides
 
