@@ -9,8 +9,11 @@ from std_msgs.msg import Float64MultiArray
 from rclpy.qos import qos_profile_sensor_data 
 import numpy as np 
 import math 
- 
- 
+
+#[TODO] Undocking before planning 
+# To know if turtle bot has reached goal
+isReached = False
+
 class TurtleRide(Node):
 
     def __init__(self):
@@ -136,6 +139,8 @@ class TurtleRide(Node):
          
         # minimum required distance between reach and leave 
         self.dist_leave_to_reach = 0.25
+
+        
          
     def goal_estimation(self,msg):
         
