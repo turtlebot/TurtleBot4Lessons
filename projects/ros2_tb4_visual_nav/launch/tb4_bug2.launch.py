@@ -19,6 +19,9 @@ def generate_launch_description():
             package='ros2_tb4_visual_nav',
             namespace='publish_goal',
             executable='tb4_goal',
+            parameters=[
+                {'my_goal_pose': [5.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
+            ],
             name='tb4_goal_pose'
         )
     ])
