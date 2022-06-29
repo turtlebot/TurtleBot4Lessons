@@ -7,7 +7,7 @@ template: ../media/TB4Template.pptx
 * Understand Simulation with Ignition Gazebo and ROS 2
 * How to create an empty Gazebo world.
 * How to add a few objects on to Gazebo world.
-* How to spawn a Turtle Bot 4 on to Gazebo world. 
+* How to spawn a TurtleBot4 on to Gazebo world. 
 * Understanding Launch files
 * Creating your own Gazebo visual assests
 
@@ -21,7 +21,7 @@ template: ../media/TB4Template.pptx
 
 ### Steps 
 
-* As a quick guide, create an empty sdf file and copy paste below xml code to create an empty gazebo world.
+* As a quick guide, create an empty SDF file and copy paste below xml code to create an empty gazebo world.
 
     * Create an empty .sdf file
 
@@ -29,13 +29,13 @@ template: ../media/TB4Template.pptx
 touch empty_world.sdf
 ```
 
-    * Edit the empty_world.sdf file and copy below XML code or simply you can launch an exisiting pre-built sdf file
+    * Edit the empty_world.sdf file and copy below XML code or simply you can launch an exisiting pre-built SDF file
 
 ```
 gedit empty_world.sdf
 ```
     
-    * Run the sdf file
+    * Run the SDF file
 
 ```
 ign gazebo empty.sdf
@@ -56,7 +56,7 @@ ign gazebo empty.sdf
 ```
 ### Explaining XML: Add Plugins
 
-* Add Plugins to your sdf as per your requirement
+* Add Plugins to your SDF as per your requirement
 
 ```xml
 <plugin
@@ -306,7 +306,7 @@ https://fuel.gazebosim.org/1.0/OpenRobotics/models/csiro_data61_spot_sensor_conf
 
 ![TurtleBot 4 says Hi!](../media/husky_tb4.png)
 
-### Spawn a Turtle Bot 4 on to Gazebo world
+### Spawn a TurtleBot4 on to Gazebo world
 
 * To launch turtle bot 4 with warehouse world, below follow below steps. The turtlebot4_ignition_bringup package contains launch files and configurations to launch Ignition Gazebo.
 
@@ -321,7 +321,7 @@ sudo apt-get update
 sudo apt-get install ignition-edifice ros-galactic-turtlebot4-simulator ros-galactic-irobot-create-nodes
 ```
 
-### Locally Spawn a Turtle Bot 4 on to Gazebo world 
+### Locally Spawn a TurtleBot4 on to Gazebo world 
 
 * Create a new workspace with a src folder in it and colcon build the workspace
 
@@ -337,21 +337,21 @@ cd turtle_ws/src
 git clone https://github.com/turtlebot/turtlebot4_simulator.git
 cd .. && colcon build
 ```
-### Locally Spawn a Turtle Bot 4 on to Gazebo world 
+### Locally Spawn a TurtleBot4 on to Gazebo world 
 
 * Source the package
 
 ```
 . install/setup.bash
 ```
-* Launch Turtle Bot 4
+* Launch TurtleBot4
 
 ```
 ros2 launch turtlebot4_ignition_bringup ignition.launch.py
 ```
 ![TurtleBot 4 says Hi!](../media/tb4_warehouse.png)
 
-### Spawn a Turtle Bot 4 on to custom Gazebo world
+### Spawn a TurtleBot4 on to custom Gazebo world
 
 * Create a Custom world as per your requirement and used case. Below is the sample SDF comprising of empty warehouse world. Add world from fuel by copying the snippet shown below.
 
@@ -370,10 +370,10 @@ touch custom_world.sdf
 
 * [Click to view entire XML code](../units/Unit01-ROS-2-Basics/L02-Gazebo-World/code/L02-S05-custom_world.sdf)
 
-### Spawn a Turtle Bot 4 on to custom Gazebo world 
+### Spawn a TurtleBot4 on to custom Gazebo world 
 
 
-* Launch the Turtle Bot 4 on to your custom world
+* Launch the TurtleBot4 on to your custom world
 
 ```
 colcon build
@@ -382,6 +382,6 @@ ros2 launch ignition.launch.py world:=custom_world
 
 ![TurtleBot 4](../media/tb4_0.png)
 
-### Spawn a Turtle Bot 4 on to custom Gazebo world
+### Spawn a TurtleBot4 on to custom Gazebo world
 
 ![TurtleBot 4](../media/tb4_1.png)
