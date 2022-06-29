@@ -24,8 +24,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-           'rider = ros2_tb4_visual_nav.tb4_ride:main',
-           'ekf= ros2_tb4_visual_nav.e_kalmanfilter:main',
+           'tb4_rider = ros2_tb4_visual_nav.tb4_ride:main',
+           'ekf = ros2_tb4_visual_nav.e_kalmanfilter:main',
+           'tb4_goal = ros2_tb4_visual_nav.tb4_publish_goal:main',
         ],
     },
 )
