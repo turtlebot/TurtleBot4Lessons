@@ -88,9 +88,20 @@ Next we'll install all of our Python 3.8 dependencies
 
 ``` bash
 
-python3.8 -m pip install wheel python-pptx pyyaml
+python3.8 -m pip install wheel 
+python3.8 -m pip install python-pptx pyyaml
 
 ```
+
+Now install the md2pptx script, copy over the executable, and set it to executable. 
+
+``` bash
+cd ./TurtleBot4Lessons
+git clone git@github.com:MartinPacker/md2pptx.git
+cp md2pptx/md2pptx ./tools/
+sudo chmod +x ./md2pptx/md2pptx
+```
+
 
 Now you should be able to generate the lessons correctly. 
 
