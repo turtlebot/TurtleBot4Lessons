@@ -23,13 +23,13 @@ template: ../media/TB4Template.pptx
 
 * As a quick guide, create an empty SDF file and copy paste below xml code to create an empty gazebo world.
 
-    * Create an empty .SDF file
+    * Create an empty .sdf file
 
 ```
 touch empty_world.sdf
 ```
 
-    * Edit the empty_world.SDF file and copy below XML code or simply you can launch an exisiting pre-built SDF file
+    * Edit the empty_world.sdf file and copy below XML code or simply you can launch an exisiting pre-built SDF file
 
 ```
 gedit empty_world.sdf
@@ -48,11 +48,11 @@ ign gazebo empty.sdf
 
 ```xml
 <?xml version="1.0" ?>
-<SDF version="1.8">
+<sdf version="1.8">
   <world name="empty_world">
   ...
   </world>
-</SDF>
+</sdf>
 ```
 ### Explaining XML: Add Plugins
 
@@ -246,7 +246,7 @@ ign gazebo empty_world.sdf
 ```
 ### add Gravity, magnetic field and atmosphere
 
-* Run the world: [Click to view entire XML code](../units/Unit01-ROS-2-Basics/L02-Gazebo-World/code/L02-S02-model_shape.SDF)
+* Run the world: [Click to view entire XML code](../units/Unit01-ROS-2-Basics/L02-Gazebo-World/code/L02-S02-model_shape.sdf)
 
 ```xml
   <gravity>0 0 -9.8</gravity>
@@ -368,7 +368,7 @@ touch custom_world.sdf
 </include>
 ```
 
-* [Click to view entire XML code](../units/Unit01-ROS-2-Basics/L02-Gazebo-World/code/L02-S05-custom_world.SDF)
+* [Click to view entire XML code](../units/Unit01-ROS-2-Basics/L02-Gazebo-World/code/L02-S05-custom_world.sdf)
 
 ### Spawn a TurtleBot4 on to custom Gazebo world 
 
