@@ -493,11 +493,14 @@ ros2 launch custom_world_ignition fuel_model.launch.py
 [Click to navigate to project repo]() 
 
 ### Feel Free to Add Shapes to Your Downloaded Models
- 
+
+* Predefined forms such as solid circles, cubes, and cylinders can be found in the top left corner of the ignition GUI. You can drag and drop objects into your world to utilize as obstacles.
+
+
 ![Husky with Box Obstacle](../media/husky_objects.png)
 
 
-### Locally Spawn a TurtleBot4 on to Gazebo world 
+### Locally Spawn a TurtleBot4 on to Gazebo world with default depo world
 
 * Source the package
 
@@ -532,7 +535,7 @@ touch custom_world.sdf
 
 * [Click to view entire SDF code with a new world](../units/Unit01-ROS-2-Basics/L02-Gazebo-World/code/L02-S05-custom_world.sdf)
 
-### Spawn a TurtleBot4 on to custom Gazebo world 
+### Launch a TurtleBot4 on to custom Gazebo world 
 
 
 * Launch the TurtleBot4 on to your custom world
@@ -543,42 +546,6 @@ ros2 launch ignition.launch.py world:=custom_world
 ```
 
 ![TurtleBot 4](../media/tb4_0.png)
-
-### Spawn a TurtleBot4 on to custom Gazebo world
-
 ![TurtleBot 4](../media/tb4_1.png)
 
 
-### Spawn a TurtleBot4 on to Gazebo world
-
-* To launch turtle bot 4 with warehouse world, below follow below steps. The turtlebot4_ignition_bringup package contains launch files and configurations to launch Ignition Gazebo.
-* TODO: We do not need to have installation instructions
-
-
-```
-sudo apt-get update && sudo apt-get install wget
-sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable 
-`lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-```
-```
-wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install ignition-edifice ros-galactic-turtlebot4-simulator ros-galactic-irobot-create-nodes
-```
-
-### Locally Spawn a TurtleBot4 on to Gazebo world 
-
-* Create a new workspace with a src folder in it and colcon build the workspace
-
-```
-mkdir turtle_ws
-cd turtle_ws && mkdir src
-colcon build
-```
-* clone the Turtlebot4 Simulator
-
-```
-cd turtle_ws/src
-git clone https://github.com/turtlebot/turtlebot4_simulator.git
-cd .. && colcon build
-```
