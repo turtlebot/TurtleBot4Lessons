@@ -36,8 +36,8 @@ template: ../media/TB4Template.pptx
 	* SSID: `Turtlebot4` Password: `Turtlebot4`
 * SSH into robot from the same laptop: `ssh ubuntu@10.42.0.1`
   * Password: `turtlebot4`
-* In the home directory there is a script for setting up the WiFi `wifi.sh`
-* Call `bash wifi.sh -s "wifi_ssid" -p "wifi_password" -c REG_DOMAIN && sudo reboot`
+* The TurtleBot comes with a preinstalled WiFi setup script.
+* Call `sudo wifi.sh -s "wifi_ssid" -p "wifi_password" -r REG_DOMAIN && sudo reboot`
 * `REG_DOMAIN` depends on your country, [see this list.](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm#regulatory_domain_3737302751_1017918) 
 * USA: `US`, Canada: `CA`, UK: `GB`, Germany: `DE`, Japan: `JP3`, Spain: `ES`.
 
