@@ -13,7 +13,7 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 
 
-ARGUMENTS = [DeclareLaunchArgument('world', default_value='custom_world',
+ARGUMENTS = [DeclareLaunchArgument('world', default_value='custom_world_new',
                           description='Ignition World')]
 
 
@@ -33,31 +33,31 @@ def generate_launch_description():
         launch_arguments=[('world', LaunchConfiguration('world'))]
     )
 
-    extented_kalman_filter_node = Node(
-            package='ros2_tb4_visual_nav',
-            namespace='ekf',
-            executable='ekf',
-            name='extented_kalman_filter'
-        )
+    # extented_kalman_filter_node = Node(
+    #         package='ros2_tb4_visual_nav',
+    #         namespace='ekf',
+    #         executable='ekf',
+    #         name='extented_kalman_filter'
+    #     )
 
-    tb4_planner = Node(
-            package='ros2_tb4_visual_nav',
-            namespace='tb4_rider',
-            executable='tb4_rider',
-            name='turtlebot4_ride'
-        )
+    # tb4_planner = Node(
+    #         package='ros2_tb4_visual_nav',
+    #         namespace='tb4_rider',
+    #         executable='tb4_rider',
+    #         name='turtlebot4_ride'
+    #     )
     
-    goal_pose = Node(
-            package='ros2_tb4_visual_nav',
-            namespace='publish_goal',
-            executable='tb4_goal',
-            name='tb4_goal_pose'
-        )
+    # goal_pose = Node(
+    #         package='ros2_tb4_visual_nav',
+    #         namespace='publish_goal',
+    #         executable='tb4_goal',
+    #         name='tb4_goal_pose'
+    #     )
 
     # Define LaunchDescription variable
     launch_desc = LaunchDescription(ARGUMENTS)
     launch_desc.add_action(turtlebot4_ros_ignition)
-    launch_desc.add_action(extented_kalman_filter_node)
-    launch_desc.add_action(goal_pose)
-    launch_desc.add_action(tb4_planner)
+    # launch_desc.add_action(extented_kalman_filter_node)
+    # launch_desc.add_action(goal_pose)
+    # launch_desc.add_action(tb4_planner)
     return launch_desc
