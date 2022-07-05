@@ -20,7 +20,7 @@ def generate_launch_description():
             namespace='publish_goal',
             executable='tb4_goal',
             parameters=[
-                {'my_goal_pose': [5.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
+                {'my_goal_pose': [2.0, 8.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
             ],
             name='tb4_goal_pose'
         )
