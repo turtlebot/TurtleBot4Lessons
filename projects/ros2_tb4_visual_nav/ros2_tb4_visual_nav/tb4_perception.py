@@ -13,7 +13,7 @@ class TurtlePerception(Node):
         super().__init__('tb4_perception')
         
         # subscriber to receive an Image from the /color/image topic.
-        self.subscription = self.create_subscription(Image,'video_frames', self.perception_callback, 10)
+        self.subscription = self.create_subscription(Image,'/color/image', self.perception_callback, 10)
         self.subscription
         
         # Initialize bridge between ROS2 and OpenCV
