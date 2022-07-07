@@ -381,11 +381,11 @@ ign gazebo L02-S02-model_shape.sdf
 
 * Create a new ROS2 package in src of your workspace
 ```
-ros2 pkg create --build-type ament_python unit0_simulation_gazebo_world
+ros2 pkg create --build-type ament_python unit01_simulation_L2_gazebo_world
 ```
 * Navigate to package root folder and create two new folders one for the launch and other for worlds
 ```
-cd src/unit0_simulation_gazebo_world
+cd src/unit01_simulation_L2_gazebo_world
 mkdir launch
 mkdir worlds
 ```
@@ -413,11 +413,11 @@ def generate_launch_description():
 
    ])
 ```
-* create a directory for your package unit0_simulation_gazebo_world and ros_ign_gazebo 
+* create a directory for your package unit01_simulation_L2_gazebo_world and ros_ign_gazebo 
 ```
 # Directories
-    pkg_unit0_simulation_gazebo_world_bringup = get_package_share_directory(
-        'unit0_simulation_gazebo_world')
+    pkg_unit01_simulation_L2_gazebo_world_bringup = get_package_share_directory(
+        'unit01_simulation_L2_gazebo_world')
 
 
     pkg_ros_ign_gazebo = get_package_share_directory(
@@ -430,7 +430,7 @@ def generate_launch_description():
     ign_resource_path = SetEnvironmentVariable(
         name='IGN_GAZEBO_RESOURCE_PATH',
         value=[
-            os.path.join(pkg_unit0_simulation_gazebo_world_bringup, 'worlds')])
+            os.path.join(pkg_unit01_simulation_L2_gazebo_world_bringup, 'worlds')])
 ```
 * Now, lets set paths for ros_ign_gazebo to trigger ign_gazebo.launch.py
 
@@ -490,7 +490,7 @@ touch custom_world.sdf
 
 ```
 colcon build
-ros2 launch unit0_simulation_gazebo_world fuel_model.launch.py
+ros2 launch unit01_simulation_L2_gazebo_world fuel_model.launch.py
 ```
 
 ![Husky model on Fuel](../media/husky.png)

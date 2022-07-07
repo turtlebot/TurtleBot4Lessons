@@ -2,7 +2,7 @@ from setuptools import setup
 import os
 from glob import glob
 
-package_name = 'unit0_simulation_gazebo_world'
+package_name = 'unit01_simulation_L2_gazebo_world'
 
 setup(
     name=package_name,
