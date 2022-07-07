@@ -26,8 +26,8 @@ ARGUMENTS = [
 def generate_launch_description():
 
     # Directories
-    pkg_custom_world_ignition_bringup = get_package_share_directory(
-        'custom_world_ignition')
+    pkg_unit0_simulation_gazebo_world_bringup = get_package_share_directory(
+        'unit0_simulation_gazebo_world')
 
 
     pkg_ros_ign_gazebo = get_package_share_directory(
@@ -37,7 +37,7 @@ def generate_launch_description():
     ign_resource_path = SetEnvironmentVariable(
         name='IGN_GAZEBO_RESOURCE_PATH',
         value=[
-            os.path.join(pkg_custom_world_ignition_bringup, 'worlds')])
+            os.path.join(pkg_unit0_simulation_gazebo_world_bringup, 'worlds')])
 
 
     # Paths

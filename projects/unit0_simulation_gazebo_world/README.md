@@ -2,5 +2,5 @@
 
 * To launch the Husky Fuel mode 
 ```
-ros2 launch custom_world_ignition fuel_model.launch.py
+ros2 launch unit0_simulation_gazebo_world fuel_model.launch.py
 ```
