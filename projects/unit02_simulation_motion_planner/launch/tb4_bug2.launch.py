@@ -4,19 +4,19 @@ from launch_ros.actions import Node
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package='ros2_tb4_visual_nav',
+            package='unit02_simulation_motion_planner',
             namespace='tb4_rider',
             executable='tb4_rider',
             name='turtlebot4_ride'
         ),
         Node(
-            package='ros2_tb4_visual_nav',
+            package='unit02_simulation_motion_planner',
             namespace='ekf',
             executable='ekf',
             name='extented_kalman_filter'
         ),
         Node(
-            package='ros2_tb4_visual_nav',
+            package='unit02_simulation_motion_planner',
             namespace='publish_goal',
             executable='tb4_goal',
             parameters=[

@@ -34,21 +34,21 @@ def generate_launch_description():
     )
 
     # extented_kalman_filter_node = Node(
-    #         package='ros2_tb4_visual_nav',
+    #         package='unit02_simulation_motion_planner',
     #         namespace='ekf',
     #         executable='ekf',
     #         name='extented_kalman_filter'
     #     )
 
     # tb4_planner = Node(
-    #         package='ros2_tb4_visual_nav',
+    #         package='unit02_simulation_motion_planner',
     #         namespace='tb4_rider',
     #         executable='tb4_rider',
     #         name='turtlebot4_ride'
     #     )
     
     # goal_pose = Node(
-    #         package='ros2_tb4_visual_nav',
+    #         package='unit02_simulation_motion_planner',
     #         namespace='publish_goal',
     #         executable='tb4_goal',
     #         name='tb4_goal_pose'

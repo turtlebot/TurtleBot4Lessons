@@ -2,7 +2,7 @@ from setuptools import setup
 import os
 from glob import glob
 
-package_name = 'ros2_tb4_visual_nav'
+package_name = 'unit02_simulation_motion_planner'
 
 setup(
     name=package_name,
@@ -24,9 +24,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-           'tb4_rider = ros2_tb4_visual_nav.tb4_ride:main',
-           'ekf = ros2_tb4_visual_nav.e_kalmanfilter:main',
-           'tb4_goal = ros2_tb4_visual_nav.tb4_publish_goal:main',
+           'tb4_rider = unit02_simulation_motion_planner.tb4_ride:main',
+           'ekf = unit02_simulation_motion_planner.e_kalmanfilter:main',
+           'tb4_goal = unit02_simulation_motion_planner.tb4_publish_goal:main',
         ],
     },
 )
