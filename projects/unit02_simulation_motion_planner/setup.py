@@ -25,7 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
            'tb4_rider = unit02_simulation_motion_planner.tb4_ride:main',
-           'ekf = unit02_simulation_motion_planner.e_kalmanfilter:main',
+           'ekf = unit02_simulation_motion_planner.extented_kalman_filter:main',
            'tb4_goal = unit02_simulation_motion_planner.tb4_publish_goal:main',
         ],
     },
