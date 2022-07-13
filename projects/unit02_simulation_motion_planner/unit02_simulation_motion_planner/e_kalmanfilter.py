@@ -7,8 +7,26 @@ import math
 import numpy as np
  
 class KalmanFilter(Node):
+    """Summary of KalmanFilter class
+
+    KalmanFilter class inherits from (or is a subclass of) Node
+    Extended Kalman filter (EKF) is the nonlinear version of the Kalman filter
+    which linearizes about an estimate of the current mean and covariance.
+
+    Attributes:
+        Node: Is a class from rclpy.node.Node(node_name, *, context=None,
+        cli_args=None, namespace=None, use_global_arguments=True,
+        enable_rosout=True, start_parameter_services=True, parameter_overrides=None,
+        allow_undeclared_parameters=False, automatically_declare_parameters_from_overrides=False)
+        used to create a node, publish/ subscribe a node and access other ROS2 features
+        
+        More Information at: https://docs.ros2.org/latest/api/rclpy/api/node.html
+    """
 
     def __init__(self):
+        """
+        Initiate the Node class's constructor
+        """
         super().__init__('KalmanFilter')
 
         # Subscribers
@@ -32,8 +50,19 @@ class KalmanFilter(Node):
 
     def command_velocity(self, msg):
         """
-        callback method to listen velocity commands
-        Input velocity vector [linear_vel,linear_vel,angular_vel] 
+        A callback method to listen velocity commands of the turtlebot4
+        Args:
+            msg:
+                Type: geometry_msgs/Twist.msg
+                Description: This expresses velocity in free space broken into its linear and angular parts.
+                    Vector3  linear
+                    Vector3  angular
+        
+        Inputs: Forward velocity in the x direction robot's reference frame and 
+                Angular velocity around the robot's z axis from geometry_msgs/Twist.msg
+
+        Output: velocity vector [linear_vel, linear_vel, angular_vel] 
+
         """
         # Forward velocity in the x direction robot's reference frame
         linear_vel = msg.linear.x
@@ -41,28 +70,42 @@ class KalmanFilter(Node):
         # Angular velocity around the robot's z axis
         angular_vel = msg.angular.z
          
-        # [linear_vel,linear_vel,angular_vel]        
+        # [linear_vel, linear_vel, angular_vel]        
         self.control_input_velocity[0] = linear_vel
         self.control_input_velocity[1] = linear_vel
         self.control_input_velocity[2] = angular_vel
  
     def odometry_data(self, msg):
         """
-        subscribing to odometry data- the robot's position and orientation in the global reference frame
-        The position is x, y, z.
-        The orientation is a x,y,z,w quaternion. 
-        """                    
+        - A callback method for subscribing to odometry data - the robot's position and orientation in the global reference frame
+        - Convert odom data into observation state vector
+        - estimate states from extended kalman filter [x, y, yaw]
+
+        Args:
+            msg:
+                Type: nav_msgs/msg/Odometry.msg
+                Description: This represents an estimate of a position and velocity in free space.
+                1. The pose in this message should be specified in the coordinate frame given by header.frame_id
+                2. The twist in this message should be specified in the coordinate frame given by the child_frame_id
+        
+        Inputs: The position is x, y, z.
+                The orientation is a x,y,z,w quaternion.
+
+        Output: State estimates from estimated kalman filter ---> [x, y, yaw] 
+
+        """
+        # Converting quaternion values to euler angle (yaw)                   
         roll, pitch, yaw = self.quaternion_to_euler(
                     msg.pose.pose.orientation.x,
                     msg.pose.pose.orientation.y,
                     msg.pose.pose.orientation.z,
                     msg.pose.pose.orientation.w)
-                 
+        
+        # Input observation state vector [x, y, yaw]
         state_vector = [msg.pose.pose.position.x,msg.pose.pose.position.y,yaw]
 
-        observation_vector =  np.array([state_vector[0],
-                        state_vector[1],
-                        state_vector[2]])
+        # Converting state vector into numpy array
+        observation_vector =  np.array([state_vector[0], state_vector[1], state_vector[2]])
          
         # Applying the Extended Kalman Filter        
         updated_state_estimate = self.ekf(observation_vector)
@@ -71,6 +114,23 @@ class KalmanFilter(Node):
         self.pub_estimated_state(updated_state_estimate)
     
     def quaternion_to_euler(self, x, y, z, w):
+        """
+        - A method to convert robots odometry data from quaternion to euler angles
+
+        Args:
+            x: orientation along x-direction
+            y: orientation along y-direction
+            z: orientation along z-direction
+            w: the scalar (real) part
+        
+        Inputs: The orientation is a x,y,z,w quaternion.
+
+        Output: Euler angles
+                roll_x: Rotation about the x axis = roll angle
+                pitch_y: Rotation about the y-axis = pitch angle
+                yaw_z: Rotation about the z-axis = yaw angle
+
+        """
         t0 = +2.0 * (w * x + y * z)
         t1 = +1.0 - 2.0 * (x * x + y * y)
         roll_x = math.atan2(t0, t1)
@@ -87,7 +147,16 @@ class KalmanFilter(Node):
         return roll_x, pitch_y, yaw_z
     
     def bMatrix(self,yaw,dt):
+        """
+        To calculate B-Matrix
+        Input:
+             yaw: yaw angle -> Rotation about the z-axis
+             dt = differential time
+            
+        Return:
+            B: [3*3] B Matrix
 
+        """
         B = np.array([ [np.cos(yaw) * dt,0,0],[0,np.sin(yaw)* dt,0], [0,0,dt]])                 
         return B
 
@@ -98,9 +167,18 @@ class KalmanFilter(Node):
         self.ekf_pub.publish(msg)
 
     def ekf(self, obs_vector):
-        #[TODO]
         """
-        Extended Kalman Filter to return optimal states       
+        Extended Kalman Filter to return optimal states by calculating
+        current mean and covariance
+
+        Args:
+            obs_vector: observation state vector from odometry_data callback method [x, y, yaw]
+        
+        Inputs: 
+            obs_vector: Input observation state vector [x, y, yaw] 3x1 from odometry 
+
+        Output: 
+            state_estimate_t: State estimates at time interval t ---> [x, y, yaw] 3x1   
         """
         #Based on the state estimate at time t-1 and the control input applied
         # at time t-1, predict the state estimate at time t
