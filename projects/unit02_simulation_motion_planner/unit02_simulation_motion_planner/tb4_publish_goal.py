@@ -1,5 +1,8 @@
-from matplotlib.pyplot import get
+import numpy as np 
+import math 
+import argparse
 import rclpy 
+from matplotlib.pyplot import get
 from time import sleep 
 from rclpy.node import Node
 from std_msgs.msg import String 
@@ -8,15 +11,27 @@ from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Pose 
 from std_msgs.msg import Float64MultiArray
 from rclpy.qos import qos_profile_sensor_data 
-import numpy as np 
-import math 
-import argparse
-from .tb4_ride import TurtleRide
 
-
- 
 class TurtleGoal(Node):
+    """
+    TurtleGoal class inherits from (or is a subclass of) Node
 
+    Attributes:
+        Node: Is a class from rclpy.node.Node(node_name, *, context=None,
+        cli_args=None, namespace=None, use_global_arguments=True,
+        enable_rosout=True, start_parameter_services=True, parameter_overrides=None,
+        allow_undeclared_parameters=False, automatically_declare_parameters_from_overrides=False)
+        used to create a node, publish/ subscribe a node and access other ROS2 features
+
+            More Information at: https://docs.ros2.org/latest/api/rclpy/api/node.html 
+
+    Topics:
+        - Publishers:
+                - Topic name: /goal
+                    - Topic type: geometry_msgs.msg/Pose
+                    - Topic desciption: To publish goal coordinates for turtlebot4
+
+    """
     def __init__(self):
         """
         Turtle goal constructor to initialize nodes, subscribers, publishers and parameters
@@ -52,7 +67,13 @@ class TurtleGoal(Node):
         
 
 def main(args=None):
-    
+    """
+    Main method to instantiate ROS nodes and TurtleGoal class to publish
+    goal pose
+
+    Args:
+        None
+    """
     rclpy.init(args=args)
     turtlebot_4_goal = TurtleGoal()
     rclpy.spin(turtlebot_4_goal)

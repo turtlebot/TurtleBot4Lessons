@@ -1,17 +1,16 @@
+import math
+import numpy as np
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Float64MultiArray
-import math
-import numpy as np
 
 class KalmanFilter(Node):
-    """Summary of KalmanFilter class
-
+    """
     KalmanFilter class inherits from (or is a subclass of) Node
-    Extended Kalman filter (EKF) is the nonlinear version of the Kalman filter
-    which linearizes about an estimate of the current mean and covariance.
+        Extended Kalman filter (EKF) is the nonlinear version of the Kalman filter
+        which linearizes about an estimate of the current mean and covariance.
 
     Attributes:
         Node: Is a class from rclpy.node.Node(node_name, *, context=None,
@@ -68,7 +67,7 @@ class KalmanFilter(Node):
         self.control_input_velocity[0] = linear_vel
         self.control_input_velocity[1] = linear_vel
         self.control_input_velocity[2] = angular_vel
-    
+
     def odometry_data(self, msg):
         """
         - A callback method for subscribing to odometry data - the robot's position and orientation
@@ -240,4 +239,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-    
