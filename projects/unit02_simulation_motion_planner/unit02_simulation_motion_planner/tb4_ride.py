@@ -246,6 +246,15 @@ class TurtlePlanner(Node):
         msg.angular.z = 0.0
         # publish to /cmd_vel
         self.publisher_.publish(msg)
+  
+    def desired_yaw(self):
+        """
+         Method to estimate desired yaw along the sg-line towards goal pose
+        """
+        desired_yaw_angle = math.atan2(
+                self.goal_y[self.goal_id_lst] - self.y_pose_live,
+                self.goal_x[self.goal_id_lst] - self.x_pose_live)
+        return desired_yaw_angle
 
     def adjust_orientation(self):
         """
@@ -265,12 +274,9 @@ class TurtlePlanner(Node):
         msg.angular.y = 0.0
         msg.angular.z = 0.0
         self.get_logger().info('Entering orient to goal mode')
+        
         # calculate the estimate yaw angle depending on the current pose and goal pose
-        desired_yaw = math.atan2(
-                self.goal_y[self.goal_id_lst] - self.y_pose_live,
-                self.goal_x[self.goal_id_lst] - self.x_pose_live)
-
-        yaw_error = desired_yaw - self.orientation_live
+        yaw_error = self.desired_yaw() - self.orientation_live
 
         # change the orientation if error is greater than anticipated threshold
         if math.fabs(yaw_error) > self.angle_threshold:
@@ -323,12 +329,7 @@ class TurtlePlanner(Node):
             self.publisher_.publish(msg)
 
             # check if orientation is good
-            desired_yaw = math.atan2(
-                self.goal_y[self.goal_id_lst] - self.y_pose_live,
-                self.goal_x[self.goal_id_lst] - self.x_pose_live)
-
-            # Adjusting the orientation
-            yaw_error = desired_yaw - self.orientation_live
+            yaw_error = self.desired_yaw() - self.orientation_live
     
             # estimating if orientation is reasonable else changing
             # the state of the turtlebot4
@@ -613,6 +614,6 @@ def main(args=None):
     rclpy.spin(turtlebot_4)
     turtlebot_4.destroy_node()
     rclpy.shutdown()
- 
+
 if __name__ == '__main__':
     main()

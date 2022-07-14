@@ -44,7 +44,9 @@ class TurtleGoal(Node):
         self.i = 0
 
     def publish_goal(self):
-        
+        """
+        Publish goal
+        """
         if(True): #[TODO] condition for robot reach state
             get_goal_pose = self.get_parameter('goal_pose')
             goal_pose_list = str(get_goal_pose.value).strip('][').split(', ')
