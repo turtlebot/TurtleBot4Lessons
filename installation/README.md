@@ -9,7 +9,7 @@ In your terminal
 git clone https://github.com/turtlebot/TurtleBot4Lessons.git
 cd TurtleBot4Lessons/installation
 bash install.bash
-enter you administrator passkey to run and install scripts
+enter your administrator passkey to run and install scripts (** sudo access required)
 ```
 
 Now sit back and relax for a while untill below packages gets installed
