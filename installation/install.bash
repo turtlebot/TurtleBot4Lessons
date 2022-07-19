@@ -29,7 +29,7 @@ universe_data=$(apt-cache policy | grep universe)
 
 if [[ $universe_data =~ "500" ]]; then
   echo " Ubuntu Universe repository is enabled"
-  
+
 else
 #If you don’t see an output line containing 500, this script will enable the Universe repository by running below 2 lines
   echo "Local Configuration failed"
@@ -140,3 +140,9 @@ echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo ::::::::::::::::Instalation Successful::::::::::::::::::::::::::::::::
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+echo ::::::::::::::::::cloning TurtleBot4Lessons repo to /home directory :::::::::::::::::::::::::::::
+cd $HOME
+git clone --recursive https://github.com/turtlebot/TurtleBot4Lessons.git
+
+::::::::::::::::::::::::::::::Happy Turtlebot4 Learning:::::::::::::::::::::::::::::::::::::::::::::::
