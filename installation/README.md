@@ -13,7 +13,7 @@ enter you administrator passkey to run and install scripts
 ```
 
 Now sit back and relax for a while untill below packages gets installed
-- ROS2 
+- ROS2 galactic
 - Turtlebot4 packages 
 - other required packages like 
   - build-essential
