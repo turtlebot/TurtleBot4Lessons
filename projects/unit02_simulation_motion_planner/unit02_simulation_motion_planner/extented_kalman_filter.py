@@ -6,9 +6,9 @@ from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 from std_msgs.msg import Float64MultiArray
 
-class KalmanFilter(Node):
+class ExtentedKalmanFilter(Node):
     """
-    KalmanFilter class inherits from (or is a subclass of) Node
+    ExtentedKalmanFilter class inherits from (or is a subclass of) Node
         Extended Kalman filter (EKF) is the nonlinear version of the Kalman filter
         which linearizes about an estimate of the current mean and covariance.
 
@@ -25,7 +25,7 @@ class KalmanFilter(Node):
         """
         Initiate the Node class's constructor
         """
-        super().__init__('KalmanFilter')
+        super().__init__('ExtentedKalmanFilter')
 
         # Subscribers
         self.vel_sub = self.create_subscription(Twist,'/cmd_vel',self.command_velocity, 10)
@@ -225,14 +225,14 @@ class KalmanFilter(Node):
 
 def main(args=None):
     """
-    Main method to instantiate ROS nodes and KalmanFilter class to estimate states
+    Main method to instantiate ROS nodes and ExtentedKalmanFilter class to estimate states
     from the odometry of turtlebot4
 
     Args:
         None
     """
     rclpy.init(args=args)
-    ekf_estimator = KalmanFilter()
+    ekf_estimator = ExtentedKalmanFilter()
     rclpy.spin(ekf_estimator)
     ekf_estimator.destroy_node()
     rclpy.shutdown()
