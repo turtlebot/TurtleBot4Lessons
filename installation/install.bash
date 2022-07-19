@@ -12,23 +12,39 @@ echo :::::::::::::::DONE!::::::::::::::::::::::::::
 
 echo :::::::::::::::verify locale::::::::::::::::
 locale  # verify settings
+locale_data=$(locale)
+local_trim=$(echo ${locale_data:0:16})
+required_locale="LANG=en_US.UTF-8"
+if [ "$local_trim" = "$required_locale" ]; then
+  echo "Locale Verification sucessfull"
+else
+  echo "Local Configuration failed"
+  exit
+fi
 echo :::::::::::::::DONE!::::::::::::::::
 
 echo :::::::::::::Verify Ubuntu Universe repository is enabled :::::::::::::::::
 apt-cache policy | grep universe
+universe_data=$(apt-cache policy | grep universe)
+
+if [[ $universe_data =~ "500" ]]; then
+  echo " Ubuntu Universe repository is enabled"
+  
+else
+#If you don’t see an output line containing 500, this script will enable the Universe repository by running below 2 lines
+  echo "Local Configuration failed"
+  echo "Installing software-properties-common and universe"
+  sudo apt install software-properties-common
+  sudo add-apt-repository universe
+fi
 echo ::::::::::::::DONE!:::::::::::::::::
-
-echo If you don’t see an output line like the one above, then enable the Universe repository with these instructions.
-
-sudo apt install software-properties-common
-sudo add-apt-repository universe
 
 echo :::::::::::::Adding the ROS 2 apt repository to your machine::::::::::::
 
 sudo apt update
-yes Y | sudo apt install curl
-yes Y | sudo apt install gnupg 
-yes Y | sudo apt install lsb-release
+yes Y | sudo apt install curl \
+  gnupg \
+  lsb-release
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
 echo :::::::::::::::::::Adding ROS2 Repo to source list::::::::::::::::::::::
@@ -51,9 +67,6 @@ echo ::::::::::::::::Sourcing ROS2 Galactic Desktop::::::::::::::::::::::::
 source /opt/ros/galactic/setup.bash
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-echo ::::::::::::::::Installation successfull::::::::::::::::::::::::::::::
-echo ::::::::::::::::Installation successfull::::::::::::::::::::::::::::::
-echo ::::::::::::::::Installation successfull::::::::::::::::::::::::::::::
 echo ::::::::::::::::Installation successfull::::::::::::::::::::::::::::::
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
