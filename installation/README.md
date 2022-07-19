@@ -4,7 +4,11 @@
 
 ### Instructions to Install ROS2 and TurtleBot 4 packages on a **single click**
 
-In your terminal
+In your terminal before cloning the TurtleBot4Lessons Repo, please install GIT
+```
+sudo apt update
+sudo apt install git
+```
 ```
 git clone https://github.com/turtlebot/TurtleBot4Lessons.git
 cd TurtleBot4Lessons/installation
