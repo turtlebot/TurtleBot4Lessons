@@ -32,9 +32,7 @@ Now sit back and relax for a while untill below packages gets installed
   - python3-setuptools
   - python3-vcstool
   - wget
-  - python3-colcon-common-extensions
-  - python3-rosdep
-  - python3-vcstool
+
 
 Note** 
 - You might be asked to enter "Y" while installing packages in some rear instances. During such situations, please enter Y to process installation without hindrances
