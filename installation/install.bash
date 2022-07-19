@@ -145,4 +145,4 @@ echo ::::::::::::::::::cloning TurtleBot4Lessons repo to /home directory :::::::
 cd $HOME
 git clone --recursive https://github.com/turtlebot/TurtleBot4Lessons.git
 
-::::::::::::::::::::::::::::::Happy Turtlebot4 Learning:::::::::::::::::::::::::::::::::::::::::::::::
+echo ::::::::::::::::::::::::::::::Happy Turtlebot4 Learning:::::::::::::::::::::::::::::::::::::::::::::::
