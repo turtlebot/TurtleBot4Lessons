@@ -44,10 +44,7 @@ ign gazebo empty.sdf
 * Feel free to look around the world to see what we've created. 
 * Close the simulation using the X in the top right 
 
-![Empty Gazebo World](../media/empty_gazebo.png)
 ![empty_gazebo](https://user-images.githubusercontent.com/24978535/176759919-d5188e06-d883-471c-ab36-156639701fa1.png)
->>>>>>> 528d846563a3e0f758000e6102c7a332d24ac2f9
-
 
 ### Explaining XML and the XDF File Format
 
@@ -224,7 +221,6 @@ ign gazebo empty.sdf
 ```
 ### Run .SDF file
 
-
 * Now that we've walked through our "empty" Gazebo world let's restart it and take a look. 
 * [The full SDF file can be found here](../units/Unit01-ROS-2-Basics/L02-Gazebo-World/code/L02-S01-empty_world.sdf)
 * You can load Gazebo using the following command:
@@ -246,8 +242,6 @@ ign gazebo L02-S01-empty_world.sdf
   * Visual -- how the object will look on the screen. 
 * The `geometry` for our model will be a simple plane with a size of 100x100 with a normal pointing up. 
 
-
-
 ### Adding a Ground Plane to our Empty World
 
 * Let's modify our empty world to add a ground plane a few simple shapes. 
@@ -257,7 +251,6 @@ ign gazebo L02-S01-empty_world.sdf
   * Collision -- how other objects will interact with the world.
   * Visual -- how the object will look on the screen. 
 * The `geometry` for our model will be a simple plane with a size of 100x100 with a normal pointing up. 
-
 
 
 ```xml
@@ -329,12 +322,10 @@ ign gazebo L02-S01-empty_world.sdf
 ign gazebo L02-S02-model_shape.sdf
 ```
 
-
 ### View your Ground Plane World
 
 
 ![Ground Plane World](../media/ground_plane.png)
-
 
 ### Adding Simple Objects to a Gazebo World 
 
@@ -353,7 +344,7 @@ ign gazebo L02-S02-model_shape.sdf
 * Ignition Fuel hosts hundreds of models that can easily be added to an Ignition world.
 * Next we're going to add a robot or object model from the internet. 
 * Refer the [tutorial](https://gazebosim.org/docs/citadel/fuel_insert) for detailed explanation.
-* TODO: upgrade to Fortress and summarize tutorials. 
+* TODO: upgrade to Fortress and summarize tutorials
 
 
 ![husky_fuel](https://user-images.githubusercontent.com/24978535/176760158-b83e469e-8ecb-4bef-8591-c76127068588.png)
@@ -390,12 +381,12 @@ ign gazebo L02-S02-model_shape.sdf
 * Create a new ROS2 package in src of your workspace
 
 ```
-ros2 pkg create --build-type ament_python unit01_simulation_L2_gazebo_world
+ros2 pkg create --build-type ament_python unit01_simulation_gazebo_world
 ```
 * Navigate to package root folder and create two new folders one for the launch and other for worlds
 
 ```
-cd src/unit01_simulation_L2_gazebo_world
+cd src/unit01_simulation_gazebo_world
 mkdir launch
 mkdir worlds
 ```
@@ -409,14 +400,18 @@ touch fuel_model.launch.py
 
 * Before leveling up, please refer to ROS2 documentation on How to create launch files [ROS2_Launch_files](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 
-* These import statements pull in some Python launch modules.
+* Let us import few launch libraries from ROS2. 
+* Here we import LaunchDescription to describe the launch and Node from launch_ros.actions to describe initialization of possible nodes in our project.
 
 ```
 from launch import LaunchDescription
 from launch_ros.actions import Node
 ```
 
-* Next, the launch description itself begins:
+### How to code launch file? 
+
+* Using the above imports, we define and describe our launch method.
+* Below is an example syntax to define launch description. Here we return LaunchDescription object with required launch arguments.
 
 ```
 def generate_launch_description():
@@ -424,26 +419,37 @@ def generate_launch_description():
 
    ])
 ```
-* create a directory for your package unit01_simulation_L2_gazebo_world and ros_ign_gazebo 
+
+### Integrating launch with Ignition gazebo
+
+* We must create a directory for our package and the package that will be launched. 
+* This helps us to know the paths of the packages.
 ```
 # Directories
-    pkg_unit01_simulation_L2_gazebo_world_bringup = get_package_share_directory(
-        'unit01_simulation_L2_gazebo_world')
+    pkg_unit01_simulation_gazebo_world_bringup = get_package_share_directory(
+        'unit01_simulation_gazebo_world')
 
 
     pkg_ros_ign_gazebo = get_package_share_directory(
         'ros_ign_gazebo')
 ```
-* Set ignition resource path for newly cretaed custom world
+
+### Integrating launch with Ignition gazebo (Contin.)
+* Now, we need to set ignition resource path for our world by setting environment variable. This helps us in passing world as a resource to Ign gazebo
+* This can be done as shown below, we need to give a valid Environment variable name and its path as value
 
 ```
  # Set ignition resource path
     ign_resource_path = SetEnvironmentVariable(
         name='IGN_GAZEBO_RESOURCE_PATH',
         value=[
-            os.path.join(pkg_unit01_simulation_L2_gazebo_world_bringup, 'worlds')])
+            os.path.join(pkg_unit01_simulation_gazebo_world_bringup, 'worlds')])
 ```
-* Now, lets set paths for ros_ign_gazebo to trigger ign_gazebo.launch.py
+
+### Integrating launch with Ignition gazebo (Contin.)
+
+* As we now have our resource. Lets set paths for ros_ign_gazebo to trigger ign_gazebo.launch.py launch file
+* Here `pkg_ros_ign_gazebo` is our path/ directory for `ign_gazebo.launch`
 
 ```
    # Paths
@@ -451,8 +457,11 @@ def generate_launch_description():
         [pkg_ros_ign_gazebo, 'launch', 'ign_gazebo.launch.py'])
 ```
 
+### Integrating launch with Ignition gazebo (Contin.)
 
-* Finally, lets define Launch Description and launch arguments for ignition gazebo
+* Summing up, lets define Launch Description and launch arguments for ignition gazebo
+* Lets create a new object of type `IncludeLaunchDescription` with `PythonLaunchDescriptionSource` and `launch_arguments`.
+* Now lets pass ign_args, LaunchConfiguration as world and other config args to the `launch_arguments` as shown below.
 
 ```
   # Ignition gazebo
@@ -466,8 +475,19 @@ def generate_launch_description():
         ]
     )
 ```
+### Integrating launch with Ignition gazebo (Contin.)
+* As discussed earlier, Let us pass our launch arguments and actions to our LaunchDescription
+* This completes our launch description setup.
+```
+  # Define LaunchDescription variable
+    ld = LaunchDescription(ARGUMENTS)
+    ld.add_action(ign_resource_path)
+    ld.add_action(ignition_gazebo)
+```
+### Configuring launch and world files in ROS2 package
 
 * No, Its is not done yet. Let us add worlds and launch directory to setup.py
+* The syntax for passing the shared path of the launch and worlds directories is shown below. This informs the ROS2 package of its existence. 
 
 ```
 import os
@@ -478,6 +498,9 @@ from glob import glob
 (os.path.join('share', package_name,'worlds'), glob('worlds/*'))
 ```
 
+### How to create a custom world file
+
+* Direct to newly created worlds folder
 * Create a SDF world file inside worlds directory
 
 ```
@@ -499,45 +522,45 @@ touch custom_world.sdf
 ...
 </world>
 ```
+### How to launch a custom world file with fuel model?
 
 * Its time to launch the Fuel model. Hurrayyy! we launched the fuel model in gazebo ignition using ROS2
 
 ```
 colcon build
-ros2 launch unit01_simulation_L2_gazebo_world fuel_model.launch.py
+ros2 launch unit01_simulation_gazebo_world fuel_model.launch.py
 ```
 
 ![husky1](https://user-images.githubusercontent.com/24978535/176760295-f3f041cb-4e97-49cf-8c47-385a9b73c0be.png)
 
-* TODO - link to example project repo
-[Click to navigate to project repo]() 
+* The complete unit01_simulation_gazebo_world project is found inside projects directory in the root folder.
 
 ### Feel Free to Add Shapes to Your Downloaded Models
 
 * Predefined forms such as solid circles, cubes, and cylinders can be found in the top left corner of the ignition GUI. You can drag and drop objects into your world to utilize as obstacles.
-
+* Below is the pictorial example of the above description. 
 
 ![husky_objects](https://user-images.githubusercontent.com/24978535/176760322-be1f4842-87d4-4a05-9d4f-22baaa7fce92.png)
 
 
-### Locally Spawn a TurtleBot4 on to Gazebo world with default depo world
+### Launch TurtleBot4 on to Gazebo world with default warehouse world
 
-* Source the package
+* Initially Source the package
 
 ```
 . install/setup.bash
 ```
-* Launch TurtleBot4
+* Then Launch TurtleBot4 as follows
 
 ```
 ros2 launch turtlebot4_ignition_bringup ignition.launch.py
 ```
 ![tb4_warehouse](https://user-images.githubusercontent.com/24978535/176760402-3b679547-d515-46ec-9591-5de1bfd80ad0.png)
 
-### Spawn a TurtleBot4 in a Custom Gazebo World
+### Launch a TurtleBot4 in a Custom Gazebo World
 
-* Finally we'll create a custom world for our Turtlebot4. 
-* Below is the sample SDF comprising of empty warehouse world that we've pulled from Ignition Fuel 
+* From the past examples, we now know how to create a custom world. 
+* With that experience, below is the sample SDF comprising of empty warehouse world that we've pulled from Ignition Fuel 
 * You can add the world from Fuel by copying the snippet shown below:
 
 ```
@@ -553,12 +576,12 @@ touch custom_world.sdf
 </include>
 ```
 
-* [Click to view entire SDF code with a new world](../units/Unit01-ROS-2-Basics/L02-Gazebo-World/code/L02-S05-custom_world.sdf)
+* Full length code is found under code folder in this directory. File name is `L02-S05-custom_world.sdf`
 
-### Launch a TurtleBot4 on to custom Gazebo world 
+### TB4 custom world Launch Instructions
 
 
-* Launch the TurtleBot4 on to your custom world
+* Launch the TurtleBot4 on to your custom world by following below commands.
 
 ```
 colcon build
@@ -567,76 +590,3 @@ ros2 launch ignition.launch.py world:=custom_world
 
 ![tb4_0](https://user-images.githubusercontent.com/24978535/176760475-63ebb11e-e1b0-4f2d-a057-092cbb51260f.png)
 ![tb4_1](https://user-images.githubusercontent.com/24978535/176760479-891b0974-4127-409f-800c-bc1aa4ad9bd9.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Spawn a TurtleBot4 on to Gazebo world
-
-* To launch turtle bot 4 with warehouse world, below follow below steps. The turtlebot4_ignition_bringup package contains launch files and configurations to launch Ignition Gazebo.
-* TODO: We do not need to have installation instructions
-
-
-
-```
-sudo apt-get update && sudo apt-get install wget
-sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable 
-`lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-```
-```
-wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install ignition-edifice ros-galactic-turtlebot4-simulator ros-galactic-irobot-create-nodes
-```
-
-### Locally Spawn a TurtleBot4 on to Gazebo world 
-
-* Create a new workspace with a src folder in it and colcon build the workspace
-
-```
-mkdir turtle_ws
-cd turtle_ws && mkdir src
-colcon build
-```
-* clone the Turtlebot4 Simulator
-
-```
-cd turtle_ws/src
-git clone https://github.com/turtlebot/turtlebot4_simulator.git
-cd .. && colcon build
-```
-=======
->>>>>>> 528d846563a3e0f758000e6102c7a332d24ac2f9
