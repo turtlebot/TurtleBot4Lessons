@@ -7,7 +7,7 @@
 In your terminal
 ```
 git clone https://github.com/turtlebot/TurtleBot4Lessons.git
-cd installation
+cd TurtleBot4Lessons/installation
 bash install.bash
 enter you administrator passkey to run and install scripts
 ```
