@@ -35,7 +35,7 @@ echo :::::::::::::::::::Adding ROS2 Repo to source list::::::::::::::::::::::
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(source /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 echo :::::::::::::::::::DONE!:::::::::::::::::::::::::::::::::::::::::::::::::
 
-sudo apt update
+yes Y | sudo apt update
 yes Y | sudo apt upgrade
 echo :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -100,8 +100,8 @@ ros-galactic-turtlebot4-msgs \
 ros-galactic-turtlebot4-navigation \
 ros-galactic-turtlebot4-node
 
-sudo apt update
-sudo apt install ros-galactic-turtlebot4-desktop
+yes Y | sudo apt update
+yes Y | sudo apt install ros-galactic-turtlebot4-desktop
 
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
