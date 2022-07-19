@@ -9,7 +9,7 @@ In your terminal before cloning the TurtleBot4Lessons Repo, please install GIT
 sudo apt update
 sudo apt install git
 ```
-Navigate to the installation directory and run the bash script as shown below
+Navigate to the installation directory in the cloned TurtleBot4Lessons repository and run the bash script as shown below
 ```
 git clone https://github.com/turtlebot/TurtleBot4Lessons.git
 cd TurtleBot4Lessons/installation
