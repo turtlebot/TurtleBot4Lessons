@@ -523,18 +523,27 @@ class TurtlePlanner(Node):
 
             # following the wall depending on the wall state
             self.get_logger().info('Avoiding collision with wall and following wall')
-            if self.lidar["leftfront"] > self.tb4_wall_distance and self.lidar["front"] > self.tb4_wall_distance and self.lidar["rightfront"] > self.tb4_wall_distance:
+            if( self.lidar["leftfront"] > self.tb4_wall_distance and
+                    self.lidar["front"] > self.tb4_wall_distance and
+                    self.lidar["rightfront"] > self.tb4_wall_distance):
+
                 self.tb4_wall_state = "identify_wall"
                 self.get_logger().info('Applying linear velocity and turn right')
                 msg.linear.x = self.linear_velocity
                 msg.angular.z = -self.smooth_turn # turn right
 
-            elif self.lidar["leftfront"] > self.tb4_wall_distance and self.lidar["front"] < self.tb4_wall_distance and self.lidar["rightfront"] > self.tb4_wall_distance:
-                self.get_logger().info('Turning Sharp lidar["left"]')
+            elif (self.lidar["leftfront"] > self.tb4_wall_distance and
+                    self.lidar["front"] < self.tb4_wall_distance and
+                    self.lidar["rightfront"] > self.tb4_wall_distance):
+
+                self.get_logger().info('Turning Sharp left')
                 self.tb4_wall_state = "turn"
                 msg.angular.z = self.sharp_turn # turn left
 
-            elif (self.lidar["leftfront"] > self.tb4_wall_distance and self.lidar["front"] > self.tb4_wall_distance and self.lidar["rightfront"] < self.tb4_wall_distance):
+            elif (self.lidar["leftfront"] > self.tb4_wall_distance and
+                    self.lidar["front"] > self.tb4_wall_distance and
+                    self.lidar["rightfront"] < self.tb4_wall_distance):
+
                 if (self.lidar["rightfront"] < self.wall_collision_avoidance):
                     # reach wall
                     self.get_logger().info('Reached wall and Turning Sharp left')
@@ -546,28 +555,43 @@ class TurtlePlanner(Node):
                     self.tb4_wall_state = "along_wall"
                     msg.linear.x = self.linear_velocity # go straight
 
-            elif self.lidar["leftfront"] < self.tb4_wall_distance and self.lidar["front"] > self.tb4_wall_distance and self.lidar["rightfront"] > self.tb4_wall_distance:
+            elif (self.lidar["leftfront"] < self.tb4_wall_distance and
+                    self.lidar["front"] > self.tb4_wall_distance and
+                    self.lidar["rightfront"] > self.tb4_wall_distance):
+
                 self.get_logger().info('Reach wall and turn right')
                 self.tb4_wall_state = "identify_wall"
                 msg.linear.x = self.linear_velocity
                 msg.angular.z = -self.smooth_turn # turn right
 
-            elif self.lidar["leftfront"] > self.tb4_wall_distance and self.lidar["front"] < self.tb4_wall_distance and self.lidar["rightfront"] < self.tb4_wall_distance:
+            elif (self.lidar["leftfront"] > self.tb4_wall_distance and
+                 self.lidar["front"] < self.tb4_wall_distance and 
+                 self.lidar["rightfront"] < self.tb4_wall_distance):
+
                 self.get_logger().info('turn left')
                 self.tb4_wall_state = "turn"
                 msg.angular.z = self.sharp_turn # turn left
 
-            elif self.lidar["leftfront"] < self.tb4_wall_distance and self.lidar["front"] < self.tb4_wall_distance and self.lidar["rightfront"] > self.tb4_wall_distance:
+            elif (self.lidar["leftfront"] < self.tb4_wall_distance and
+                    self.lidar["front"] < self.tb4_wall_distance and
+                    self.lidar["rightfront"] > self.tb4_wall_distance):
+
                 self.get_logger().info('turn left')
                 self.tb4_wall_state = "turn"
                 msg.angular.z = self.sharp_turn # turn left
 
-            elif self.lidar["leftfront"] < self.tb4_wall_distance and self.lidar["front"] < self.tb4_wall_distance and self.lidar["rightfront"] < self.tb4_wall_distance:
+            elif (self.lidar["leftfront"] < self.tb4_wall_distance and
+                    self.lidar["front"] < self.tb4_wall_distance and
+                    self.lidar["rightfront"] < self.tb4_wall_distance):
+
                 self.get_logger().info('turn left')
                 self.tb4_wall_state = "turn"
                 msg.angular.z = self.sharp_turn #turn left
 
-            elif self.lidar["leftfront"] < self.tb4_wall_distance and self.lidar["front"] > self.tb4_wall_distance and self.lidar["rightfront"] < self.tb4_wall_distance:
+            elif (self.lidar["leftfront"] < self.tb4_wall_distance and
+                    self.lidar["front"] > self.tb4_wall_distance and
+                    self.lidar["rightfront"] < self.tb4_wall_distance):
+
                 self.get_logger().info('turn right')
                 self.tb4_wall_state = "identify_wall"
                 msg.linear.x = self.linear_velocity
