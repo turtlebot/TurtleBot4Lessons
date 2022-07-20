@@ -46,3 +46,42 @@ source ~/.bashrc
 
 echo "::::::::::::::::::::::::::::::Configuring WIFI::::::::::::::::::::::::::::::"
 
+sudo apt-get install network-manager
+
+sudo systemctl start NetworkManager.service 
+sudo systemctl enable NetworkManager.service
+
+echo "::::::::::::::::::::::::::::::Connecting to Turtlebot4::::::::::::::::::::::::::::::"
+nmcli dev wifi connect Turtlebot4 password Turtlebot4
+
+connection_response=$(nmcli dev wifi connect Turtlebot4 password Turtlebot4)
+
+if [[ $connection_response =~ "successfully" ]]; then
+  echo "Connection successfully to Turtlebot4 WiFi"
+
+else
+
+  echo "Reconnecting to TurtleBot4 WiFi"
+  connection_response=$(nmcli dev wifi connect Turtlebot4 password Turtlebot4)
+    x=1
+    while [ $x -le 5 ]
+    do
+        echo "::Atempt $x::"
+        nmcli dev wifi connect Turtlebot4 password Turtlebot4
+        connection_response=$(nmcli dev wifi connect Turtlebot4 password Turtlebot4)
+        if [[ $connection_response =~ "Error" ]]; then
+            echo "::Attempt Failed::"
+        else 
+            echo "Connection established and Attempt Successfull"
+            exit
+        
+        x=$(( $x + 1 ))
+    done
+
+   else
+        echo "Connection Failed to Turtlebot4 WiFi..." 
+        echo "Connect Mannually to the Turtlebot4 network" 
+   fi 
+    
+fi
+
