@@ -1,8 +1,8 @@
 ### Instructions to Install Ubuntu 20.04 on Virtual Machine
 
-[Refer this link to install ubuntu on virtualbox or VMware](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview)
+[Refer this link to install Ubuntu on virtualbox or VMware](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview)
 
-### Instructions to Install ROS2 and TurtleBot 4 packages on a **single click**
+### Instructions to Install ROS2 and TurtleBot 4 packages with a **single click**
 
 In your terminal before cloning the TurtleBot4Lessons Repo, please install GIT
 ```
@@ -37,3 +37,9 @@ Now sit back and relax for a while untill below packages gets installed
 Note** 
 - You might be asked to enter "Y" while installing packages in some rear instances. During such situations, please enter Y to process installation without hindrances
 - This installation process is valid on Virtual machine as well as on Ubuntu Desktop version
+
+### To configure Cyclone DDS and establish Network Interface with TurtleBot4
+```
+cd TurtleBot4Lessons/installation
+bash configure.bash
+```
