@@ -8,14 +8,17 @@ from matplotlib import pyplot as plt
 
 class TurtlePerception(Node):
     """
-    TurtlePerception class inherits from (or is a subclass of) Node
+    - TurtlePerception class inherits from (or is a subclass of) Node attributes as a ROS Node
+     that acts as a primary entrypoint in the ROS system for communication. It can be used to 
+     create ROS entities such as publishers, subscribers, services, etc.
+    - This class is an implementation of the 2D object detection using classical openCV.
+        Here, we use inbuilt opencv methods such as
+        - cv2.findContours(): to retrieve contours from the binary image
+        - cv2.approxPloyDP(): to approximate the shape detected
+        - cv2.drawContours(): to draw bounding boxes for detected objects
 
     Attributes:
-        Node: Is a class from rclpy.node.Node(node_name, *, context=None,
-        cli_args=None, namespace=None, use_global_arguments=True,
-        enable_rosout=True, start_parameter_services=True, parameter_overrides=None,
-        allow_undeclared_parameters=False, automatically_declare_parameters_from_overrides=False)
-        used to create a node, publish/ subscribe a node and access other ROS2 features
+        Node: Is a class from rclpy.node.Node
 
             More Information at: https://docs.ros2.org/latest/api/rclpy/api/node.html 
 
