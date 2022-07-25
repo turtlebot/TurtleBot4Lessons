@@ -15,7 +15,19 @@ from rclpy.qos import qos_profile_sensor_data
 
 class TurtlePlanner(Node):
     """
-    TurtlePlanner class inherits from (or is a subclass of) Node
+    - The class TurtlePlanner, attributes as a ROS Node that acts as a primary entrypoint
+        in the ROS system for communication. It can be used to create ROS entities
+        such as publishers, subscribers, services, etc.
+    - This class is an implementation of the Motion Planner Algorithm.
+    - Motion Planner Algorithm in a nutshell:
+    (Most of the text books refer this algorithm as Bug2 planning algorithm)
+            - Head towards goal on the sg-line (A line between start and goal points)
+            - If an obstacle/wall is on the way, follow it until you encounter the sg-line
+                 closer to the goal.
+            - consider the point where turtlebot4 reaches the sg-line first as
+                reach point. Similarly, consider the point where turtlebot4 leaves the
+                sg-lines as leave point
+            - Leave the obstacle/wall and continue toward the goal
 
     Attributes:
         Node: Is a class from rclpy.node.Node(node_name, *, context=None,
@@ -25,7 +37,7 @@ class TurtlePlanner(Node):
         used to create a node, publish/ subscribe a node and access other ROS2 features
 
             More Information at: https://docs.ros2.org/latest/api/rclpy/api/node.html
-     
+
     Topics:
     - Publishers:
             - Topic name: /cmd_vel
@@ -87,7 +99,9 @@ class TurtlePlanner(Node):
         self.goal_x = False
         self.goal_y = False
 
-        # Initializing Lidar sensor data in zones
+        # Initializing each Lidar data cycle into zones
+        # here we are breaking each lidar cycle in to 5 parts as
+        # front, left, right, leftfront and rightfront to orient TB4 accordingly
         self.lidar = {}
         self.lidar["left"] = 9999999999.9
         self.lidar["leftfront"] = 9999999999.9
@@ -164,6 +178,9 @@ class TurtlePlanner(Node):
         # minimum required distance between reach and leave
         self.dist_leave_to_reach = 0.2
 
+        # minimum distance between TB4 and sg line
+        self.min_distance_to_sg_line = 0.06
+
 
     def goal_estimation(self,msg):
         """
@@ -202,9 +219,9 @@ class TurtlePlanner(Node):
         self.lidar["front"] = msg.ranges[90]
         self.lidar["rightfront"] = msg.ranges[45]
         self.lidar["right"] = msg.ranges[0]
-
-        if self.tb4_mode == "avoid_mode":
-            self.obstacle_avoidance()
+        #[TODO] perecption based avoidance
+        # if self.tb4_mode == "avoid_mode":
+        #     self.obstacle_avoidance()
 
     def state_estimation(self, msg):
         """
@@ -232,6 +249,9 @@ class TurtlePlanner(Node):
         # Run bug2_algorithm Motion Planner
         if self.is_bug2 is True:
             self.bug2_algorithm()
+
+        else:
+            self.get_logger().info('No Motion Planner is assigned')
 
     def obstacle_avoidance(self):
         """
@@ -274,7 +294,7 @@ class TurtlePlanner(Node):
         msg.angular.y = 0.0
         msg.angular.z = 0.0
         self.get_logger().info('Entering orient to goal mode')
-        
+
         # calculate the estimate yaw angle depending on the current pose and goal pose
         yaw_error = self.desired_yaw() - self.orientation_live
 
@@ -359,18 +379,14 @@ class TurtlePlanner(Node):
         self.get_logger().info('goal_state! X:%f Y:%f' % (
             self.goal_x[self.goal_id_lst],
             self.goal_y[self.goal_id_lst]))
-        self.get_logger().info('current_state! X:%d Y:%d' % (
-            self.goal_x[self.x_pose_live],
-            self.goal_y[self.y_pose_live]))
         # incrementing to next goal state
         self.goal_id_lst = self.goal_id_lst + 1
 
         # reaching final goal
 
-        if (self.goal_x[self.goal_id_lst] is float(self.x_pose_live) and self.goal_y[self.goal_id_lst] is float(self.y_pose_live)):
+        if (self.goal_x[self.goal_id_lst] is self.goal_x and self.goal_y[self.goal_id_lst] is self.goal_y):
             self.get_logger().info('Goal Reached!!! Planning complete')
-            while True:
-                pass
+
 
         # If not
         else:
@@ -426,7 +442,8 @@ class TurtlePlanner(Node):
                 self.reach_y = self.y_pose_live
 
                 # Find the distance from reach point to goal point
-                self.dist_reach_to_goal = (math.sqrt((pow(self.goal_x[self.goal_id_lst] - self.reach_x, 2)) + (pow(self.goal_y[self.goal_id_lst] - self.reach_y, 2))))    
+                self.dist_reach_to_goal = (math.sqrt((pow(self.goal_x[self.goal_id_lst] - self.reach_x, 2)) +
+                (pow(self.goal_y[self.goal_id_lst] - self.reach_y, 2))))
 
                 # Perform a stop and sharp turn to follow the wall
                 self.get_logger().info('Taking a quick turn')
@@ -450,7 +467,8 @@ class TurtlePlanner(Node):
                 self.reached_goal()
 
             else:
-                pass
+                self.get_logger().info('Reached Unknown goal state')
+
 
     def boundary_check(self):
         """
@@ -481,12 +499,12 @@ class TurtlePlanner(Node):
             x_start_goal_line = self.x_pose_live
             y_start_goal_line = (self.sg_line_slope * (x_start_goal_line)) + (self.sg_line_y_intercept)
             # calculating distance between claculated point
-            distance_to_start_goal_line = math.sqrt(pow(x_start_goal_line - self.x_pose_live, 2) + pow(y_start_goal_line - self.y_pose_live, 2)) 
+            distance_to_start_goal_line = 0.05 + math.sqrt(pow(x_start_goal_line - self.x_pose_live, 2) + pow(y_start_goal_line - self.y_pose_live, 2)) 
 
             self.get_logger().info('Distance to SG Line: %f' % distance_to_start_goal_line)
             # what if hit the sg line again? on the second collison with sg-line
             # we consider the tb4 to leaving the line
-            if distance_to_start_goal_line < 0.04:
+            if distance_to_start_goal_line < self.min_distance_to_sg_line:
                 self.get_logger().info('evaluating condition to switch mode')
                 # storing the current pose of tbr at that point
                 self.leave_x = self.x_pose_live
@@ -503,61 +521,85 @@ class TurtlePlanner(Node):
                     self.tb4_mode = "goal_mode"
                 return
 
-            # following the wall depeding on the wall state
-            distance = self.tb4_wall_distance
+            # following the wall depending on the wall state
             self.get_logger().info('Avoiding collision with wall and following wall')
-            if self.lidar["leftfront"] > distance and self.lidar["front"] > distance and self.lidar["rightfront"] > distance:
+            if( self.lidar["leftfront"] > self.tb4_wall_distance and
+                    self.lidar["front"] > self.tb4_wall_distance and
+                    self.lidar["rightfront"] > self.tb4_wall_distance):
+
                 self.tb4_wall_state = "identify_wall"
-                self.get_logger().info('Applying linear velocity and turn lidar["right"]')
+                self.get_logger().info('Applying linear velocity and turn right')
                 msg.linear.x = self.linear_velocity
-                msg.angular.z = -self.smooth_turn # turn lidar["right"]
+                msg.angular.z = -self.smooth_turn # turn right
 
-            elif self.lidar["leftfront"] > distance and self.lidar["front"] < distance and self.lidar["rightfront"] > distance:
-                self.get_logger().info('Turning Sharp lidar["left"]')
+            elif (self.lidar["leftfront"] > self.tb4_wall_distance and
+                    self.lidar["front"] < self.tb4_wall_distance and
+                    self.lidar["rightfront"] > self.tb4_wall_distance):
+
+                self.get_logger().info('Turning Sharp left')
                 self.tb4_wall_state = "turn"
-                msg.angular.z = self.sharp_turn
+                msg.angular.z = self.sharp_turn # turn left
 
-            elif (self.lidar["leftfront"] > distance and self.lidar["front"] > distance and self.lidar["rightfront"] < distance):
+            elif (self.lidar["leftfront"] > self.tb4_wall_distance and
+                    self.lidar["front"] > self.tb4_wall_distance and
+                    self.lidar["rightfront"] < self.tb4_wall_distance):
+
                 if (self.lidar["rightfront"] < self.wall_collision_avoidance):
                     # reach wall
-                    self.get_logger().info('Reached wall and Turning Sharp lidar["left"]')
+                    self.get_logger().info('Reached wall and Turning Sharp left')
                     self.tb4_wall_state = "turn"
                     msg.linear.x = self.linear_velocity
-                    msg.angular.z = self.sharp_turn
+                    msg.angular.z = self.sharp_turn # turn left
                 else:
                     # straight_to_goal ahead
                     self.tb4_wall_state = "along_wall"
-                    msg.linear.x = self.linear_velocity
+                    msg.linear.x = self.linear_velocity # go straight
 
-            elif self.lidar["leftfront"] < distance and self.lidar["front"] > distance and self.lidar["rightfront"] > distance:
-                self.get_logger().info('Reach wall and turn lidar["right"]')
-                self.tb4_wall_state = "identify_wall"
-                msg.linear.x = self.linear_velocity
-                msg.angular.z = -self.smooth_turn # right
+            elif (self.lidar["leftfront"] < self.tb4_wall_distance and
+                    self.lidar["front"] > self.tb4_wall_distance and
+                    self.lidar["rightfront"] > self.tb4_wall_distance):
 
-            elif self.lidar["leftfront"] > distance and self.lidar["front"] < distance and self.lidar["rightfront"] < distance:
-                self.get_logger().info(' turn lidar["left"]')
-                self.tb4_wall_state = "turn"
-                msg.angular.z = self.sharp_turn
-
-            elif self.lidar["leftfront"] < distance and self.lidar["front"] < distance and self.lidar["rightfront"] > distance:
-                self.get_logger().info(' turn lidar["left"]')
-                self.tb4_wall_state = "turn"
-                msg.angular.z = self.sharp_turn
-
-            elif self.lidar["leftfront"] < distance and self.lidar["front"] < distance and self.lidar["rightfront"] < distance:
-                self.get_logger().info(' turn lidar["left"]')
-                self.tb4_wall_state = "turn"
-                msg.angular.z = self.sharp_turn
-
-            elif self.lidar["leftfront"] < distance and self.lidar["front"] > distance and self.lidar["rightfront"] < distance:
-                self.get_logger().info('turn lidar["right"]')
+                self.get_logger().info('Reach wall and turn right')
                 self.tb4_wall_state = "identify_wall"
                 msg.linear.x = self.linear_velocity
                 msg.angular.z = -self.smooth_turn # turn right
 
+            elif (self.lidar["leftfront"] > self.tb4_wall_distance and
+                 self.lidar["front"] < self.tb4_wall_distance and 
+                 self.lidar["rightfront"] < self.tb4_wall_distance):
+
+                self.get_logger().info('turn left')
+                self.tb4_wall_state = "turn"
+                msg.angular.z = self.sharp_turn # turn left
+
+            elif (self.lidar["leftfront"] < self.tb4_wall_distance and
+                    self.lidar["front"] < self.tb4_wall_distance and
+                    self.lidar["rightfront"] > self.tb4_wall_distance):
+
+                self.get_logger().info('turn left')
+                self.tb4_wall_state = "turn"
+                msg.angular.z = self.sharp_turn # turn left
+
+            elif (self.lidar["leftfront"] < self.tb4_wall_distance and
+                    self.lidar["front"] < self.tb4_wall_distance and
+                    self.lidar["rightfront"] < self.tb4_wall_distance):
+
+                self.get_logger().info('turn left')
+                self.tb4_wall_state = "turn"
+                msg.angular.z = self.sharp_turn #turn left
+
+            elif (self.lidar["leftfront"] < self.tb4_wall_distance and
+                    self.lidar["front"] > self.tb4_wall_distance and
+                    self.lidar["rightfront"] < self.tb4_wall_distance):
+
+                self.get_logger().info('turn right')
+                self.tb4_wall_state = "identify_wall"
+                msg.linear.x = self.linear_velocity
+                msg.angular.z = -self.smooth_turn # turn right in clockwise
+
             else:
-                pass
+                self.get_logger().info('Unknown condition reached')
+
 
         self.publisher_.publish(msg)
 

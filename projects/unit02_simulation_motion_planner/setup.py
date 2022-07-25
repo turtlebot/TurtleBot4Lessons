@@ -24,7 +24,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-           'tb4_rider = unit02_simulation_motion_planner.tb4_ride:main',
+           'tb4_rider = unit02_simulation_motion_planner.tb4_planner:main',
            'ekf = unit02_simulation_motion_planner.extented_kalman_filter:main',
            'tb4_goal = unit02_simulation_motion_planner.tb4_publish_goal:main',
            'tb4_perception = unit02_simulation_motion_planner.tb4_perception:main',
