@@ -1,15 +1,18 @@
 import math
+import time
+
+from flask import flash
 import rclpy
 import numpy as np
 from time import sleep 
 from rclpy.node import Node
+from rclpy.action import ActionClient
 from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Pose
 from std_msgs.msg import Float64MultiArray
 from rclpy.qos import qos_profile_sensor_data
-
 
 #[TODO] Undocking before planning
 
@@ -159,7 +162,7 @@ class TurtlePlanner(Node):
         self.sg_line_ystart = 0
         self.sg_line_ygoal = 0
 
-        # Point at which Turtle bot 4 reahces the wall and follows the wall 
+        # Point at which Turtle bot 4 reahces the wall and follows the wall
         # reach(x, y)
         self.reach_x = 0
         self.reach_y = 0
@@ -180,6 +183,8 @@ class TurtlePlanner(Node):
 
         # minimum distance between TB4 and sg line
         self.min_distance_to_sg_line = 0.06
+
+
 
 
     def goal_estimation(self,msg):
@@ -231,7 +236,7 @@ class TurtlePlanner(Node):
         Args:
             msg:
                 Type: std_msgs/Float64MultiArray.msg
-                Description: float64[] data which consists of current pose and orientation 
+                Description: float64[] data which consists of current pose and orientation
                             of the TB4
 
         Output: current x, y position and orientation of turtlebot4
@@ -247,9 +252,9 @@ class TurtlePlanner(Node):
             return
 
         # Run bug2_algorithm Motion Planner
+
         if self.is_bug2 is True:
             self.bug2_algorithm()
-
         else:
             self.get_logger().info('No Motion Planner is assigned')
 
