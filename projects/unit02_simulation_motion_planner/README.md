@@ -21,10 +21,18 @@ Now, paste your custom world inside below directory
 cd ~/turtlebot4_ws/src/turtlebot4_simulator/turtlebot4_ignition_bringup/worlds
 paste bug2_world.sdf
 ```
-To launch the Tb4 onto custom world and to launch motion planner follow below launch commands:
+To launch the Tb4 onto custom world follow below launch commands:
 ```
-ros2 launch ros2_tb4_visual_nav tb4_ignition.launch.py
-ros2 launch ros2_tb4_visual_nav tb4_bug2.launch.py
+ros2 launch unit02_simulation_motion_planner tb4_ignition.launch.py
+```
+To Undock the turtlebot4 run below launch file:
+```
+ros2 launch unit02_simulation_motion_planner tb4_undock.launch.py 
+
+```
+To launch motion planner
+```
+ros2 launch unit02_simulation_motion_planner tb4_bug2.launch.py
 ```
 
 Default goal location is set to X: 2 Y: 8
