@@ -27,6 +27,7 @@ setup(
            'tb4_rider = unit02_simulation_motion_planner.tb4_planner:main',
            'ekf = unit02_simulation_motion_planner.extented_kalman_filter:main',
            'tb4_goal = unit02_simulation_motion_planner.tb4_publish_goal:main',
+           'tb4_undock = unit02_simulation_motion_planner.tb4_undock:main',
         ],
     },
 )
