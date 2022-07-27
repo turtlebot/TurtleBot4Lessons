@@ -10,6 +10,8 @@ reach point. Similarly, consider the point where turtlebot4 leaves the
 sg-lines as leave point
 - TB4 leaves the obstacle/wall and continue toward the goal
 
+![179041882-b5b8f156-bbd7-460d-b84a-1b2123f99494](https://user-images.githubusercontent.com/24978535/181306870-fc7721d5-ca14-4c5b-be4c-2bc78e6cc70d.png)
+
 # Instructions to run the Project:
 
 ### Create a ROS2 Workspace
