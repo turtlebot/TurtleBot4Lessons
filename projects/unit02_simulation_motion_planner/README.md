@@ -8,7 +8,7 @@ closer to the goal.
 - Consider the point where turtlebot4 reaches the sg-line first as
 reach point. Similarly, consider the point where turtlebot4 leaves the
 sg-lines as leave point
-- TB4 leaves the obstacle/wall and continue toward the goal
+- Once the TB4 reaches the leave point, TB4 leaves the obstacle/wall and continues toward the goal
 
 ![179041882-b5b8f156-bbd7-460d-b84a-1b2123f99494](https://user-images.githubusercontent.com/24978535/181306870-fc7721d5-ca14-4c5b-be4c-2bc78e6cc70d.png)
 
@@ -81,7 +81,7 @@ Execute below launch command in your terminal for undocking Turtlebot4
 ros2 launch unit02_simulation_motion_planner tb4_undock.launch.py 
 ```
 
-### To launch motion planner alogirthm to given goal position
+### To launch motion planner alogirthm for a given goal position
 
 ```
 ros2 launch unit02_simulation_motion_planner tb4_bug2.launch.py
