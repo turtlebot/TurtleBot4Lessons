@@ -1,6 +1,6 @@
 # Description of the Project:
 
-This project educates to implement a Bug2 Motion planner Algorithm using Extetented Kalman filter state estimation.
+This project educates to implement a Bug2 Motion planner Algorithm using Extented Kalman filter state estimation.
 Algorithm in a nutshell:
 - Initially, the TB4 heads towards goal on the sg-line (A line between start and goal points)
 - If an obstacle/wall is on the way, follow it until you encounter the sg-line
