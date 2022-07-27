@@ -140,7 +140,7 @@ class TurtlePlanner(Node):
         # TB4 to goal distance
         self.tb4_goal_dist = 0.1
 
-        self.sharp_turn = 1.0
+        self.sharp_turn = 0.7
         self.smooth_turn = 0.5
 
         # minimum wall distance tb4 can walkthrough

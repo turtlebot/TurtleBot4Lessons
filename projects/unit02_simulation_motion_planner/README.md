@@ -8,7 +8,7 @@ closer to the goal.
 - Consider the point where turtlebot4 reaches the sg-line first as
 reach point. Similarly, consider the point where turtlebot4 leaves the
 sg-lines as leave point
-- Once the TB4 reaches the leave point, TB4 leaves the obstacle/wall and continues toward the goal
+- Once the TB4 reaches the leave point on the sg-line, TB4 leaves the obstacle/wall and continues toward the goal
 
 ![179041882-b5b8f156-bbd7-460d-b84a-1b2123f99494](https://user-images.githubusercontent.com/24978535/181306870-fc7721d5-ca14-4c5b-be4c-2bc78e6cc70d.png)
 
@@ -89,13 +89,9 @@ ros2 launch unit02_simulation_motion_planner tb4_bug2.launch.py
 
 Default goal location is set to X: 8.0 Y: 10.0
 
-### To pass goal postion (TODO from command line)
+### To pass goal postion from command line
 
 ```
-cd ~/workspace/src/TurtleBot4Lessons/projects/unit02_simulation_motion_planner/unit02_simulation_motion_planner/
-gedit tb4_publish_goal.py
-goto line 37 and declare your desired goal_pose
-self.declare_parameter('goal_pose', [8.0, 10.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-cd ~/workspace
-colcon build
+ros2 launch unit02_simulation_motion_planner tb4_bug2.launch.py 'my_goal_pose:=[2.0, 10.0, 0.0, 0.0, 0.0, 0.0, 0.0]'
+
 ```
