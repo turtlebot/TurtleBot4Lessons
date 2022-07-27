@@ -18,11 +18,11 @@ ARGUMENTS = [DeclareLaunchArgument('world', default_value='bug2_world',
 
 
 def generate_launch_description():
-    
+
     # Directories
     pkg_turtlebot4_ignition_bringup = get_package_share_directory(
         'turtlebot4_ignition_bringup')
-    
+
     # Paths
     turtlebot4_ros_ignition_launch = PathJoinSubstitution(
     [pkg_turtlebot4_ignition_bringup, 'launch', 'ignition.launch.py'])
@@ -33,31 +33,9 @@ def generate_launch_description():
         launch_arguments=[('world', LaunchConfiguration('world'))]
     )
 
-    # extented_kalman_filter_node = Node(
-    #         package='unit02_simulation_motion_planner',
-    #         namespace='ekf',
-    #         executable='ekf',
-    #         name='extented_kalman_filter'
-    #     )
-
-    # tb4_planner = Node(
-    #         package='unit02_simulation_motion_planner',
-    #         namespace='tb4_rider',
-    #         executable='tb4_rider',
-    #         name='turtlebot4_ride'
-    #     )
-    
-    # goal_pose = Node(
-    #         package='unit02_simulation_motion_planner',
-    #         namespace='publish_goal',
-    #         executable='tb4_goal',
-    #         name='tb4_goal_pose'
-    #     )
 
     # Define LaunchDescription variable
     launch_desc = LaunchDescription(ARGUMENTS)
     launch_desc.add_action(turtlebot4_ros_ignition)
-    # launch_desc.add_action(extented_kalman_filter_node)
-    # launch_desc.add_action(goal_pose)
-    # launch_desc.add_action(tb4_planner)
+
     return launch_desc

@@ -435,7 +435,7 @@ class TurtlePlanner(Node):
         if self.is_bug2 is True:
 
             # Cheking for wall
-            distance = 1
+            distance = 0.5
             self.get_logger().info('Planning the path to goal pose')
             if (self.lidar["leftfront"] < distance or self.lidar["front"] < distance or self.lidar["rightfront"] < distance):
                 self.get_logger().info('Switched to wall mode')

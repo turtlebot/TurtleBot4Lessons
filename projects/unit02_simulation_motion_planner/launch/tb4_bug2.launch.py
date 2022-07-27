@@ -1,5 +1,8 @@
+import imp
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import DeclareLaunchArgument
+
 
 def generate_launch_description():
     return LaunchDescription([
@@ -20,7 +23,7 @@ def generate_launch_description():
             namespace='publish_goal',
             executable='tb4_goal',
             parameters=[
-                {'my_goal_pose': [2.0, 8.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
+                {'my_goal_pose': [2.0, 10.0, 0.0, 0.0, 0.0, 0.0, 0.0]}
             ],
             name='tb4_goal_pose'
         )

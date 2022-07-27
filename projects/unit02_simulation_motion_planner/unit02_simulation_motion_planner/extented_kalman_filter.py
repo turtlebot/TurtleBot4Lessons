@@ -168,7 +168,7 @@ class ExtentedKalmanFilter(Node):
         # Converting state vector into numpy array
         observation_vector =  np.array([state_vector[0], state_vector[1], state_vector[2]])
 
-        # Applying the Extended Kalman Filter        
+        # Applying the Extended Kalman Filter
         updated_state_estimate = self.ekf(observation_vector)
 
         # Publish the estimate state
@@ -235,6 +235,7 @@ class ExtentedKalmanFilter(Node):
 
         Output:
             msg of the type Float64MultiArray
+            msg.data: state_vector -> State estimates at time interval t from ekf ---> [x, y, yaw] 3x1
         """
         msg = Float64MultiArray()
         msg.data = state_vector
