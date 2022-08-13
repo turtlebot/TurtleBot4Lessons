@@ -44,7 +44,7 @@ class ProjectsManager(Node):
         # Then return Success message upon successful request exectution
         if(request.my_program_on):
             self.get_logger().info('My Program Mode is turned on')
-            subprocess.call(["bash", '/home/sumedh/workspace/src/TurtleBot4Lessons/projects/hmi_simulation_project_manager/config/auto_launch.bash'])
+            subprocess.call(["bash", '../projects/hmi_simulation_project_manager/config/auto_launch.bash'])
             response.message = "My Program Mode received and running projects"
             response.success = True
 
