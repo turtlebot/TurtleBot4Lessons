@@ -1,3 +1,4 @@
+import imp
 import rclpy
 from rclpy.node import Node 
 from sensor_msgs.msg import Image
@@ -7,6 +8,9 @@ import mediapipe as mp
 import numpy as np
 from matplotlib import pyplot as plt
 import time
+from geometry_msgs.msg import Pose
+from geometry_msgs.msg import Point
+from std_msgs.msg import String
 
 class TurtlePerception3D(Node):
     """
@@ -41,6 +45,10 @@ class TurtlePerception3D(Node):
         self.subscription = self.create_subscription(Image,'/color/image',
                                                       self.perception_callback, 10)
 
+        self.publishers_ = self.create_publisher(Image,'perception/detected/image', 10)
+        self.publisher_detected_pose = self.create_publisher(Pose,'perception/detected/pose', 10)
+        self.detected_pose = Pose()
+
         # Initialize bridge between ROS2 and OpenCV
         self.bridge = CvBridge()
         self.mp_objectron = mp.solutions.objectron
@@ -60,9 +68,6 @@ class TurtlePerception3D(Node):
             current_frame = self.bridge.imgmsg_to_cv2(frames_data, desired_encoding="bgr8")
 
             resized_image = cv2.resize(current_frame, (720, 480))
-
-            # Poping each and every frame
-            cv2.imshow("TurtleBot4 Camera View", resized_image)
 
             process_frames = resized_image.copy()
 
@@ -90,15 +95,20 @@ class TurtlePerception3D(Node):
                     for  detected_objects in detected_object_frame.detected_objects:
                         self.mp_drawing.draw_landmarks(image, detected_objects.landmarks_2d, self.mp_objectron.BOX_CONNECTIONS)
                         self.mp_drawing.draw_axis(image, detected_objects.rotation, detected_objects.translation)
+                        #[TODO] Covert detected_objects.rotation and detected_objects.translation from np.ndarry
+                        # to ROS supportable msg
+                        self.publisher_detected_pose.publish(self.detected_pose)
+                        
+
 
                 end = time.time()
                 total_time = end - start
-
+            
                 fps = 1 / total_time
                 cv2.putText(image, f'FPS: {int(fps)}', (20,70), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
-                # displaying the image after drawing contours
-                cv2.imshow('Turtlebot 4 Simple Object Detection', image)
-                cv2.waitKey(1)
+                image_msg = self.bridge.cv2_to_imgmsg(image, 'bgr8')
+                self.publishers_.publish(image_msg)
+
         
         except CvBridgeError as e:
             print(e)
