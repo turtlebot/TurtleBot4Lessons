@@ -154,9 +154,11 @@ template: ../media/TB4Template.pptx
 
 # Docking / Undocking 
 
-* TODO: These two do not work. 
+* These two work assuming
+  * you are on the same network as the Turtlebot
+  * you have run `source install/setup.bash` (or this will be with your ros installation)
 * `ros2 action send_goal /undock irobot_create_msgs/Undock '{}'`
-* `ros2 action send_goal /dock irobot_create_msgs/DockServo  '{}'`
+* `ros2 action send_goal /dock irobot_create_msgs/action/Dock "{}"'`
 
 
 # Alternative: Keyboard Teleoperation
